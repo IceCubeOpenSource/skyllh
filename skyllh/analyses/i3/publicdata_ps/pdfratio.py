@@ -213,7 +213,7 @@ class PDSigSetOverBkgPDFRatio(
         (bkg_pd,) = tdm.broadcast_selected_events_arrays_to_values_arrays(
             (bkg_pd,))
 
-        m_nonzero_bkg = bkg_pd > 0
+        m_nonzero_bkg = bkg_pd > np.finfo(np.double).resolution
         m_zero_bkg = np.invert(m_nonzero_bkg)
         if np.any(m_zero_bkg):
             ev_idxs = np.where(m_zero_bkg)[0]
