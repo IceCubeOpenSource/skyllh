@@ -1,0 +1,98 @@
+skyllh.i3 package
+=================
+
+.. automodule:: skyllh.i3
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 0
+
+   skyllh.i3.utils
+
+Submodules
+----------
+
+skyllh.i3.background\_generation module
+---------------------------------------
+
+.. automodule:: skyllh.i3.background_generation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.backgroundpdf module
+------------------------------
+
+.. automodule:: skyllh.i3.backgroundpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.config module
+-----------------------
+
+.. automodule:: skyllh.i3.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.dataset module
+------------------------
+
+.. automodule:: skyllh.i3.dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.detector\_model module
+--------------------------------
+
+.. automodule:: skyllh.i3.detector_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.detsigyield module
+----------------------------
+
+.. automodule:: skyllh.i3.detsigyield
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.livetime module
+-------------------------
+
+.. automodule:: skyllh.i3.livetime
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.scrambling module
+---------------------------
+
+.. automodule:: skyllh.i3.scrambling
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.signal\_generation module
+-----------------------------------
+
+.. automodule:: skyllh.i3.signal_generation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.signalpdf module
+--------------------------
+
+.. automodule:: skyllh.i3.signalpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:

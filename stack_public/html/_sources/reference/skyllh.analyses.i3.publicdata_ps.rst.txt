@@ -1,0 +1,138 @@
+skyllh.analyses.i3.publicdata\_ps package
+=========================================
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 0
+
+   skyllh.analyses.i3.publicdata_ps.astro_bkg_flux
+
+Submodules
+----------
+
+skyllh.analyses.i3.publicdata\_ps.aeff module
+---------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.aeff
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.astro\_bkg\_flux module
+---------------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.astro_bkg_flux
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.backgroundpdf module
+------------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.backgroundpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.bkg\_flux module
+--------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.bkg_flux
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.detsigyield module
+----------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.detsigyield
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.mcbkg\_ps module
+--------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.mcbkg_ps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.pdfratio module
+-------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.pdfratio
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.signal\_generator module
+----------------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.signal_generator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.signalpdf module
+--------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.signalpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.smearing\_matrix module
+---------------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.smearing_matrix
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.time\_dependent\_ps module
+------------------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.time_dependent_ps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.time\_integrated\_ps module
+-------------------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.time_integrated_ps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.time\_integrated\_ps\_function\_energy\_spectrum module
+-----------------------------------------------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.time_integrated_ps_function_energy_spectrum
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.time\_integrated\_stacked\_ps module
+----------------------------------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.time_integrated_stacked_ps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.analyses.i3.publicdata\_ps.utils module
+----------------------------------------------
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:

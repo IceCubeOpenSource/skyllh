@@ -1,0 +1,123 @@
+{
+ "cells": [
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "12151349",
+   "metadata": {},
+   "source": [
+    "# Detector Signal Yield"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "69d138fc",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "Several parts of an analysis will require the calculation of the detector signal yield, which is the mean number of expected signal events in the detector for a given source hypothesis, i.e. source flux function $\\Phi(\\alpha,\\delta,E,t)$."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "a1560531",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "SkyLLH provides two abstract base classes for creating a detector signal yield \n",
+    "instance, :py:class:`~skyllh.core.detsigyield.DetSigYieldBuilder` and \n",
+    ":py:class:`~skyllh.core.detsigyield.DetSigYield`. The first is the builder \n",
+    "class, which will build a :py:class:`~skyllh.core.detsigyield.DetSigYield` class\n",
+    "instance."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "3b4bd127",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "The builder class has the abstract method \n",
+    ":py:meth:`~skyllh.core.detsigyield.DetSigYieldBuilder.construct_detsigyield`, \n",
+    "which will take a :py:class:`~skyllh.core.dataset.Dataset`, \n",
+    ":py:class:`~skyllh.core.dataset.DatasetData`, \n",
+    ":py:class:`~skyllh.physics.flux_model.FluxModel` instance, and live-time to \n",
+    "construct a :py:class:`~skyllh.core.detsigyield.DetSigYield` class instance, \n",
+    "which will provide an evaluation method to calculate the detector signal yield \n",
+    "for a given source, for the given dataset. Hence, the detector signal yield is\n",
+    "dataset and source model dependent."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "653d0c06",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "The :py:class:`~skyllh.core.detsigyield.DetSigYield` class has two abstract \n",
+    "methods, :py:meth:`~skyllh.core.detsigyield.DetSigYield.source_to_array` and \n",
+    ":py:meth:`~skyllh.core.detsigyield.DetSigYield.__call__`."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "60c16a6d",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "The :py:meth:`~skyllh.core.detsigyield.DetSigYield.source_to_array` method takes\n",
+    "a sequence of source models and converts it into a numpy record array suitable\n",
+    "for the :py:meth:`~skyllh.core.detsigyield.DetSigYield.__call__` method to \n",
+    "evaluate the detector signal yield efficiently for a list of sources. \n",
+    "The :py:meth:`~skyllh.core.detsigyield.DetSigYield.__call__` method evaluates\n",
+    "the :py:class:`~skyllh.core.detsigyield.DetSigYield` instance. As arguments it\n",
+    "takes the source record array created by the \n",
+    ":py:meth:`~skyllh.core.detsigyield.DetSigYield.source_to_array` method, and the \n",
+    "numpy record array holding the (local) source parameter values."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "d75df35f",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "The record array holding the local source parameter values can be generated \n",
+    "through the \n",
+    ":py:class:`~skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray` \n",
+    "of the :py:class:`~skyllh.core.parameters.ParameterModelMapper` instance of the\n",
+    "analysis. See also the  :ref:`Parameter to Model mapping \n",
+    "<sec:ParameterToModelMapping>` section."
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Raw Cell Format",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

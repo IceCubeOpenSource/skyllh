@@ -1,0 +1,34 @@
+skyllh.p1 package
+=================
+
+.. automodule:: skyllh.p1
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.p1.detector\_model module
+--------------------------------
+
+.. automodule:: skyllh.p1.detector_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.p1.signal\_generation module
+-----------------------------------
+
+.. automodule:: skyllh.p1.signal_generation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.p1.signal\_generator module
+----------------------------------
+
+.. automodule:: skyllh.p1.signal_generator
+   :members:
+   :undoc-members:
+   :show-inheritance:

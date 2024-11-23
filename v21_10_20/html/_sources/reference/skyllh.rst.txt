@@ -1,0 +1,20 @@
+skyllh package
+==============
+
+.. automodule:: skyllh
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 0
+
+   skyllh.cluster
+   skyllh.core
+   skyllh.i3
+   skyllh.physics
+   skyllh.plotting
+   skyllh.utils

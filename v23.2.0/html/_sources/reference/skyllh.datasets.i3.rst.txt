@@ -1,0 +1,26 @@
+skyllh.datasets.i3 package
+==========================
+
+.. automodule:: skyllh.datasets.i3
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.datasets.i3.PublicData\_10y\_ps module
+---------------------------------------------
+
+.. automodule:: skyllh.datasets.i3.PublicData_10y_ps
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.datasets.i3.PublicData\_10y\_ps\_wMC module
+--------------------------------------------------
+
+.. automodule:: skyllh.datasets.i3.PublicData_10y_ps_wMC
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,26 @@
+skyllh.i3.utils package
+=======================
+
+.. automodule:: skyllh.i3.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.i3.utils.analysis module
+-------------------------------
+
+.. automodule:: skyllh.i3.utils.analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.i3.utils.coords module
+-----------------------------
+
+.. automodule:: skyllh.i3.utils.coords
+   :members:
+   :undoc-members:
+   :show-inheritance:

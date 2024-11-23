@@ -1,0 +1,18 @@
+skyllh.core.utils package
+=========================
+
+.. automodule:: skyllh.core.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.core.utils.multidimgridpdf module
+----------------------------------------
+
+.. automodule:: skyllh.core.utils.multidimgridpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:

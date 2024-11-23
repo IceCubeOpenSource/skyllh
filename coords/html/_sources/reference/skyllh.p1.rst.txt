@@ -1,0 +1,18 @@
+skyllh.p1 package
+=================
+
+.. automodule:: skyllh.p1
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.p1.detector\_model module
+--------------------------------
+
+.. automodule:: skyllh.p1.detector_model
+   :members:
+   :undoc-members:
+   :show-inheritance:

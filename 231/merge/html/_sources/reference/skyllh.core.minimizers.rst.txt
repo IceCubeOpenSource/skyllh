@@ -1,0 +1,26 @@
+skyllh.core.minimizers package
+==============================
+
+.. automodule:: skyllh.core.minimizers
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.core.minimizers.crs module
+---------------------------------
+
+.. automodule:: skyllh.core.minimizers.crs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.minimizers.iminuit module
+-------------------------------------
+
+.. automodule:: skyllh.core.minimizers.iminuit
+   :members:
+   :undoc-members:
+   :show-inheritance:
