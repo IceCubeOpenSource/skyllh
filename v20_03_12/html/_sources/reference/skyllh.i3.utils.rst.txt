@@ -1,0 +1,18 @@
+skyllh.i3.utils package
+=======================
+
+.. automodule:: skyllh.i3.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.i3.utils.sensitivity module
+----------------------------------
+
+.. automodule:: skyllh.i3.utils.sensitivity
+   :members:
+   :undoc-members:
+   :show-inheritance:

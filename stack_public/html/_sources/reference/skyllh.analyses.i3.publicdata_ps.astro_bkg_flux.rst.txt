@@ -1,0 +1,7 @@
+skyllh.analyses.i3.publicdata\_ps.astro\_bkg\_flux package
+==========================================================
+
+.. automodule:: skyllh.analyses.i3.publicdata_ps.astro_bkg_flux
+   :members:
+   :undoc-members:
+   :show-inheritance:

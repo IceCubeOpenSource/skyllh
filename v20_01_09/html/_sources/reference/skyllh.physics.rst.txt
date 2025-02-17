@@ -1,0 +1,50 @@
+skyllh.physics package
+======================
+
+.. automodule:: skyllh.physics
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.physics.flux module
+--------------------------
+
+.. automodule:: skyllh.physics.flux
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.physics.flux\_models module
+----------------------------------
+
+.. automodule:: skyllh.physics.flux_models
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.physics.model module
+---------------------------
+
+.. automodule:: skyllh.physics.model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.physics.source module
+----------------------------
+
+.. automodule:: skyllh.physics.source
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.physics.time\_profile module
+-----------------------------------
+
+.. automodule:: skyllh.physics.time_profile
+   :members:
+   :undoc-members:
+   :show-inheritance:

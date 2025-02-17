@@ -1,0 +1,216 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Getting started &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Working with the public 10-year IceCube point-source data" href="publicdata_ps.html" />
+    <link rel="prev" title="Tutorials" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Getting started</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#SkyLLH's-analysis-workflow">SkyLLH’s analysis workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="publicdata_ps.html">Working with the public 10-year IceCube point-source data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="publicdata_ps_timedep.html">Time dependent analyses with the public 10-year IceCube point-source data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently Ask Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/skyllh.html">skyllh package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/unit_tests.html">Unit tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Getting started</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/getting_started.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Getting-started">
+<h1>Getting started<a class="headerlink" href="#Getting-started" title="Permalink to this heading"></a></h1>
+<p>SkyLLH is a Python based framework to develop and to perform maximum likelihood ratio hypothesis testing.</p>
+<p>The idea of SkyLLH is to provide a framework with a class structure that is tied to the mathematical objects of the likelihood functions.</p>
+<p>Slack channel: <a class="reference external" href="https://icecube-spno.slack.com/channels/skyllh">#skyllh</a></p>
+<p>An IceCube member can find pre-defined IceCube log-likelihood analyses in the (privat) <a class="reference external" href="https://github.com/icecube/i3skyllh">i3skyllh</a> project.</p>
+<section id="SkyLLH's-analysis-workflow">
+<h2>SkyLLH’s analysis workflow<a class="headerlink" href="#SkyLLH's-analysis-workflow" title="Permalink to this heading"></a></h2>
+<p>To set-up and run an analysis the following procedure applies:</p>
+1. Create a (local) configuration for the analysis.<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+An updated configuration from the default configuration can also be loaded from
+a *yaml* file or form a Python dictionary.<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">Config</span><span class="o">.</span><span class="n">from_dict</span><span class="p">({</span>
+    <span class="s1">&#39;project&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;working_directory&#39;</span><span class="p">:</span> <span class="s1">&#39;/home/mwolf/projects/publicdata_ps&#39;</span><span class="p">,</span>
+    <span class="p">}})</span>
+</pre></div>
+</div>
+</div>
+<p>2. Create an analysis instance (preferably based on pre-defined
+<cite>create_analysis</cite> functions). It takes care of the following parts:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li><p>Add the datasets and their PDF ratio instances via the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.analysis.Analysis.add_dataset" title="skyllh.core.analysis.Analysis.add_dataset"><code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.analysis.Analysis.add_dataset()</span></code></a> method.</p></li>
+<li><p>Construct the log-likelihood ratio function via the <code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.analysis.Analysis.construct_llhratio()</span></code> method.</p></li>
+</ol>
+</div></blockquote>
+<p>3. Call the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.analysis.Analysis.do_trial" title="skyllh.core.analysis.Analysis.do_trial"><code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.analysis.Analysis.do_trial()</span></code></a>, or
+<a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.analysis.Analysis.unblind" title="skyllh.core.analysis.Analysis.unblind"><code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.analysis.Analysis.unblind()</span></code></a> method to perform a random
+trial, or to unblind the data, respectively. Both methods will fit the global
+fit parameters using the set up data. Finally, the test statistic is calculated
+internally via the
+<a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.analysis.Analysis.calculate_test_statistic" title="skyllh.core.analysis.Analysis.calculate_test_statistic"><code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.analysis.Analysis.calculate_test_statistic()</span></code></a> method.</p>
+<!-- empty raw cell --></section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Tutorials" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="publicdata_ps.html" class="btn btn-neutral float-right" title="Working with the public 10-year IceCube point-source data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: v24.1.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../master/html/index.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="../../../dm/html/index.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="../../../fix230/html/index.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="../../../v20_01_09/html/index.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="../../../v22_04_28/html/index.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="../../../v23.0.0/html/index.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="../../../v23.2.1/html/index.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="getting_started.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

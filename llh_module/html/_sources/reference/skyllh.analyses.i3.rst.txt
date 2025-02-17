@@ -1,0 +1,15 @@
+skyllh.analyses.i3 package
+==========================
+
+.. automodule:: skyllh.analyses.i3
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 0
+
+   skyllh.analyses.i3.publicdata_ps

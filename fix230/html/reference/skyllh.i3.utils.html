@@ -1,0 +1,438 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>skyllh.i3.utils package &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="skyllh.plotting package" href="skyllh.plotting.html" />
+    <link rel="prev" title="skyllh.i3 package" href="skyllh.i3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently Ask Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="skyllh.html">skyllh package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="skyllh.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="skyllh.analyses.html">skyllh.analyses package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.cluster.html">skyllh.cluster package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.core.html">skyllh.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.datasets.html">skyllh.datasets package</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="skyllh.i3.html">skyllh.i3 package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="skyllh.i3.html#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.background_generation">skyllh.i3.background_generation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.backgroundpdf">skyllh.i3.backgroundpdf module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.config">skyllh.i3.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.dataset">skyllh.i3.dataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.detsigyield">skyllh.i3.detsigyield module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.livetime">skyllh.i3.livetime module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.pdf">skyllh.i3.pdf module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.pdfratio">skyllh.i3.pdfratio module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.scrambling">skyllh.i3.scrambling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.signal_generation">skyllh.i3.signal_generation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="skyllh.i3.html#module-skyllh.i3.signalpdf">skyllh.i3.signalpdf module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.plotting.html">skyllh.plotting package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.scripting.html">skyllh.scripting package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/unit_tests.html">Unit tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="skyllh.html">skyllh package</a></li>
+          <li class="breadcrumb-item"><a href="skyllh.i3.html">skyllh.i3 package</a></li>
+      <li class="breadcrumb-item active">skyllh.i3.utils package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/skyllh.i3.utils.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-skyllh.i3.utils">
+<span id="skyllh-i3-utils-package"></span><h1>skyllh.i3.utils package<a class="headerlink" href="#module-skyllh.i3.utils" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-skyllh.i3.utils.analysis">
+<span id="skyllh-i3-utils-analysis-module"></span><h2>skyllh.i3.utils.analysis module<a class="headerlink" href="#module-skyllh.i3.utils.analysis" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.utils.analysis.generate_ps_sin_dec_h0_ts_values">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.utils.analysis.</span></span><span class="sig-name descname"><span class="pre">generate_ps_sin_dec_h0_ts_values</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ana</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_step</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bkg_trials</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bkg_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.utils.analysis.generate_ps_sin_dec_h0_ts_values" title="Permalink to this definition"></a></dt>
+<dd><p>Generates sets of null-hypothesis, i.e. background-only trial data
+events, test-statistic values for the given point-source analysis for a
+grid of sin(dec) values.
+These ts values can the be used for the
+<code class="docutils literal notranslate"><span class="pre">estimate_ps_sin_dec_sensitivity_curve</span></code> and
+<code class="docutils literal notranslate"><span class="pre">estimate_ps_sin_dec_discovery_potential_curve</span></code> functions.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ana</strong> (<em>Analysis instance</em>) – The instance of Analysis to use for generating trials.</p></li>
+<li><p><strong>rss</strong> (<em>RandomStateService instance</em>) – The instance of RandomStateService to use for generating random numbers
+from.</p></li>
+<li><p><strong>sin_dec_min</strong> (<em>float</em>) – The minimum sin(dec) value for creating the sin(dec) value grid.</p></li>
+<li><p><strong>sin_dec_max</strong> (<em>float</em>) – The maximum sin(dec) value for creating the sin(dec) value grid.</p></li>
+<li><p><strong>sin_dec_step</strong> (<em>float</em>) – The step size in sin(dec) for creating the sin(dec) value grid.</p></li>
+<li><p><strong>n_bkg_trials</strong> (<em>int</em><em>, </em><em>optional</em>) – The number of background trials to generate.
+Default is 10000.</p></li>
+<li><p><strong>n_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Each set of ts values can be calculated several times to be able to
+estimate the variance of the sensitivity / discovery potential.
+This parameter specifies the number of iterations to perform.
+For each iteration the RandomStateService is re-seeded with a seed that
+is incremented by 1.
+Default is 1.</p></li>
+<li><p><strong>bkg_kwargs</strong> (<em>dict</em><em> | </em><em>None</em>) – Additional keyword arguments for the <cite>generate_events</cite> method of the
+background generation method class. An usual keyword argument is
+<cite>poisson</cite>.</p></li>
+<li><p><strong>ppbar</strong> (<em>ProgressBar instance</em><em> | </em><em>None</em>) – The optional parent progress bar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>sin_dec_arr</strong> (<em>(n_sin_dec,)-shaped 1D ndarray of float</em>) – The numpy ndarray holding the sin(dec) values for which the ts values
+have been calculated.</p></li>
+<li><p><strong>h0_ts_vals_arr</strong> (<em>(n_sin_dec,n_iter,n_bkg_trials)-shaped 3D ndarray of float</em>) – The numpy ndarray holding the null-hypothesis ts values for all
+sin(dec) values and iterations.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.utils.analysis.estimate_ps_sin_dec_sensitivity_curve">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.utils.analysis.</span></span><span class="sig-name descname"><span class="pre">estimate_ps_sin_dec_sensitivity_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ana</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitparam_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_ts_vals_arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0075</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bkg_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.utils.analysis.estimate_ps_sin_dec_sensitivity_curve" title="Permalink to this definition"></a></dt>
+<dd><p>Estimates the point-source sensitivity of the given analysis as a
+function of sin(dec). This function places a PointLikeSource source on the
+given declination values and estimates its sensitivity.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ana</strong> (<em>Analysis instance</em>) – The instance of Analysis to use for generating trials.</p></li>
+<li><p><strong>rss</strong> (<em>RandomStateService instance</em>) – The instance of RandomStateService to use for generating random numbers
+from.</p></li>
+<li><p><strong>fitparam_values</strong> (<em>array_like</em>) – The fit parameter values for which to convert the mean number of signal
+events into a flux.</p></li>
+<li><p><strong>sin_dec_arr</strong> (<em>(</em><em>n_sin_dec</em><em>,</em><em>)</em><em>-shaped 1D ndarray</em>) – The ndarray holding the sin(dec) values for which to estimate the
+point-source sensitivity.</p></li>
+<li><p><strong>h0_ts_vals_arr</strong> (<em>(</em><em>n_sin_dec</em><em>,</em><em>n_iter</em><em>,</em><em>n_bkg_trials</em><em>)</em><em>-shaped 3D ndarray</em><em> of </em><em>float</em>) – The numpy ndarray holding the null-hypothesis ts values for all
+sin(dec) values and iterations.</p></li>
+<li><p><strong>eps_p</strong> (<em>float</em><em>, </em><em>optional</em>) – The precision in probability used for the <cite>estimate_sensitivity</cite>
+function.
+Default is 0.0075.</p></li>
+<li><p><strong>mu_min</strong> (<em>float</em><em>, </em><em>optional</em>) – The minimum value for the mean number of injected signal events as a
+seed for the mu range in which the sensitivity is located.
+Default is 0.</p></li>
+<li><p><strong>mu_max</strong> (<em>float</em><em>, </em><em>optional</em>) – The maximum value for the mean number of injected signal events as a
+seed for the mu range in which the sensitivity is located.
+Default is 20.</p></li>
+<li><p><strong>n_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Each sensitivity can be estimated several times to be able to estimate
+the variance of the sensitivity. This parameter specifies the number of
+iterations to perform for each sensitivity.
+For each iteration the RandomStateService is re-seeded with a seed that
+is incremented by 1.
+Default is 1.</p></li>
+<li><p><strong>bkg_kwargs</strong> (<em>dict</em><em> | </em><em>None</em>) – Additional keyword arguments for the <cite>generate_events</cite> method of the
+background generation method class. An usual keyword argument is
+<cite>poisson</cite>.</p></li>
+<li><p><strong>sig_kwargs</strong> (<em>dict</em><em> | </em><em>None</em>) – Additional keyword arguments for the <cite>generate_signal_events</cite> method
+of the <cite>SignalGenerator</cite> class. An usual keyword argument is
+<cite>poisson</cite>. If <cite>poisson</cite> is set to True, the actual number of
+generated signal events will be drawn from a Poisson distribution
+with the given mean number of signal events.</p></li>
+<li><p><strong>ppbar</strong> (<em>ProgressBar instance</em><em> | </em><em>None</em>) – The optional parent progress bar.</p></li>
+<li><p><strong>Arguments</strong> (<em>Additional Keyword</em>) – </p></li>
+<li><p><strong>----------------------------</strong> – </p></li>
+<li><p><strong>estimate_sensitivity</strong> (<em>Any additional keyword arguments are passed to the</em>) – </p></li>
+<li><p><strong>function.</strong> – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>sin_dec_arr</strong> (<em>(n_sin_dec,)-shaped 1D ndarray</em>) – The ndarray holding the sin(dec) values for which the sensitivities have
+been estimated.</p></li>
+<li><p><strong>mean_ns_arr</strong> (<em>(n_sin_dec,n_iter)-shaped 2D ndarray</em>) – The ndarray holding the mean number of signal events corresponding to
+the sensitivity for each sin(dec) value and iteration.</p></li>
+<li><p><strong>mean_ns_err_arr</strong> (<em>(n_sin_dec,n_iter)-shaped 2D ndarray</em>) – The ndarray holding the estimated error in <cite>mean_ns</cite> for each sin(dec)
+value and iteration.</p></li>
+<li><p><strong>flux_scaling_arr</strong> (<em>(n_sin_dec,n_iter)-shaped 2D ndarray</em>) – The ndarray holding the scaling factor the reference flux needs to get
+scaled to obtain the flux for the estimated sensitivity.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.utils.analysis.estimate_ps_sin_dec_discovery_potential_curve">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.utils.analysis.</span></span><span class="sig-name descname"><span class="pre">estimate_ps_sin_dec_discovery_potential_curve</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ana</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitparam_values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_ts_vals_arr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h0_ts_quantile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0027</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps_p</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0075</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">20</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bkg_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sig_kwargs</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.utils.analysis.estimate_ps_sin_dec_discovery_potential_curve" title="Permalink to this definition"></a></dt>
+<dd><p>Estimates the point-source discovery potential of the given analysis as a
+function of sin(dec). This function places a PointLikeSource source on the
+given declination values and estimates its discovery potential.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ana</strong> (<em>Analysis instance</em>) – The instance of Analysis to use for generating trials.</p></li>
+<li><p><strong>rss</strong> (<em>RandomStateService instance</em>) – The instance of RandomStateService to use for generating random numbers
+from.</p></li>
+<li><p><strong>fitparam_values</strong> (<em>array_like</em>) – The fit parameter values for which to convert the mean number of signal
+events into a flux.</p></li>
+<li><p><strong>sin_dec_arr</strong> (<em>(</em><em>n_sin_dec</em><em>,</em><em>)</em><em>-shaped 1D ndarray</em>) – The ndarray holding the sin(dec) values for which to estimate the
+point-source sensitivity.</p></li>
+<li><p><strong>h0_ts_vals_arr</strong> (<em>(</em><em>n_sin_dec</em><em>,</em><em>n_iter</em><em>,</em><em>n_bkg_trials</em><em>)</em><em>-shaped 3D ndarray</em><em> of </em><em>float</em>) – The numpy ndarray holding the null-hypothesis ts values for all
+sin(dec) values and iterations.</p></li>
+<li><p><strong>h0_ts_quantile</strong> (<em>float</em><em>, </em><em>optional</em>) – Null-hypothesis test statistic quantile that defines the critical value.
+For a 5sigma discovery potential that value is 5.733e-7. For a 3sigma
+discovery potential this value is 2.7e-3.
+Default is 2.7e-3.</p></li>
+<li><p><strong>eps_p</strong> (<em>float</em><em>, </em><em>optional</em>) – The precision in probability used for the <cite>estimate_discovery_potential</cite>
+function.
+Default is 0.0075.</p></li>
+<li><p><strong>mu_min</strong> (<em>float</em><em>, </em><em>optional</em>) – The minimum value for the mean number of injected signal events as a
+seed for the mu range in which the sensitivity is located.
+Default is 0.</p></li>
+<li><p><strong>mu_max</strong> (<em>float</em><em>, </em><em>optional</em>) – The maximum value for the mean number of injected signal events as a
+seed for the mu range in which the sensitivity is located.
+Default is 20.</p></li>
+<li><p><strong>n_iter</strong> (<em>int</em><em>, </em><em>optional</em>) – Each discovery potential can be estimated several times to be able to
+estimate its variance. This parameter specifies the number of
+iterations to perform for each discovery potential estimation.
+For each iteration the RandomStateService is re-seeded with a seed that
+is incremented by 1.
+Default is 1.</p></li>
+<li><p><strong>bkg_kwargs</strong> (<em>dict</em><em> | </em><em>None</em>) – Additional keyword arguments for the <cite>generate_events</cite> method of the
+background generation method class. An usual keyword argument is
+<cite>poisson</cite>.</p></li>
+<li><p><strong>sig_kwargs</strong> (<em>dict</em><em> | </em><em>None</em>) – Additional keyword arguments for the <cite>generate_signal_events</cite> method
+of the <cite>SignalGenerator</cite> class. An usual keyword argument is
+<cite>poisson</cite>. If <cite>poisson</cite> is set to True, the actual number of
+generated signal events will be drawn from a Poisson distribution
+with the mean number of signal events, mu.</p></li>
+<li><p><strong>ppbar</strong> (<em>ProgressBar instance</em><em> | </em><em>None</em>) – The optional parent progress bar.</p></li>
+<li><p><strong>Arguments</strong> (<em>Additional Keyword</em>) – </p></li>
+<li><p><strong>----------------------------</strong> – </p></li>
+<li><p><strong>the</strong> (<em>Any additional keyword arguments are passed to</em>) – </p></li>
+<li><p><strong>function.</strong> (<em>estimate_discovery_potential</em>) – </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>sin_dec_arr</strong> (<em>(n_sin_dec,)-shaped 1D ndarray</em>) – The ndarray holding the sin(dec) values for which the discovery
+potential have been estimated.</p></li>
+<li><p><strong>mean_ns_arr</strong> (<em>(n_sin_dec,n_iter)-shaped 2D ndarray</em>) – The ndarray holding the mean number of signal events corresponding to
+the discovery potential for each sin(dec) value and iteration.</p></li>
+<li><p><strong>mean_ns_err_arr</strong> (<em>(n_sin_dec,n_iter)-shaped 2D ndarray</em>) – The ndarray holding the estimated error in <cite>mean_ns</cite> for each sin(dec)
+value and iteration.</p></li>
+<li><p><strong>flux_scaling_arr</strong> (<em>(n_sin_dec,n_iter)-shaped 2D ndarray</em>) – The ndarray holding the scaling factor the reference flux needs to get
+scaled to obtain the flux for the estimated discovery potential.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.utils.coords">
+<span id="skyllh-i3-utils-coords-module"></span><h2>skyllh.i3.utils.coords module<a class="headerlink" href="#module-skyllh.i3.utils.coords" title="Permalink to this heading"></a></h2>
+<p>IceCube specific coordinate utility functions.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.utils.coords.azi_to_ra_transform">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.utils.coords.</span></span><span class="sig-name descname"><span class="pre">azi_to_ra_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">azi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mjd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.utils.coords.azi_to_ra_transform" title="Permalink to this definition"></a></dt>
+<dd><p>Rotates the given IceCube azimuth angles into right-ascention angles for
+the given MJD times. This function is IceCube specific and assumes that the
+detector is located excently at the South Pole and neglects all astronomical
+effects like Earth’s precession.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>azi</strong> (<em>instance</em><em> of </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – The array with the azimuth angles.</p></li>
+<li><p><strong>mjd</strong> (<em>instance</em><em> of </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – The array with the MJD times for each azimuth angle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ra</strong> (<em>instance of numpy.ndarray</em>) – The right-ascention values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.utils.coords.ra_to_azi_transform">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.utils.coords.</span></span><span class="sig-name descname"><span class="pre">ra_to_azi_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mjd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.utils.coords.ra_to_azi_transform" title="Permalink to this definition"></a></dt>
+<dd><p>Rotates the given right-ascention angles to local IceCube azimuth angles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ra</strong> (<em>instance</em><em> of </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – The array with the right-ascention angles.</p></li>
+<li><p><strong>mjd</strong> (<em>instance</em><em> of </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – The array with the MJD times for each right-ascention angle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>azi</strong> (<em>instance of numpy.ndarray</em>) – The azimuth angle for each right-ascention angle.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.utils.coords.hor_to_equ_transform">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.utils.coords.</span></span><span class="sig-name descname"><span class="pre">hor_to_equ_transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">azi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zen</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mjd</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.utils.coords.hor_to_equ_transform" title="Permalink to this definition"></a></dt>
+<dd><p>Transforms the coordinate from the horizontal system (azimuth, zenith)
+into the equatorial system (right-ascention, declination) for detector at
+the South Pole and neglecting all astronomical effects like Earth
+precession.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>azi</strong> (<em>instance</em><em> of </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – The azimuth angle.</p></li>
+<li><p><strong>zen</strong> (<em>instance</em><em> of </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – The zenith angle.</p></li>
+<li><p><strong>mjd</strong> (<em>instance</em><em> of </em><a class="reference external" href="https://numpy.org/doc/stable/reference/generated/numpy.ndarray.html#numpy.ndarray" title="(in NumPy v2.2)"><em>numpy.ndarray</em></a>) – The time in MJD.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ra</strong> (<em>instance of numpy.ndarray</em>) – The right-ascention angle.</p></li>
+<li><p><strong>dec</strong> (<em>instance of numpy.ndarray</em>) – The declination angle.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="skyllh.i3.html" class="btn btn-neutral float-left" title="skyllh.i3 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="skyllh.plotting.html" class="btn btn-neutral float-right" title="skyllh.plotting package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: fix230
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../master/html/index.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="../../../dm/html/index.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="skyllh.i3.utils.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="../../../v20_01_09/html/index.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="../../../v22_04_28/html/index.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="../../../v23.0.0/html/index.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="../../../v23.2.1/html/index.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="../../../v24.1.0/html/index.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

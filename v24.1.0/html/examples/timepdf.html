@@ -1,0 +1,377 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Example how-to create a signal time PDF &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="skyllh package" href="../reference/skyllh.html" />
+    <link rel="prev" title="Examples" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently Ask Questions (FAQ)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Examples</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Example how-to create a signal time PDF</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/skyllh.html">skyllh package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/unit_tests.html">Unit tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Examples</a></li>
+      <li class="breadcrumb-item active">Example how-to create a signal time PDF</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/examples/timepdf.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Example-how-to-create-a-signal-time-PDF">
+<h1>Example how-to create a signal time PDF<a class="headerlink" href="#Example-how-to-create-a-signal-time-PDF" title="Permalink to this heading"></a></h1>
+In this example we demonstrate how to create a signal time PDF with a gaussian shape.<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Config</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.detsigyield</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">NullDetSigYieldBuilder</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.flux_model</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">GaussianTimeFluxProfile</span><span class="p">,</span>
+    <span class="n">NullFluxModel</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.livetime</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Livetime</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">ParameterModelMapper</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.signalpdf</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SignalTimePDF</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.source_hypo_grouping</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SourceHypoGroup</span><span class="p">,</span>
+    <span class="n">SourceHypoGroupManager</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.source_model</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">SourceModel</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.storage</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DataFieldRecordArray</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.trialdata</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">TrialDataManager</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.signalpdf.SignalTimePDF" title="skyllh.core.signalpdf.SignalTimePDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalTimePDF</span></code></a> class provides a
+generalized time PDF class, which requires a
+<a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.livetime.Livetime" title="skyllh.core.livetime.Livetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">Livetime</span></code></a> instance and a
+<a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.flux_model.TimeFluxProfile" title="skyllh.core.flux_model.TimeFluxProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeFluxProfile</span></code></a> instance.</p>
+First we need to create a (default) configuration:<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cfg</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+Now let's construct the ``Livetime`` instance with three detector on-time
+intervals:<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">livetime_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">],</span>
+    <span class="p">],</span>
+    <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+<span class="n">livetime</span> <span class="o">=</span> <span class="n">Livetime</span><span class="p">(</span><span class="n">livetime_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now we can construct the time flux profile. We choose a gaussian profile.
+Other profiles exist as well, e.g. the
+<a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.flux_model.BoxTimeFluxProfile" title="skyllh.core.flux_model.BoxTimeFluxProfile"><code class="xref py py-class docutils literal notranslate"><span class="pre">BoxTimeFluxProfile</span></code></a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">time_flux_profile</span> <span class="o">=</span> <span class="n">GaussianTimeFluxProfile</span><span class="p">(</span><span class="n">t0</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sigma_t</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+The ``t_start`` and ``t_stop`` properties of the profile tell us how far the
+time profile extends:<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;t_start = </span><span class="si">{</span><span class="n">time_flux_profile</span><span class="o">.</span><span class="n">t_start</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;t_stop = </span><span class="si">{</span><span class="n">time_flux_profile</span><span class="o">.</span><span class="n">t_stop</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+t_start = 2.5132311244600647
+t_stop = 5.486768875539935
+</pre></div></div>
+</div>
+<p>Finally, we can construct the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.signalpdf.SignalTimePDF" title="skyllh.core.signalpdf.SignalTimePDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalTimePDF</span></code></a>
+instance:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigpdf</span> <span class="o">=</span> <span class="n">SignalTimePDF</span><span class="p">(</span>
+    <span class="n">livetime</span><span class="o">=</span><span class="n">livetime</span><span class="p">,</span>
+    <span class="n">time_flux_profile</span><span class="o">=</span><span class="n">time_flux_profile</span><span class="p">,</span>
+    <span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>In order to evaluate our time PDF, we need to create some SkyLLH framework
+infrastructure first. The <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.pdf.PDF.get_pd" title="skyllh.core.pdf.PDF.get_pd"><code class="xref py py-meth docutils literal notranslate"><span class="pre">get_pd()</span></code></a> method requires
+a <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><code class="xref py py-class docutils literal notranslate"><span class="pre">TrialDataManager</span></code></a> instance, which we create
+now. We initialize the trial data manager with trial data containing the
+<code class="docutils literal notranslate"><span class="pre">time</span></code> values we want to evaluate.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">shg_mgr</span> <span class="o">=</span> <span class="n">SourceHypoGroupManager</span><span class="p">(</span>
+    <span class="n">SourceHypoGroup</span><span class="p">(</span>
+        <span class="n">sources</span><span class="o">=</span><span class="n">SourceModel</span><span class="p">(),</span>
+        <span class="n">fluxmodel</span><span class="o">=</span><span class="n">NullFluxModel</span><span class="p">(),</span>
+        <span class="n">detsigyield_builders</span><span class="o">=</span><span class="n">NullDetSigYieldBuilder</span><span class="p">())</span>
+<span class="p">)</span>
+
+<span class="n">pmm</span> <span class="o">=</span> <span class="n">ParameterModelMapper</span><span class="p">(</span>
+    <span class="n">models</span><span class="o">=</span><span class="n">shg_mgr</span><span class="o">.</span><span class="n">source_list</span><span class="p">)</span>
+
+<span class="n">t</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="mi">10</span><span class="o">/</span><span class="mf">0.05</span><span class="p">))</span>
+<span class="n">events</span> <span class="o">=</span> <span class="n">DataFieldRecordArray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="p">[(</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)]))</span>
+
+<span class="n">tdm</span> <span class="o">=</span> <span class="n">TrialDataManager</span><span class="p">()</span>
+<span class="n">tdm</span><span class="o">.</span><span class="n">initialize_trial</span><span class="p">(</span>
+    <span class="n">shg_mgr</span><span class="o">=</span><span class="n">shg_mgr</span><span class="p">,</span>
+    <span class="n">pmm</span><span class="o">=</span><span class="n">pmm</span><span class="p">,</span>
+    <span class="n">events</span><span class="o">=</span><span class="n">events</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+The PDF instance needs to get initialized with the trial data:<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sigpdf</span><span class="o">.</span><span class="n">initialize_for_new_trial</span><span class="p">(</span><span class="n">tdm</span><span class="o">=</span><span class="n">tdm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+Now we can evaluate PDF.<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pd</span><span class="p">,</span> <span class="n">grads</span><span class="p">)</span> <span class="o">=</span> <span class="n">sigpdf</span><span class="o">.</span><span class="n">get_pd</span><span class="p">(</span>
+    <span class="n">tdm</span><span class="o">=</span><span class="n">tdm</span><span class="p">,</span>
+    <span class="n">params_recarray</span><span class="o">=</span><span class="n">pmm</span><span class="o">.</span><span class="n">create_src_params_recarray</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+We can verify the normalization of the PDF to unity by integrating the
+probability density values over time:<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">total_integral</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pd</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">t</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;total integral = </span><span class="si">{</span><span class="n">total_integral</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+total integral = 1.0200980782124147
+</pre></div></div>
+</div>
+We can also plot the PDF:<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">pd</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;probability density / time$^{-1}$&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0, 0.5, &#39;probability density / time$^{-1}$&#39;)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/examples_timepdf_23_1.png" src="../_images/examples_timepdf_23_1.png" />
+</div>
+</div>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../reference/skyllh.html" class="btn btn-neutral float-right" title="skyllh package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: v24.1.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../master/html/index.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="../../../dm/html/index.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="../../../fix230/html/index.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="../../../v20_01_09/html/index.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="../../../v22_04_28/html/index.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="../../../v23.0.0/html/index.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="../../../v23.2.1/html/index.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="timepdf.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

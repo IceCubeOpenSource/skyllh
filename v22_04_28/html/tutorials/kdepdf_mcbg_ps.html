@@ -1,0 +1,804 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Time-integrated point source search analysis example &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="IC170922A_wGFU" href="trad_ps_expbg.html" />
+    <link rel="prev" title="Getting started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Time-integrated point source search analysis example</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Software-setup">Software setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Create-datasets-object">Create <code class="docutils literal notranslate"><span class="pre">datasets</span></code> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Create-the-analysis-object">Create the <code class="docutils literal notranslate"><span class="pre">analysis</span></code> object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Some-utility-functions">Some utility functions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Pseudo-data-example">Pseudo data example</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="trad_ps_expbg.html">IC170922A_wGFU</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hypothesis/index.html">Hypothesis Definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unit_tests.html">Unit tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/skyllh.html">skyllh package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Time-integrated point source search analysis example</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/kdepdf_mcbg_ps.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Time-integrated-point-source-search-analysis-example">
+<h1>Time-integrated point source search analysis example<a class="headerlink" href="#Time-integrated-point-source-search-analysis-example" title="Permalink to this heading"></a></h1>
+<section id="Software-setup">
+<h2>Software setup<a class="headerlink" href="#Software-setup" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+
+<span class="c1"># Add skyllh and i3skyllh projects to the PYTHONPATH</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;/opt/nu-workshop-software/skyllh&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;/opt/nu-workshop-software/i3skyllh&#39;</span><span class="p">)</span>
+
+<span class="c1"># Add missing python packages from cvmfs</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;/cvmfs/icecube.opensciencegrid.org/py3-v4.1.1/RHEL_7_x86_64/lib/python3.7/site-packages&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Create-datasets-object">
+<h2>Create <code class="docutils literal notranslate"><span class="pre">datasets</span></code> object<a class="headerlink" href="#Create-datasets-object" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">CFG</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomStateService</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.timing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeLord</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.physics.source</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointLikeSource</span>
+
+<span class="c1"># Pre-defined datasets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">i3skyllh.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">data_samples</span>
+
+<span class="c1">#Pre-defined analysis</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">i3skyllh.analyses.kdepdf_mcbg_ps</span><span class="w"> </span><span class="kn">import</span> <span class="n">analysis</span> <span class="k">as</span> <span class="n">kde_analysis</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Update global settings to use 2 cpu cores</span>
+<span class="n">CFG</span><span class="p">[</span><span class="s1">&#39;multiproc&#39;</span><span class="p">][</span><span class="s1">&#39;ncpu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># `data_samples` contains common datasets</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">data_samples</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+DiffuseNorthernTracks
+DiffuseNorthernTracks_v001p00
+FastResponse
+FastResponse_v001p00
+GammaRays5yr_GalPlane
+GammaRays5yr_PointSrc
+GFU
+GFU_v002p01
+GFU_v002p02
+GFU_v002p03
+GFU_v002p04
+GFU_v002p05
+NorthernTracks
+NorthernTracks_v001p00
+NorthernTracks_v001p01
+NorthernTracks_v002p00
+NorthernTracks_v002p01
+NorthernTracks_v002p02
+NorthernTracks_v002p05
+NorthernTracks_v002p05_KDE_PDF_v001
+NorthernTracks_v002p06
+NorthernTracks_v003p00_KDE_PDF_v002
+NorthernTracks_v003p00_KDE_PDF_v003
+NorthernTracks_v003p01_KDE_PDF_v004
+NorthernTracks_v003p01_KDE_PDF_v005
+NorthernTracks_v003p01_KDE_PDF_v006
+NorthernTracks_v003p01_KDE_PDF_v007
+NorthernTracks_v003p01_KDE_PDF_v008
+NorthernTracks_v003p01_KDE_PDF_v010
+NorthernTracks_v003p01_KDE_PDF_v200
+NorthernTracks_v003p02
+NorthernTracks_v003p02_KDE_PDF_v514
+NorthernTracks_v003p02_KDE_PDF_v200
+NorthernTracks_v003p03_KDE_PDF_v001
+NorthernTracks_v004p02_KDE_PDF_v003
+NorthernTracks_v004p03_KDE_PDF_v003
+NorthernTracks_v004p03_KDE_PDF_v003_abs_plus5
+NorthernTracks_v004p03_KDE_PDF_v003_scat_plus5
+NorthernTracks_v004p03_KDE_PDF_v003_holeice_p0_minus1
+NorthernTracks_v004p03_KDE_PDF_v003_holeice_p0_plus1
+NorthernTracks_v004p03_KDE_PDF_v003_holeice_base
+NorthernTracks_v004p04_KDE_PDF_v004
+NorthernTracks_v004p04_KDE_PDF_v004_abs_plus5
+NorthernTracks_v004p04_KDE_PDF_v004_abs_plus5_undo_sys
+NorthernTracks_v004p04_KDE_PDF_v005
+NorthernTracks_v004p04_KDE_PDF_v005_abs_plus5
+NorthernTracks_v004p04_KDE_PDF_v005_abs_plus5_undo_sys
+NorthernTracks_v004p04_KDE_PDF_v005_scat_plus5
+NorthernTracks_v004p04_KDE_PDF_v005_scat_plus5_undo_sys
+NorthernTracks_v004p04_KDE_PDF_v005_holeice_base
+NorthernTracks_v004p04_KDE_PDF_v005_holeice_p0_minus1
+NorthernTracks_v004p04_KDE_PDF_v005_holeice_p0_minus1_undo_sys
+NorthernTracks_v004p04_KDE_PDF_v005_holeice_p0_plus1
+NorthernTracks_v004p04_KDE_PDF_v005_holeice_p0_plus1_undo_sys
+NorthernTracks_v004p06_KDE_PDF_v007_IC86only
+NorthernTracks_v004p06_KDE_PDF_v007_IC79_IC86
+NorthernTracks_v004p06_KDE_PDF_v007_IC86only_toydata
+NorthernTracks_v004p06_KDE_PDF_v007_IC86only_toydata_2016
+NorthernTracks_v004p06_KDE_PDF_v007_IC86_20XX
+NorthernTracks_v004p06_KDE_PDF_v007_IC86only_no_exp_data
+NorthernTracks_v004p06_KDE_PDF_v007_IC86only_shrink_MC
+NorthernTracks_v004p07_KDE_PDF_v007_IC86only
+NorthernTracks_v004p08_KDE_PDF_v007_IC86only
+NorthernTracks_v005p00_KDE_PDF_v007_IC86only
+NorthernTracks_v005p00_KDE_PDF_v007
+NorthernTracks6yr
+NorthernTracks8yr
+PointSourceTracks
+PointSourceTracks_v001p00
+PointSourceTracks_v002p00
+PointSourceTracks_v002p01
+PointSourceTracks_v002p02
+PointSourceTracks_v002p03
+PointSourceTracks_v003p00
+PointSourceTracks_v003p01
+PointSourceTracks_v003p02
+TransientTracks
+TransientTracks_v001p00
+TransientTracks_v001p01
+TransientTracks_v001p02
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify base path for datasets</span>
+<span class="n">data_base_path</span> <span class="o">=</span> <span class="s1">&#39;/data/ana/analyses&#39;</span>
+
+<span class="c1"># Load specific dataset collection</span>
+<span class="n">dsc</span> <span class="o">=</span> <span class="n">data_samples</span><span class="p">[</span><span class="s1">&#39;NorthernTracks_v005p00_KDE_PDF_v007&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">create_dataset_collection</span><span class="p">(</span>
+            <span class="n">base_path</span><span class="o">=</span><span class="n">data_base_path</span><span class="p">)</span>
+
+<span class="c1"># Pick a dataset or create a list of datasets from the dataset collection</span>
+<span class="n">datasets</span> <span class="o">=</span> <span class="n">dsc</span><span class="o">.</span><span class="n">get_datasets</span><span class="p">(</span><span class="s1">&#39;IC86_2011-IC86_2019&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define some common analysis parameters</span>
+<span class="n">refplflux_gamma</span> <span class="o">=</span> <span class="mf">2.0</span>
+<span class="n">minimizer_impl</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">optimize_delta_angle</span> <span class="o">=</span> <span class="mf">15.0</span>
+<span class="n">rss_seed</span> <span class="o">=</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Create-the-analysis-object">
+<h2>Create the <code class="docutils literal notranslate"><span class="pre">analysis</span></code> object<a class="headerlink" href="#Create-the-analysis-object" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define initial source object</span>
+<span class="n">source</span> <span class="o">=</span> <span class="n">PointLikeSource</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">0.</span><span class="p">),</span> <span class="n">dec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">0.</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ana_kde</span> <span class="o">=</span> <span class="n">kde_analysis</span><span class="o">.</span><span class="n">create_analysis</span><span class="p">(</span>
+    <span class="n">datasets</span><span class="p">,</span>
+    <span class="n">source</span><span class="p">,</span>
+    <span class="n">bkg_event_rate_field_names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;astro&#39;</span><span class="p">,</span> <span class="s1">&#39;conv&#39;</span><span class="p">],</span>
+    <span class="n">refplflux_gamma</span><span class="o">=</span><span class="n">refplflux_gamma</span><span class="p">,</span>
+    <span class="n">fit_gamma</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">livetime_list</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">compress_data</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">minimizer_impl</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">ns_seed</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">evt_sel_meth</span><span class="o">=</span><span class="s1">&#39;spatialbox&#39;</span><span class="p">,</span>
+    <span class="n">optimize_delta_angle</span><span class="o">=</span><span class="n">optimize_delta_angle</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[==========================================================] 100% ELT 0h:00m:05s
+[==========================================================] 100% ELT 0h:00m:27s
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate background trials</span>
+<span class="n">rss</span> <span class="o">=</span> <span class="n">RandomStateService</span><span class="p">(</span><span class="n">rss_seed</span><span class="p">)</span>
+<span class="n">res_kde_bg</span> <span class="o">=</span> <span class="n">ana_kde</span><span class="o">.</span><span class="n">do_trials</span><span class="p">(</span><span class="n">rss</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mean_n_sig</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[==========================================================] 100% ELT 0h:00m:02s
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">res_kde_bg</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">res_kde_bg</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(         0, 0., 0, 0., 0.        ,  0.        , 4.32      )
+ (         0, 0., 0, 0., 1.21271706, 21.23037032, 4.32      )
+ (         0, 0., 0, 0., 9.01908854, 45.88625054, 3.26054356)
+ (         0, 0., 0, 0., 3.18068896, 34.29298547, 4.304168  )
+ (         0, 0., 0, 0., 1.84836277, 15.58076763, 2.85521549)
+ (2357136044, 0., 0, 0., 0.42464366, 12.35818168, 4.32      )
+ (2357136044, 0., 0, 0., 0.        ,  0.        , 4.32      )
+ (2357136044, 0., 0, 0., 0.75896145,  4.11593086, 2.46722167)
+ (2357136044, 0., 0, 0., 0.        ,  0.        , 4.32      )
+ (2357136044, 0., 0, 0., 0.10965291,  5.86736425, 3.76596544)]
+[(&#39;seed&#39;, &#39;&lt;i8&#39;), (&#39;mean_n_sig&#39;, &#39;&lt;f8&#39;), (&#39;n_sig&#39;, &#39;&lt;i8&#39;), (&#39;mean_n_sig_0&#39;, &#39;&lt;f8&#39;), (&#39;ts&#39;, &#39;&lt;f8&#39;), (&#39;ns&#39;, &#39;&lt;f8&#39;), (&#39;gamma&#39;, &#39;&lt;f8&#39;)]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate signal trials</span>
+<span class="n">rss</span> <span class="o">=</span> <span class="n">RandomStateService</span><span class="p">(</span><span class="n">rss_seed</span><span class="p">)</span>
+<span class="n">res_kde_sig</span> <span class="o">=</span> <span class="n">ana_kde</span><span class="o">.</span><span class="n">do_trials</span><span class="p">(</span><span class="n">rss</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mean_n_sig</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[==========================================================] 100% ELT 0h:00m:03s
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">res_kde_sig</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([(         0, 10., 17, 0., 33.89473687,  6.83243832, 1.72601027),
+       (         0, 10., 11, 0., 38.27240369, 23.33243568, 2.29233034),
+       (         0, 10.,  8, 0., 17.28659423, 10.0379805 , 2.08599903),
+       (         0, 10., 12, 0., 53.18912891, 14.19218552, 1.94005555),
+       (         0, 10.,  8, 0.,  5.63640429, 12.33887108, 2.45187456),
+       (2357136044, 10.,  6, 0., 15.59138863,  6.05664926, 1.90644407),
+       (2357136044, 10., 10, 0., 32.04935684, 11.63282164, 1.97287869),
+       (2357136044, 10., 13, 0., 52.04710171, 14.58093905, 1.90490158),
+       (2357136044, 10., 10, 0., 34.96024899, 14.80401748, 2.12596618),
+       (2357136044, 10., 11, 0., 30.6592404 , 26.47856509, 2.4626625 )],
+      dtype=[(&#39;seed&#39;, &#39;&lt;i8&#39;), (&#39;mean_n_sig&#39;, &#39;&lt;f8&#39;), (&#39;n_sig&#39;, &#39;&lt;i8&#39;), (&#39;mean_n_sig_0&#39;, &#39;&lt;f8&#39;), (&#39;ts&#39;, &#39;&lt;f8&#39;), (&#39;ns&#39;, &#39;&lt;f8&#39;), (&#39;gamma&#39;, &#39;&lt;f8&#39;)])
+</pre></div></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Change source</span>
+<span class="n">new_source</span> <span class="o">=</span> <span class="n">PointLikeSource</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">180.</span><span class="p">),</span> <span class="n">dec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">10.</span><span class="p">))</span>
+<span class="n">ana_kde</span><span class="o">.</span><span class="n">change_source</span><span class="p">(</span><span class="n">new_source</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Use TimeLord object to time code execution</span>
+<span class="n">tl</span> <span class="o">=</span> <span class="n">TimeLord</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">tl</span><span class="o">.</span><span class="n">task_timer</span><span class="p">(</span><span class="s1">&#39;Running signal trials.&#39;</span><span class="p">):</span>
+    <span class="n">rss</span> <span class="o">=</span> <span class="n">RandomStateService</span><span class="p">(</span><span class="n">rss_seed</span><span class="p">)</span>
+    <span class="n">res_kde_sig_new</span> <span class="o">=</span> <span class="n">ana_kde</span><span class="o">.</span><span class="n">do_trials</span><span class="p">(</span><span class="n">rss</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">mean_n_sig</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">tl</span><span class="o">=</span><span class="n">tl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[==========================================================] 100% ELT 0h:00m:03s
+TimeLord: Executed tasks:
+[Calculate total MC background mean.             ]   0.012 sec/iter (2)
+[Calculate MC background event probability cache.]   0.044 sec/iter (2)
+[ESM-DecBand: Calculate mask_dec                 ]   0.035 sec/iter (2)
+[ESM-DecBand: Calculate mask.                    ]   0.002 sec/iter (2)
+[ESM-DecBand: Create selected_events.            ]   0.303 sec/iter (2)
+[Pre-select MC events.                           ]   0.342 sec/iter (2)
+[Calculate selected MC background mean.          ]   0.004 sec/iter (10)
+[Get p array.                                    ]   0.005 sec/iter (10)
+[Draw MC background indices.                     ]   0.188 sec/iter (10)
+[Select MC background events from indices.       ]   0.057 sec/iter (10)
+[Scramble MC background data.                    ]   0.005 sec/iter (10)
+[Remove MC specific data fields from MC events.  ] 4.4e-05 sec/iter (10)
+[Generating background events for data set 0.    ]   0.399 sec/iter (10)
+[Generating signal events.                       ]   0.005 sec/iter (10)
+[Generating pseudo data.                         ]   0.407 sec/iter (10)
+[Initializing trial.                             ]   0.031 sec/iter (10)
+[Create fitparams dictionary.                    ] 9.1e-06 sec/iter (128)
+[Calc fit param dep data fields.                 ] 2.6e-06 sec/iter (128)
+[Get sig prob.                                   ]   0.014 sec/iter (128)
+[Get PDF event data.                             ] 4.9e-05 sec/iter (10)
+[Get prob from photospline fit.                  ]   0.005 sec/iter (10)
+[Normalize MultiDimGridPDF with norm factor.     ] 2.8e-05 sec/iter (10)
+[Get bkg prob.                                   ] 4.0e-04 sec/iter (128)
+[Calc PDF ratios.                                ] 2.9e-04 sec/iter (128)
+[Calc pdfratio values.                           ]   0.014 sec/iter (128)
+[Calc pdfratio value product Ri                  ] 5.9e-05 sec/iter (128)
+[Calc logLamds and grads                         ]   0.001 sec/iter (128)
+[Evaluate llh-ratio function.                    ]   0.017 sec/iter (128)
+[Minimize -llhratio function.                    ]   0.215 sec/iter (10)
+[Maximizing LLH ratio function.                  ]   0.215 sec/iter (10)
+[Calculating test statistic.                     ] 3.2e-05 sec/iter (10)
+[Running signal trials.                          ]   3.324 sec/iter (1)
+</pre></div></div>
+</div>
+</section>
+<section id="Some-utility-functions">
+<h2>Some utility functions<a class="headerlink" href="#Some-utility-functions" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.analysis_utils</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">estimate_sensitivity</span><span class="p">,</span>
+    <span class="n">estimate_discovery_potential</span><span class="p">,</span>
+    <span class="n">create_trial_data_file</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">estimate_sensitivity</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on function estimate_sensitivity in module skyllh.core.analysis_utils:
+
+estimate_sensitivity(ana, rss, h0_trials=None, h0_ts_quantile=0.5, p=0.9, eps_p=0.005, mu_range=None, min_dmu=0.5, bkg_kwargs=None, sig_kwargs=None, ppbar=None, tl=None, pathfilename=None)
+    Estimates the mean number of signal events that whould have to be
+    injected into the data such that the test-statistic value of p*100% of all
+    trials are larger than the critical test-statistic value c, which
+    corresponds to the test-statistic value where h0_ts_quantile*100% of all
+    null hypothesis test-statistic values are larger than c.
+
+    For sensitivity h0_ts_quantile, and p are usually set to 0.5, and 0.9,
+    respectively.
+
+    Parameters
+    ----------
+    ana : Analysis
+        The Analysis instance to use for sensitivity estimation.
+    rss : RandomStateService
+        The RandomStateService instance to use for generating random
+        numbers.
+    h0_trials : (n_h0_ts_vals,)-shaped ndarray | None
+        The strutured ndarray holding the trials for the null-hypothesis.
+        If set to `None`, the number of trials is calculated from binomial
+        statistics via `h0_ts_quantile*(1-h0_ts_quantile)/eps**2`,
+        where `eps` is `min(5e-3, h0_ts_quantile/10)`.
+    h0_ts_quantile : float, optional
+        Null-hypothesis test statistic quantile that defines the critical value.
+    p : float, optional
+        Desired probability of the signal test statistic value to exceed
+        the null-hypothesis test statistic value threshold, which is defined
+        through the `h0_ts_quantile` value.
+    eps_p : float, optional
+        Precision in `p` for execution to break.
+    mu_range : 2-element sequence | None
+        Range to search for the mean number of signal events.
+        If set to None, the range (0, 10) will be used.
+    min_dmu : float
+        The minimum delta mu to use for calculating the derivative dmu/dp.
+        The default is ``0.5``.
+    bkg_kwargs : dict | None
+        Additional keyword arguments for the `generate_events` method of the
+        background generation method class. An usual keyword argument is
+        `poisson`.
+    sig_kwargs : dict | None
+        Additional keyword arguments for the `generate_signal_events` method
+        of the `SignalGenerator` class. An usual keyword argument is
+        `poisson`. If `poisson` is set to True, the actual number of
+        generated signal events will be drawn from a Poisson distribution
+        with the mean number of signal events, mu.
+    ppbar : instance of ProgressBar | None
+        The possible parent ProgressBar instance.
+    tl: instance of TimeLord | None
+        The optional TimeLord instance that should be used to collect timing
+        information about this function.
+    pathfilename : string | None
+        Trial data file path including the filename.
+        If set to None, generated trials won&#39;t be saved.
+
+    Returns
+    -------
+    mu : float
+        Estimated median number of signal events to reach desired sensitivity.
+    mu_err : float
+        The uncertainty of the estimated mean number of signal events.
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">n_trials</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">pathfilename</span> <span class="o">=</span> <span class="s1">&#39;./trials.npy&#39;</span>
+<span class="n">_</span> <span class="o">=</span> <span class="n">create_trial_data_file</span><span class="p">(</span><span class="n">ana_kde</span><span class="p">,</span> <span class="n">rss</span><span class="p">,</span> <span class="n">n_trials</span><span class="p">,</span> <span class="n">mean_n_sig</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">mean_n_sig_null</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">pathfilename</span><span class="o">=</span><span class="n">pathfilename</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[==========================================================] 100% ELT 0h:00m:10s
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">trials</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pathfilename</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trials</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">trials</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[(         0, 0., 0, 0., 2.37792439, 29.47689755, 3.47483629)
+ (         0, 0., 0, 0., 3.66065822, 37.62555335, 3.62767194)
+ (         0, 0., 0, 0., 0.        ,  0.        , 4.32      )
+ (         0, 0., 0, 0., 0.        ,  0.        , 4.32      )
+ (         0, 0., 0, 0., 0.25702203,  6.94773778, 3.09499838)
+ (  67063811, 0., 0, 0., 0.05713375,  3.8414052 , 3.39262385)
+ (  67063811, 0., 0, 0., 0.        ,  0.        , 4.32      )
+ (  67063811, 0., 0, 0., 0.        ,  0.        , 1.35002828)
+ (  67063811, 0., 0, 0., 0.16680563,  8.41961013, 4.16223629)
+ (  67063811, 0., 0, 0., 2.22488861, 30.99016472, 3.82911278)
+ (         0, 1., 3, 0., 8.0467189 ,  1.39964911, 1.37576735)
+ (         0, 1., 2, 0., 0.        ,  0.        , 4.32      )
+ (         0, 1., 1, 0., 4.46716848,  1.76233826, 1.73617887)
+ (         0, 1., 0, 0., 0.        ,  0.        , 3.03507199)
+ (         0, 1., 2, 0., 2.95189502, 17.32074596, 3.06333542)
+ (1800623582, 1., 0, 0., 9.83445431, 72.03145667, 4.32      )
+ (1800623582, 1., 1, 0., 6.12507595,  9.25940022, 2.39255974)
+ (1800623582, 1., 2, 0., 3.54933406,  2.4776351 , 2.10860974)
+ (1800623582, 1., 1, 0., 0.03388731,  3.4568177 , 3.66095955)
+ (1800623582, 1., 1, 0., 1.19500726, 22.75836463, 3.64017462)
+ (         0, 2., 0, 0., 0.63129585, 17.76483837, 4.32      )
+ (         0, 2., 2, 0., 0.01184192,  2.02393431, 3.50726588)
+ (         0, 2., 5, 0., 2.86855185,  3.81873242, 1.97726715)
+ (         0, 2., 1, 0., 7.43039518,  1.46128633, 1.68402272)
+ (         0, 2., 0, 0., 0.        ,  0.        , 4.32      )
+ (1658140526, 2., 1, 0., 0.10573184,  7.03460841, 4.1901281 )
+ (1658140526, 2., 2, 0., 4.85916012,  6.66183162, 2.45855972)
+ (1658140526, 2., 4, 0., 4.14477516,  5.57337326, 2.07715215)
+ (1658140526, 2., 0, 0., 0.80666454,  2.47472006, 2.55607052)
+ (1658140526, 2., 2, 0., 0.        ,  0.        , 1.70437017)]
+[(&#39;seed&#39;, &#39;&lt;i8&#39;), (&#39;mean_n_sig&#39;, &#39;&lt;f8&#39;), (&#39;n_sig&#39;, &#39;&lt;i8&#39;), (&#39;mean_n_sig_0&#39;, &#39;&lt;f8&#39;), (&#39;ts&#39;, &#39;&lt;f8&#39;), (&#39;ns&#39;, &#39;&lt;f8&#39;), (&#39;gamma&#39;, &#39;&lt;f8&#39;)]
+</pre></div></div>
+</div>
+</section>
+<section id="Pseudo-data-example">
+<h2>Pseudo data example<a class="headerlink" href="#Pseudo-data-example" title="Permalink to this heading"></a></h2>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Generate background events.</span>
+<span class="p">(</span><span class="n">bg_n_events_list</span><span class="p">,</span> <span class="n">bg_events_list</span><span class="p">)</span> <span class="o">=</span> <span class="n">ana_kde</span><span class="o">.</span><span class="n">generate_background_events</span><span class="p">(</span>
+    <span class="n">rss</span><span class="o">=</span><span class="n">rss</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="c1"># Generate signal events.</span>
+<span class="p">(</span><span class="n">n_sig</span><span class="p">,</span> <span class="n">sig_n_events_list</span><span class="p">,</span> <span class="n">sig_events_list</span><span class="p">)</span> <span class="o">=</span> <span class="n">ana_kde</span><span class="o">.</span><span class="n">generate_signal_events</span><span class="p">(</span>
+    <span class="n">rss</span><span class="o">=</span><span class="n">rss</span><span class="p">,</span>
+    <span class="n">mean_n_sig</span><span class="o">=</span><span class="mi">10</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">sig_events_list</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+DataFieldRecordArray: 17 fields, 6 entries, 2 Kbytes
+    fields = {
+        zen          : {dtype: float32, vmin:  1.717e+00, vmax:  1.757e+00}
+        dec          : {dtype: float32, vmin:  1.526e-01, vmax:  1.878e-01}
+        ra           : {dtype: float32, vmin:  3.108e+00, vmax:  3.161e+00}
+        run          : {dtype: int64, vmin:  2.112e+04, vmax:  2.122e+04}
+        time         : {dtype: float32, vmin:  5.678e+04, vmax:  5.678e+04}
+        azi          : {dtype: float32, vmin:  1.316e+00, vmax:  5.498e+00}
+        log_energy   : {dtype: float32, vmin:  3.313e+00, vmax:  6.240e+00}
+        ang_err      : {dtype: float32, vmin:  3.472e-03, vmax:  2.033e-02}
+        true_energy  : {dtype: float32, vmin:  9.641e+03, vmax:  4.491e+06}
+        true_ra      : {dtype: float32, vmin:  2.198e-01, vmax:  5.741e+00}
+        true_dec     : {dtype: float32, vmin:  1.544e-01, vmax:  1.876e-01}
+        mcweight     : {dtype: float64, vmin:  5.034e+03, vmax:  1.522e+10}
+        astro        : {dtype: float32, vmin:  1.501e-12, vmax:  4.635e-12}
+        conv         : {dtype: float32, vmin:  1.096e-14, vmax:  1.437e-10}
+        log10_ang_err: {dtype: float32, vmin: -2.459e+00, vmax: -1.692e+00}
+        sin_dec      : {dtype: float32, vmin:  1.520e-01, vmax:  1.867e-01}
+        sin_true_dec : {dtype: float32, vmin:  1.538e-01, vmax:  1.865e-01}
+    }
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">delta_angle</span> <span class="o">=</span> <span class="mf">3.0</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="c1"># Scatter background and signal events.</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">bg_events_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;ra&#39;</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">bg_events_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dec&#39;</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;bg&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s1">&#39;none&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">sig_events_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;ra&#39;</span><span class="p">]),</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">sig_events_list</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;dec&#39;</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;sig&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">new_source</span><span class="o">.</span><span class="n">ra</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">new_source</span><span class="o">.</span><span class="n">dec</span><span class="p">),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;source&#39;</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;ra, deg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;dec, deg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">new_source</span><span class="o">.</span><span class="n">ra</span><span class="p">)</span> <span class="o">-</span> <span class="n">delta_angle</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">new_source</span><span class="o">.</span><span class="n">ra</span><span class="p">)</span> <span class="o">+</span> <span class="n">delta_angle</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">new_source</span><span class="o">.</span><span class="n">dec</span><span class="p">)</span> <span class="o">-</span> <span class="n">delta_angle</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">rad2deg</span><span class="p">(</span><span class="n">new_source</span><span class="o">.</span><span class="n">dec</span><span class="p">)</span> <span class="o">+</span> <span class="n">delta_angle</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+&lt;matplotlib.legend.Legend at 0x7f408e557c40&gt;
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_kdepdf_mcbg_ps_26_1.png" src="../_images/tutorials_kdepdf_mcbg_ps_26_1.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="trad_ps_expbg.html" class="btn btn-neutral float-right" title="IC170922A_wGFU" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: v22_04_28
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../master/html/index.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="../../../dm/html/index.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="../../../fix230/html/index.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="../../../v20_01_09/html/index.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="kdepdf_mcbg_ps.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="../../../v23.0.0/html/index.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="../../../v23.2.1/html/index.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="../../../v24.1.0/html/index.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

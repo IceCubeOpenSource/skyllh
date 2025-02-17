@@ -1,0 +1,58 @@
+skyllh.core.utils package
+=========================
+
+.. automodule:: skyllh.core.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.core.utils.analysis module
+---------------------------------
+
+.. automodule:: skyllh.core.utils.analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.utils.coords module
+-------------------------------
+
+.. automodule:: skyllh.core.utils.coords
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.utils.flux\_model module
+------------------------------------
+
+.. automodule:: skyllh.core.utils.flux_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.utils.multidimgridpdf module
+----------------------------------------
+
+.. automodule:: skyllh.core.utils.multidimgridpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.utils.spline module
+-------------------------------
+
+.. automodule:: skyllh.core.utils.spline
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.utils.trials module
+-------------------------------
+
+.. automodule:: skyllh.core.utils.trials
+   :members:
+   :undoc-members:
+   :show-inheritance:

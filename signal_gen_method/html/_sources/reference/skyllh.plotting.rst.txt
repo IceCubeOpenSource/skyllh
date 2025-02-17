@@ -1,0 +1,17 @@
+skyllh.plotting package
+=======================
+
+.. automodule:: skyllh.plotting
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 0
+
+   skyllh.plotting.core
+   skyllh.plotting.i3
+   skyllh.plotting.utils

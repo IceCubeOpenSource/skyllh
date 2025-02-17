@@ -1,0 +1,350 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "ac820cc1",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "%load_ext autoreload\n",
+    "%autoreload 2"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "ee930f5d",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "d5b5100e",
+   "metadata": {},
+   "source": [
+    "# Source Definition"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "90c36e19",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "SkyLLH provides the base class :py:class:`~skyllh.core.source_model.SourceModel` \n",
+    "to define a source class. The :py:class:`~skyllh.core.source_model.SourceModel`\n",
+    "class is derived from the :py:class:`~skyllh.core.model.Model` class, which is \n",
+    "the base class for all kind of models in SkyLLH. A source model can have an \n",
+    "astronomical classification and a source weight w.r.t. other sources."
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "16e7305d",
+   "metadata": {},
+   "source": [
+    "## Point-Like Sources"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "a91e006f",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "SkyLLH provides the :py:class:`~skyllh.core.source_model.PointLikeSource` class\n",
+    "for a point-like source at a certain right-ascention and declination coordinate."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "6c72bc79",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from skyllh.core.source_model import PointLikeSource"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "35fddcf6",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "PointLikeSource: \"TXS 0506+056\": { ra=77.350 deg, dec=5.700 deg }\n"
+     ]
+    }
+   ],
+   "source": [
+    "src = PointLikeSource(\n",
+    "    name='TXS 0506+056',\n",
+    "    ra=np.radians(77.35), \n",
+    "    dec=np.radians(5.7), \n",
+    "    classification=None)\n",
+    "print(src)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "65657887",
+   "metadata": {},
+   "source": [
+    "## Source Catalogs"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "d7e68c10",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "SkyLLH provides the class :py:class:`~skyllh.core.catalog.SourceCatalog` for \n",
+    "creating a catalog of sources."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "33830dd4",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from skyllh.core.catalog import SourceCatalog"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "41503e8e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "catalog = SourceCatalog('My Point-Source Catalog')"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "d29d46cb",
+   "metadata": {},
+   "source": [
+    "Sources can be added to a catalog via the in-place add operator:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "160d9043",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "catalog += (\n",
+    "    PointLikeSource(\n",
+    "        name='TXS 0506+056', \n",
+    "        ra=np.radians(77.35), \n",
+    "        dec=np.radians(5.7), \n",
+    "        classification='BLL'),\n",
+    "    PointLikeSource(\n",
+    "        name='NGC 1068', \n",
+    "        ra=np.radians(40.67), \n",
+    "        dec=np.radians(-0.01), \n",
+    "        classification='SBG')\n",
+    ")"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "56e86b95",
+   "metadata": {},
+   "source": [
+    "The catalog can be printed easily with the print function:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "52ef2e5d",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\"My Point-Source Catalog\" SourceCatalog: {\n",
+      "    PointLikeSource: \"TXS 0506+056\": { ra=77.350 deg, dec=5.700 deg, classification=BLL },\n",
+      "    PointLikeSource: \"NGC 1068\": { ra=40.670 deg, dec=-0.010 deg, classification=SBG }\n",
+      "}\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(catalog)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "ddc01798",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "The :py:class:`~skyllh.core.catalog.SourceCatalog` class is derived from the \n",
+    ":py:class:`~skyllh.core.model.SourceCollection` class, which is derived from the\n",
+    ":py:class:`~skyllh.core.model.ModelCollection` class, which is derived from the \n",
+    ":py:class:`~skyllh.core.py.NamedObjectCollection` class. Hence, it implements \n",
+    "the iterator protocol. Thus, the user can easily interate over the sources in \n",
+    "the catalog:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "id": "b31aac60",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "PointLikeSource: \"TXS 0506+056\": { ra=77.350 deg, dec=5.700 deg, classification=BLL }\n",
+      "PointLikeSource: \"NGC 1068\": { ra=40.670 deg, dec=-0.010 deg, classification=SBG }\n"
+     ]
+    }
+   ],
+   "source": [
+    "for source in catalog:\n",
+    "    print(source)"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "68700b6e",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "The fact that :py:class:`~skyllh.core.catalog.SourceCatalog` is derived from the\n",
+    ":py:class:`~skyllh.core.py.NamedObjectCollection` class has the advantage that\n",
+    "sources can be accessed in the cataog like in a dictionary through their names:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "id": "1e72ae7a",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "PointLikeSource: \"NGC 1068\": { ra=40.670 deg, dec=-0.010 deg, classification=SBG }\n"
+     ]
+    }
+   ],
+   "source": [
+    "source = catalog['NGC 1068']\n",
+    "print(source)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "id": "596786e8",
+   "metadata": {},
+   "source": [
+    "## Source Hypothesis Grouping"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "e5e1f199",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "An analysis might test for several sources of the same kind, e.g. point-like \n",
+    "sources. The SkyLLH framework can utilize the fact that calculations for \n",
+    "same-kind sources are identical. Hence, SkyLLH provides the \n",
+    ":py:class:`~skyllh.core.source_hypo_grouping.SourceHypoGroupManager` class and \n",
+    "the :py:class:`~skyllh.core.source_hypo_grouping.SourceHypoGroup` to organize \n",
+    "and manage groups of same-kind sources within the framework."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "id": "13bb7c4e",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from skyllh.core.source_hypo_grouping import SourceHypoGroupManager\n",
+    "from skyllh.core.source_hypo_grouping import SourceHypoGroup"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "id": "a969e329",
+   "metadata": {},
+   "source": [
+    "A source hypothesis group groups several same-kind sources together for which\n",
+    "the same flux model, detector signal yield builder, and signal generation method\n",
+    "can be used."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "id": "57780eda",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "After creating a :py:class:`~skyllh.core.source_hypo_grouping.SourceHypoGroup` \n",
+    "instance, a :py:class:`~skyllh.core.source_hypo_grouping.SourceHypoGroupManager` \n",
+    "can be created by passing a sequence of \n",
+    ":py:class:`~skyllh.core.source_hypo_grouping.SourceHypoGroup` instances to the \n",
+    "constructor of the \n",
+    ":py:class:`~skyllh.core.source_hypo_grouping.SourceHypoGroupManager` class."
+   ]
+  }
+ ],
+ "metadata": {
+  "celltoolbar": "Raw Cell Format",
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.6"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

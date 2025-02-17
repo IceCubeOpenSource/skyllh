@@ -1,0 +1,18 @@
+skyllh.utils package
+====================
+
+.. automodule:: skyllh.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.utils.spline module
+--------------------------
+
+.. automodule:: skyllh.utils.spline
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,362 @@
+{
+ "cells": [
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Example how-to create a signal time PDF"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "In this example we demonstrate how to create a signal time PDF with a gaussian shape."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import numpy as np\n",
+    "\n",
+    "from matplotlib import (\n",
+    "    pyplot as plt,\n",
+    ")\n",
+    "\n",
+    "from skyllh.core.config import (\n",
+    "    Config,\n",
+    ")\n",
+    "from skyllh.core.detsigyield import (\n",
+    "    NullDetSigYieldBuilder,\n",
+    ")\n",
+    "from skyllh.core.flux_model import (\n",
+    "    GaussianTimeFluxProfile,\n",
+    "    NullFluxModel,\n",
+    ")\n",
+    "from skyllh.core.livetime import (\n",
+    "    Livetime,\n",
+    ")\n",
+    "from skyllh.core.parameters import (\n",
+    "    ParameterModelMapper,\n",
+    ")\n",
+    "from skyllh.core.signalpdf import (\n",
+    "    SignalTimePDF,\n",
+    ")\n",
+    "from skyllh.core.source_hypo_grouping import (\n",
+    "    SourceHypoGroup,\n",
+    "    SourceHypoGroupManager,\n",
+    ")\n",
+    "from skyllh.core.source_model import (\n",
+    "    SourceModel,\n",
+    ")\n",
+    "from skyllh.core.storage import (\n",
+    "    DataFieldRecordArray,\n",
+    ")\n",
+    "from skyllh.core.trialdata import (\n",
+    "    TrialDataManager,\n",
+    ")"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "The :py:class:`~skyllh.core.signalpdf.SignalTimePDF` class provides a \n",
+    "generalized time PDF class, which requires a \n",
+    ":py:class:`~skyllh.core.livetime.Livetime` instance and a \n",
+    ":py:class:`~skyllh.core.flux_model.TimeFluxProfile` instance."
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "First we need to create a (default) configuration:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cfg = Config()"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Now let's construct the ``Livetime`` instance with three detector on-time\n",
+    "intervals:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "livetime_data = np.array([\n",
+    "        [1, 3], \n",
+    "        [4, 7],\n",
+    "        [8, 9],\n",
+    "    ],\n",
+    "    dtype=np.float64)\n",
+    "livetime = Livetime(livetime_data)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "Now we can construct the time flux profile. We choose a gaussian profile. \n",
+    "Other profiles exist as well, e.g. the \n",
+    ":py:class:`~skyllh.core.flux_model.BoxTimeFluxProfile`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "time_flux_profile = GaussianTimeFluxProfile(t0=4, sigma_t=0.2, cfg=cfg)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "The ``t_start`` and ``t_stop`` properties of the profile tell us how far the \n",
+    "time profile extends: "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "t_start = 2.5132311244600647\n",
+      "t_stop = 5.486768875539935\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(f't_start = {time_flux_profile.t_start}')\n",
+    "print(f't_stop = {time_flux_profile.t_stop}')"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "Finally, we can construct the :py:class:`~skyllh.core.signalpdf.SignalTimePDF`\n",
+    "instance:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sigpdf = SignalTimePDF( \n",
+    "    livetime=livetime, \n",
+    "    time_flux_profile=time_flux_profile,\n",
+    "    cfg=cfg)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "In order to evaluate our time PDF, we need to create some SkyLLH framework\n",
+    "infrastructure first. The :py:meth:`~skyllh.core.pdf.PDF.get_pd` method requires\n",
+    "a :py:class:`~skyllh.core.trialdata.TrialDataManager` instance, which we create\n",
+    "now. We initialize the trial data manager with trial data containing the \n",
+    "``time`` values we want to evaluate."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "outputs": [],
+   "source": [
+    "shg_mgr = SourceHypoGroupManager(\n",
+    "    SourceHypoGroup(\n",
+    "        sources=SourceModel(),\n",
+    "        fluxmodel=NullFluxModel(),\n",
+    "        detsigyield_builders=NullDetSigYieldBuilder())\n",
+    ")\n",
+    "\n",
+    "pmm = ParameterModelMapper(\n",
+    "    models=shg_mgr.source_list)\n",
+    "\n",
+    "t = np.linspace(0, 10, int(10/0.05))\n",
+    "events = DataFieldRecordArray(np.array(t, dtype=[('time', np.float64)]))\n",
+    "\n",
+    "tdm = TrialDataManager()\n",
+    "tdm.initialize_trial(\n",
+    "    shg_mgr=shg_mgr, \n",
+    "    pmm=pmm,\n",
+    "    events=events)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "The PDF instance needs to get initialized with the trial data:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sigpdf.initialize_for_new_trial(tdm=tdm)"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "Now we can evaluate PDF. "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "(pd, grads) = sigpdf.get_pd(\n",
+    "    tdm=tdm, \n",
+    "    params_recarray=pmm.create_src_params_recarray())"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "We can verify the normalization of the PDF to unity by integrating the \n",
+    "probability density values over time:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "total integral = 1.0200980782124147\n"
+     ]
+    }
+   ],
+   "source": [
+    "total_integral = np.sum(pd[1:]*np.diff(t))\n",
+    "print(f'total integral = {total_integral}')"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "raw",
+   "metadata": {},
+   "source": [
+    "We can also plot the PDF:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "Text(0, 0.5, 'probability density / time$^{-1}$')"
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "fig = plt.figure(figsize=(6, 4))\n",
+    "ax = fig.add_subplot()\n",
+    "ax.plot(t, pd, drawstyle='steps')\n",
+    "ax.set_xlabel('time')\n",
+    "ax.set_ylabel(r'probability density / time$^{-1}$')"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": ".venv",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.6"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

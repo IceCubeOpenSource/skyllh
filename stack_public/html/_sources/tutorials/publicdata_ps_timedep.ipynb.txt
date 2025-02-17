@@ -1,0 +1,243 @@
+{
+ "cells": [
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Time dependent analyses with the public 10-year IceCube point-source data "
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "This tutorial shows how to use the public point-source data for a time dependent point-source analysis. The time fit is performed by the expectation maximization (EM) algorithm.   "
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from matplotlib import pyplot as plt\n",
+    "import numpy as np\n",
+    "\n",
+    "from skyllh.analyses.i3.publicdata_ps.time_dependent_ps import (\n",
+    "    create_analysis,\n",
+    "    do_trials_with_em,\n",
+    "    unblind_single_flare,\n",
+    "    TXS_0506_PLUS056_ALERT_TIME,\n",
+    "    TXS_0506_PLUS056_SOURCE,\n",
+    ")\n",
+    "from skyllh.core.config import Config\n",
+    "from skyllh.datasets.i3.PublicData_10y_ps import create_dataset_collection"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "First we need to create a local configuration for the analysis. We will create just the default configuration:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "cfg = Config()"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Now we can get the dataset:"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "dsc = create_dataset_collection(\n",
+    "    cfg=cfg,\n",
+    "    base_path=\"/home/mwolf/projects/publicdata_ps/\")\n",
+    "datasets = dsc[\"IC86_II-VII\", ]"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "We create the ``Anaylsis`` instance for the TXS 0506+056 source."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "100%|██████████| 43/43 [00:04<00:00,  9.25it/s]\n",
+      "100%|██████████| 1/1 [00:23<00:00, 23.03s/it]\n",
+      "100%|██████████| 44/44 [00:00<00:00, 2263.58it/s]\n"
+     ]
+    }
+   ],
+   "source": [
+    "ana = create_analysis(\n",
+    "    cfg=cfg,\n",
+    "    datasets=datasets, \n",
+    "    source=TXS_0506_PLUS056_SOURCE, \n",
+    "    refplflux_gamma=2.0, \n",
+    "    gauss={\"mu\":57000, \"sigma\": 65})"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "100%|██████████| 51/51 [00:06<00:00,  8.04it/s]\n"
+     ]
+    }
+   ],
+   "source": [
+    "(best_ts, best_em_result, best_fitparam_values) = unblind_single_flare(\n",
+    "    ana=ana, \n",
+    "    remove_time=TXS_0506_PLUS056_ALERT_TIME)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "best TS = 15.4046\n",
+      "best em mu = 56972.7\n",
+      "best em sigma = 27.9716\n",
+      "best ns = 7.36603\n",
+      "best gamma = 2.20371\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(f'best TS = {best_ts:g}')\n",
+    "print(f'best em mu = {best_em_result[\"mu\"]:g}')\n",
+    "print(f'best em sigma = {best_em_result[\"sigma\"]:g}')\n",
+    "print(f'best ns = {best_fitparam_values[0]:g}')\n",
+    "print(f'best gamma = {best_fitparam_values[1]:g}')"
+   ]
+  },
+  {
+   "attachments": {},
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Run backgroud trials, i.e. ``mean_n_sig=0``"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "100%|██████████| 100/100 [03:25<00:00,  2.05s/it]\n"
+     ]
+    }
+   ],
+   "source": [
+    "bg_trials = do_trials_with_em(ana=ana, n=100, mean_n_sig=0, ncpu=4)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "(array([ 3.,  2.,  7., 22., 25., 19.,  8.,  9.,  3.,  2.]),\n",
+       " array([ 0.45811669,  2.35982925,  4.26154181,  6.16325437,  8.06496693,\n",
+       "         9.96667949, 11.86839206, 13.77010462, 15.67181718, 17.57352974,\n",
+       "        19.4752423 ]),\n",
+       " <BarContainer object of 10 artists>)"
+      ]
+     },
+     "execution_count": 8,
+     "metadata": {},
+     "output_type": "execute_result"
+    },
+    {
+     "data": {
+      "image/png": "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",
+      "text/plain": [
+       "<Figure size 432x288 with 1 Axes>"
+      ]
+     },
+     "metadata": {
+      "needs_background": "light"
+     },
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "plt.hist(bg_trials[\"ts\"])"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": ".venv",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.6"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

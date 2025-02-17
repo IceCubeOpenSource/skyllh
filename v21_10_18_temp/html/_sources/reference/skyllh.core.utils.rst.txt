@@ -1,0 +1,34 @@
+skyllh.core.utils package
+=========================
+
+.. automodule:: skyllh.core.utils
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Submodules
+----------
+
+skyllh.core.utils.multidimgridpdf module
+----------------------------------------
+
+.. automodule:: skyllh.core.utils.multidimgridpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.utils.ndphotosplinepdf module
+-----------------------------------------
+
+.. automodule:: skyllh.core.utils.ndphotosplinepdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.utils.trials module
+-------------------------------
+
+.. automodule:: skyllh.core.utils.trials
+   :members:
+   :undoc-members:
+   :show-inheritance:

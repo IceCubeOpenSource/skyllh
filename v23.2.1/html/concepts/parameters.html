@@ -1,0 +1,623 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Parameter Definition &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="PDFs" href="pdf.html" />
+    <link rel="prev" title="Flux Definition" href="flux_definition.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Concepts</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="config.html">Configuration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dataset.html">Dataset Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="datafields.html">Loading data fields from data files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="source_definition.html">Source Definition</a></li>
+<li class="toctree-l2"><a class="reference internal" href="flux_definition.html">Flux Definition</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Parameter Definition</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Creating-a-fixed-parameter">Creating a fixed parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Changing-the-value-of-a-fixed-parameter">Changing the value of a fixed parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Creating-a-floating-parameter">Creating a floating parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Converting-fixed-and-floating-parameters">Converting fixed and floating parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Comparing-parameters">Comparing parameters</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Creating-a-linear-grid-from-a-floating-parameter">Creating a linear grid from a floating parameter</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Parameter-Sets">Parameter Sets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Parameter-to-Model-mapping">Parameter to Model mapping</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pdf.html">PDFs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="detsigyield.html">Detector Signal Yield</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently Ask Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/skyllh.html">skyllh package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/unit_tests.html">Unit tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Concepts</a></li>
+      <li class="breadcrumb-item active">Parameter Definition</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/concepts/parameters.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+<section id="Parameter-Definition">
+<h1>Parameter Definition<a class="headerlink" href="#Parameter-Definition" title="Permalink to this heading"></a></h1>
+<p>Parameters are fundamental parts of a likelihood function. Two types of parameters exist: <em>fixed parameters</em> and <em>floating parameters</em>.</p>
+<p>SkyLLH provides the class <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.Parameter" title="skyllh.core.parameters.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> for defining a parameter. The <code class="docutils literal notranslate"><span class="pre">Parameter</span></code> class can represent a fixed parameter or a floating parameter.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parameter</span>
+</pre></div>
+</div>
+</div>
+<section id="Creating-a-fixed-parameter">
+<h2>Creating a fixed parameter<a class="headerlink" href="#Creating-a-fixed-parameter" title="Permalink to this heading"></a></h2>
+<p>A fixed parameter has a name and an initial value. Its <code class="docutils literal notranslate"><span class="pre">isfixed</span></code> property is set to <code class="docutils literal notranslate"><span class="pre">True</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_a</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mf">2.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_a</span><span class="o">.</span><span class="n">isfixed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameter: a = 2.1 [fixed]
+True
+</pre></div></div>
+</div>
+</section>
+<section id="Changing-the-value-of-a-fixed-parameter">
+<h2>Changing the value of a fixed parameter<a class="headerlink" href="#Changing-the-value-of-a-fixed-parameter" title="Permalink to this heading"></a></h2>
+<p>Sometimes it is neccessary to change the value of a fixed parameter. This can be done using the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.Parameter.change_fixed_value" title="skyllh.core.parameters.Parameter.change_fixed_value"><code class="xref py py-meth docutils literal notranslate"><span class="pre">change_fixed_value()</span></code></a> method:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_a</span><span class="o">.</span><span class="n">change_fixed_value</span><span class="p">(</span><span class="mf">3.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameter: a = 3.3 [fixed]
+</pre></div></div>
+</div>
+</section>
+<section id="Creating-a-floating-parameter">
+<h2>Creating a floating parameter<a class="headerlink" href="#Creating-a-floating-parameter" title="Permalink to this heading"></a></h2>
+<p>A floating parameter has a name, an initial value, and a value range from <code class="docutils literal notranslate"><span class="pre">valmin</span></code> to <code class="docutils literal notranslate"><span class="pre">valmax</span></code>. Its <code class="docutils literal notranslate"><span class="pre">isfixed</span></code> property is set to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_b</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mf">6.3</span><span class="p">,</span> <span class="n">valmin</span><span class="o">=</span><span class="mf">4.0</span><span class="p">,</span> <span class="n">valmax</span><span class="o">=</span><span class="mf">7.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_b</span><span class="o">.</span><span class="n">isfixed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameter: b = 6.3 [floating] {
+    initial: 6.3
+    range: (4, 7.3)
+}
+False
+</pre></div></div>
+</div>
+</section>
+<section id="Converting-fixed-and-floating-parameters">
+<h2>Converting fixed and floating parameters<a class="headerlink" href="#Converting-fixed-and-floating-parameters" title="Permalink to this heading"></a></h2>
+<p>Fixed parameters can be made floating parameters and vise-versa. For making a fixed parameter floating one can use the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.Parameter.make_floating" title="skyllh.core.parameters.Parameter.make_floating"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_floating()</span></code></a> method:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Converting a fixed parameter into a floating parameter.</span>
+<span class="n">param_a</span><span class="o">.</span><span class="n">make_floating</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="mf">3.3</span><span class="p">,</span> <span class="n">valmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">valmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameter: a = 3.3 [floating] {
+    initial: 3.3
+    range: (0, 4)
+}
+</pre></div></div>
+</div>
+<p>For converting a floating parameter into a fixed parameter one can use the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.Parameter.make_fixed" title="skyllh.core.parameters.Parameter.make_fixed"><code class="xref py py-meth docutils literal notranslate"><span class="pre">make_fixed()</span></code></a> method:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Converting a floating parameter into a fixed parameter.</span>
+<span class="n">param_b</span><span class="o">.</span><span class="n">make_fixed</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="mf">42.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameter: b = 42.3 [fixed]
+</pre></div></div>
+</div>
+</section>
+<section id="Comparing-parameters">
+<h2>Comparing parameters<a class="headerlink" href="#Comparing-parameters" title="Permalink to this heading"></a></h2>
+<p>Two parameters can be compared to each other. They are equal if they represent the same parameter, i.e. the same name, initial value, and value range if they are floating parameters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_c</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">initial</span><span class="o">=</span><span class="mf">42.3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_c</span> <span class="o">==</span> <span class="n">param_b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_c</span> <span class="ow">is</span> <span class="n">param_b</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_c</span> <span class="o">==</span> <span class="n">param_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+True
+False
+False
+</pre></div></div>
+</div>
+</section>
+<section id="Creating-a-linear-grid-from-a-floating-parameter">
+<h2>Creating a linear grid from a floating parameter<a class="headerlink" href="#Creating-a-linear-grid-from-a-floating-parameter" title="Permalink to this heading"></a></h2>
+<p>Sometimes it useful to create an equal-distanced grid of values from a floating parameter. The <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.Parameter" title="skyllh.core.parameters.Parameter"><code class="xref py py-class docutils literal notranslate"><span class="pre">Parameter</span></code></a> class has the method <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.Parameter.as_linear_grid" title="skyllh.core.parameters.Parameter.as_linear_grid"><code class="xref py py-meth docutils literal notranslate"><span class="pre">as_linear_grid()</span></code></a> to create a <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.ParameterGrid" title="skyllh.core.parameters.ParameterGrid"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterGrid</span></code></a> instance representing a grid of values with equal distances.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_grid_a</span> <span class="o">=</span> <span class="n">param_a</span><span class="o">.</span><span class="n">as_linear_grid</span><span class="p">(</span><span class="n">delta</span><span class="o">=</span><span class="mf">0.1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_grid_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+a = [0.  0.1 0.2 0.3 0.4 0.5 0.6 0.7 0.8 0.9 1.  1.1 1.2 1.3 1.4 1.5 1.6 1.7
+ 1.8 1.9 2.  2.1 2.2 2.3 2.4 2.5 2.6 2.7 2.8 2.9 3.  3.1 3.2 3.3 3.4 3.5
+ 3.6 3.7 3.8 3.9 4. ], decimals = 1
+</pre></div></div>
+</div>
+</section>
+<section id="Parameter-Sets">
+<h2>Parameter Sets<a class="headerlink" href="#Parameter-Sets" title="Permalink to this heading"></a></h2>
+<p>For an analysis a set of parameters are usually required. The set of parameters for the likelihood function might depend on the particlar source in case of a multi-source analysis.</p>
+<p>Each analysis needs to define a global set of parameters. SkyLLH provides the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.ParameterSet" title="skyllh.core.parameters.ParameterSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterSet</span></code></a> class to define a set of parameters. How these parameters are then mapped to the individual sources is defined via the <em>source parameter mapper</em>.</p>
+<p>As example we are creating a set of two Parameters, <span class="math notranslate nohighlight">\(n_{\mathrm{s}}\)</span>, and <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_ns</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;ns&#39;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">valmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">valmax</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">param_gamma</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;gamma&#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">valmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">valmax</span><span class="o">=</span><span class="mf">4.</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_ns</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">param_gamma</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Parameter: ns = 100 [floating] {
+    initial: 100
+    range: (0, 1000)
+}
+Parameter: gamma = 2 [floating] {
+    initial: 2
+    range: (1, 4)
+}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParameterSet</span>
+<span class="n">paramset</span> <span class="o">=</span> <span class="n">ParameterSet</span><span class="p">((</span><span class="n">param_ns</span><span class="p">,</span> <span class="n">param_gamma</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">paramset</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ParameterSet: 2 parameters (2 floating, 0 fixed) {
+    Parameter: ns = 100 [floating] {
+        initial: 100
+        range: (0, 1000)
+    }
+    Parameter: gamma = 2 [floating] {
+        initial: 2
+        range: (1, 4)
+    }
+}
+</pre></div></div>
+</div>
+<span class="target" id="sec-parametertomodelmapping"></span></section>
+<section id="Parameter-to-Model-mapping">
+<h2>Parameter to Model mapping<a class="headerlink" href="#Parameter-to-Model-mapping" title="Permalink to this heading"></a></h2>
+<p>After a global set of parameters is defined, those parameters need to get mapped to individual models, e.g. sources, of the analysis. SkyLLH provides the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.ParameterModelMapper" title="skyllh.core.parameters.ParameterModelMapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterModelMapper</span></code></a> class to provide this functionality.</p>
+<p>As example we consider the following mapping of parameters to models and sources:</p>
+<table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter &gt;</p></th>
+<th class="head"><p>ns</p></th>
+<th class="head"><p>gamma1</p></th>
+<th class="head"><p>gamma2</p></th>
+</tr>
+<tr class="row-even"><th class="head"><p>Model/Source</p></th>
+<th class="head" colspan="3"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-odd"><td><p>detector</p></td>
+<td><p>ns</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-even"><td><p>source1</p></td>
+<td><p>—</p></td>
+<td><p>gamma</p></td>
+<td><p>—</p></td>
+</tr>
+<tr class="row-odd"><td><p>source2</p></td>
+<td><p>—</p></td>
+<td><p>—</p></td>
+<td><p>gamma</p></td>
+</tr>
+</tbody>
+</table>
+<p>SkyLLH provides two main base models: <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.model.DetectorModel" title="skyllh.core.model.DetectorModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">DetectorModel</span></code></a> and <code class="xref py py-class docutils literal notranslate"><span class="pre">SourceModel</span></code>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.model</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectorModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.source_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">SourceModel</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.parameters</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParameterModelMapper</span>
+</pre></div>
+</div>
+</div>
+<p>We define the models and sources to which we want to map parameters:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">detector</span> <span class="o">=</span> <span class="n">DetectorModel</span><span class="p">(</span><span class="s1">&#39;IceCube&#39;</span><span class="p">)</span>
+<span class="n">source1</span> <span class="o">=</span> <span class="n">SourceModel</span><span class="p">(</span><span class="s1">&#39;source1&#39;</span><span class="p">)</span>
+<span class="n">source2</span> <span class="o">=</span> <span class="n">SourceModel</span><span class="p">(</span><span class="s1">&#39;source2&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Now we define the parameters, which we want to map to the models and sources:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">param_ns</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;ns&#39;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">valmin</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">valmax</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">param_gamma1</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;gamma1&#39;</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">,</span> <span class="n">valmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">valmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">param_gamma2</span> <span class="o">=</span> <span class="n">Parameter</span><span class="p">(</span><span class="s1">&#39;gamma2&#39;</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="n">valmin</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">valmax</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>After creating the models and parameters we can create the <code class="docutils literal notranslate"><span class="pre">ParameterModelMapper</span></code> for the set of models.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmm</span> <span class="o">=</span> <span class="n">ParameterModelMapper</span><span class="p">(</span><span class="n">models</span><span class="o">=</span><span class="p">(</span><span class="n">detector</span><span class="p">,</span><span class="n">source1</span><span class="p">,</span><span class="n">source2</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pmm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ParameterModelMapper: 0 global parameters, 3 models (2 sources)
+</pre></div></div>
+</div>
+<p>Finally we can define the parameter mapping of each parameter to the models:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">pmm</span><span class="o">.</span><span class="n">map_param</span><span class="p">(</span><span class="n">param_ns</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="p">(</span><span class="n">detector</span><span class="p">,),</span> <span class="n">model_param_names</span><span class="o">=</span><span class="s1">&#39;ns&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">map_param</span><span class="p">(</span><span class="n">param_gamma1</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="p">(</span><span class="n">source1</span><span class="p">,),</span> <span class="n">model_param_names</span><span class="o">=</span><span class="s1">&#39;gamma&#39;</span><span class="p">)</span>
+    <span class="o">.</span><span class="n">map_param</span><span class="p">(</span><span class="n">param_gamma2</span><span class="p">,</span> <span class="n">models</span><span class="o">=</span><span class="p">(</span><span class="n">source2</span><span class="p">,),</span> <span class="n">model_param_names</span><span class="o">=</span><span class="s1">&#39;gamma&#39;</span><span class="p">)</span>
+<span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pmm</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+ParameterModelMapper: 3 global parameters, 3 models (2 sources)
+    Parameters:
+        ns [floating (0 &lt;= 10 &lt;= 1000)]
+            in models:
+            - IceCube: ns
+
+        gamma1 [floating (1 &lt;= 2.5 &lt;= 4)]
+            in models:
+            - source1: gamma
+
+        gamma2 [floating (1 &lt;= 3.3 &lt;= 4)]
+            in models:
+            - source2: gamma
+
+</pre></div></div>
+</div>
+<p>The <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray" title="skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_src_params_recarray()</span></code></a> method of the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.ParameterModelMapper" title="skyllh.core.parameters.ParameterModelMapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterModelMapper</span></code></a> class can create a numpy record array with the local source parameters of all or selected sources:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmm</span><span class="o">.</span><span class="n">create_src_params_recarray</span><span class="p">(</span><span class="n">gflp_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">]),</span> <span class="n">sources</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+array([(1, 1.1, 2), (2, 2.2, 3)],
+      dtype=[(&#39;:model_idx&#39;, &#39;&lt;i4&#39;), (&#39;gamma&#39;, &#39;&lt;f8&#39;), (&#39;gamma:gpidx&#39;, &#39;&lt;i4&#39;)])
+</pre></div></div>
+</div>
+<p>A dictionary with a model’s local parameters and values can be created via the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.ParameterModelMapper.create_model_params_dict" title="skyllh.core.parameters.ParameterModelMapper.create_model_params_dict"><code class="xref py py-meth docutils literal notranslate"><span class="pre">create_model_params_dict()</span></code></a> method. It takes a model argument, which can either be a <code class="docutils literal notranslate"><span class="pre">str</span></code> with the model’s name, the actual <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.model.Model" title="skyllh.core.model.Model"><code class="xref py py-class docutils literal notranslate"><span class="pre">Model</span></code></a> instance, or an <code class="docutils literal notranslate"><span class="pre">int</span></code> instance specifying the model index within the <a class="reference internal" href="../reference/skyllh.core.html#skyllh.core.parameters.ParameterModelMapper" title="skyllh.core.parameters.ParameterModelMapper"><code class="xref py py-class docutils literal notranslate"><span class="pre">ParameterModelMapper</span></code></a>:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmm</span><span class="o">.</span><span class="n">create_model_params_dict</span><span class="p">(</span><span class="n">gflp_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">]),</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;IceCube&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;ns&#39;: 11.0}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmm</span><span class="o">.</span><span class="n">create_model_params_dict</span><span class="p">(</span><span class="n">gflp_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">]),</span> <span class="n">model</span><span class="o">=</span><span class="n">source1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;gamma&#39;: 1.1}
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pmm</span><span class="o">.</span><span class="n">create_model_params_dict</span><span class="p">(</span><span class="n">gflp_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">11</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">]),</span> <span class="n">model</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+{&#39;gamma&#39;: 2.2}
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="flux_definition.html" class="btn btn-neutral float-left" title="Flux Definition" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pdf.html" class="btn btn-neutral float-right" title="PDFs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: v23.2.1
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../master/html/index.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="../../../dm/html/index.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="../../../fix230/html/index.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="../../../v20_01_09/html/index.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="../../../v22_04_28/html/index.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="../../../v23.0.0/html/index.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="parameters.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="../../../v24.1.0/html/index.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

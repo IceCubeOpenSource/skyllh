@@ -1,0 +1,1132 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Working with the public 10-year IceCube point-source data &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Time dependent analyses with the public 10-year IceCube point-source data" href="publicdata_ps_timedep.html" />
+    <link rel="prev" title="Getting started" href="getting_started.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Working with the public 10-year IceCube point-source data</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Creating-a-configuration">Creating a configuration</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Getting-the-datasets">Getting the datasets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Getting-the-analysis">Getting the analysis</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Initializing-a-trial">Initializing a trial</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Maximizing-the-log-likelihood-ratio-function">Maximizing the log-likelihood ratio function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Calculating-the-test-statistic">Calculating the test-statistic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Unblinding-the-data">Unblinding the data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Calculating-the-corresponding-flux-normalization">Calculating the corresponding flux normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Evaluating-the-log-likelihood-ratio-function">Evaluating the log-likelihood ratio function</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Calculating-the-significance-(local-p-value)">Calculating the significance (local p-value)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="publicdata_ps_timedep.html">Time dependent analyses with the public 10-year IceCube point-source data</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently Ask Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/skyllh.html">skyllh package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/unit_tests.html">Unit tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">Working with the public 10-year IceCube point-source data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/publicdata_ps.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Working-with-the-public-10-year-IceCube-point-source-data">
+<h1>Working with the public 10-year IceCube point-source data<a class="headerlink" href="#Working-with-the-public-10-year-IceCube-point-source-data" title="Permalink to this heading"></a></h1>
+<p>This tutorial shows how to use the IceCube public 10-year point-source data with SkyLLH.</p>
+<p><strong>Disclaimer</strong></p>
+<blockquote>
+<div><p>The released 10-year IceCube point-source data can reproduce the published results only within
+a certain amount of uncertainty due to the limited instrument response function binning
+provided in the data release. The IceCube collaboration is able to reproduce the published
+results using detailed direct simulation data, as done for the publication.</p>
+</div></blockquote>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">pyplot</span> <span class="k">as</span> <span class="n">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">scipy.stats</span>
+</pre></div>
+</div>
+</div>
+<section id="Creating-a-configuration">
+<h2>Creating a configuration<a class="headerlink" href="#Creating-a-configuration" title="Permalink to this heading"></a></h2>
+<p>First we have to create a configuration instance.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">Config</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">Config</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Getting-the-datasets">
+<h2>Getting the datasets<a class="headerlink" href="#Getting-the-datasets" title="Permalink to this heading"></a></h2>
+<p>Now we import the dataset definition of the public 10-year point-source data set:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.datasets.i3.PublicData_10y_ps</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_dataset_collection</span>
+</pre></div>
+</div>
+</div>
+<p>The collection of datasets can be created using the <code class="docutils literal notranslate"><span class="pre">create_dataset_collection</span></code> function. This function requires the base path to the data repository. It’s the path where the public point-source data is stored. The public point-source data can be downloaded from the <a class="reference external" href="http://icecube.wisc.edu/data-releases/20210126_PS-IC40-IC86_VII.zip">IceCube website</a>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsc</span> <span class="o">=</span> <span class="n">create_dataset_collection</span><span class="p">(</span>
+    <span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">,</span>
+    <span class="n">base_path</span><span class="o">=</span><span class="s1">&#39;/home/mwolf/projects/publicdata_ps/&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">dataset_names</span></code> property provides a list of all the data sets defined in the data set collection of the public point-source data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dsc</span><span class="o">.</span><span class="n">dataset_names</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[&#39;IC40&#39;,
+ &#39;IC59&#39;,
+ &#39;IC79&#39;,
+ &#39;IC86_I&#39;,
+ &#39;IC86_II&#39;,
+ &#39;IC86_II-VII&#39;,
+ &#39;IC86_III&#39;,
+ &#39;IC86_IV&#39;,
+ &#39;IC86_V&#39;,
+ &#39;IC86_VI&#39;,
+ &#39;IC86_VII&#39;]
+</pre></div></div>
+</div>
+<p>The individual data sets <code class="docutils literal notranslate"><span class="pre">IC86_II</span></code>, <code class="docutils literal notranslate"><span class="pre">IC86_III</span></code>, <code class="docutils literal notranslate"><span class="pre">IC86_IV</span></code>, <code class="docutils literal notranslate"><span class="pre">IC86_V</span></code>, <code class="docutils literal notranslate"><span class="pre">IC86_VI</span></code>, and <code class="docutils literal notranslate"><span class="pre">IC86_VII</span></code> are also available as a single combined data set <code class="docutils literal notranslate"><span class="pre">IC86_II-VII</span></code>, because these data sets share the same detector simulation and event selection. Hence, we can get a list of data sets via the access operator <code class="docutils literal notranslate"><span class="pre">[dataset1,</span> <span class="pre">dataset2,</span> <span class="pre">...]</span></code> of the <code class="docutils literal notranslate"><span class="pre">dsc</span></code> instance:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datasets</span> <span class="o">=</span> <span class="n">dsc</span><span class="p">[</span><span class="s1">&#39;IC40&#39;</span><span class="p">,</span> <span class="s1">&#39;IC59&#39;</span><span class="p">,</span> <span class="s1">&#39;IC79&#39;</span><span class="p">,</span> <span class="s1">&#39;IC86_I&#39;</span><span class="p">,</span> <span class="s1">&#39;IC86_II-VII&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Getting-the-analysis">
+<h2>Getting the analysis<a class="headerlink" href="#Getting-the-analysis" title="Permalink to this heading"></a></h2>
+<p>The analysis used for the published PRL results is referred in SkyLLH as “<em>traditional point-source analysis</em>” and is pre-defined:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.analyses.i3.publicdata_ps.time_integrated_ps</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_analysis</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">create_analysis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on function create_analysis in module skyllh.analyses.i3.publicdata_ps.time_integrated_ps:
+
+create_analysis(cfg, datasets, source, refplflux_Phi0=1, refplflux_E0=1000.0, refplflux_gamma=2.0, ns_seed=100.0, ns_min=0.0, ns_max=1000.0, gamma_seed=3.0, gamma_min=1.0, gamma_max=5.0, kde_smoothing=False, minimizer_impl=&#39;LBFGS&#39;, cut_sindec=None, spl_smooth=None, cap_ratio=False, compress_data=False, keep_data_fields=None, evt_sel_delta_angle_deg=10, construct_sig_generator=True, tl=None, ppbar=None, logger_name=None)
+    Creates the Analysis instance for this particular analysis.
+
+    Parameters
+    ----------
+    cfg : instance of Config
+        The instance of Config holding the local configuration.
+    datasets : list of Dataset instances
+        The list of Dataset instances, which should be used in the
+        analysis.
+    source : PointLikeSource instance
+        The PointLikeSource instance defining the point source position.
+    refplflux_Phi0 : float
+        The flux normalization to use for the reference power law flux model.
+    refplflux_E0 : float
+        The reference energy to use for the reference power law flux model.
+    refplflux_gamma : float
+        The spectral index to use for the reference power law flux model.
+    ns_seed : float
+        Value to seed the minimizer with for the ns fit.
+    ns_min : float
+        Lower bound for ns fit.
+    ns_max : float
+        Upper bound for ns fit.
+    gamma_seed : float | None
+        Value to seed the minimizer with for the gamma fit. If set to None,
+        the refplflux_gamma value will be set as gamma_seed.
+    gamma_min : float
+        Lower bound for gamma fit.
+    gamma_max : float
+        Upper bound for gamma fit.
+    kde_smoothing : bool
+        Apply a KDE-based smoothing to the data-driven background pdf.
+        Default: False.
+    minimizer_impl : str
+        Minimizer implementation to be used. Supported options are ``&#34;LBFGS&#34;``
+        (L-BFG-S minimizer used from the :mod:`scipy.optimize` module), or
+        ``&#34;minuit&#34;`` (Minuit minimizer used by the :mod:`iminuit` module).
+        Default: &#34;LBFGS&#34;.
+    cut_sindec : list of float | None
+        sin(dec) values at which the energy cut in the southern sky should
+        start. If None, np.sin(np.radians([-2, 0, -3, 0, 0])) is used.
+    spl_smooth : list of float
+        Smoothing parameters for the 1D spline for the energy cut. If None,
+        [0., 0.005, 0.05, 0.2, 0.3] is used.
+    cap_ratio : bool
+        If set to True, the energy PDF ratio will be capped to a finite value
+        where no background energy PDF information is available. This will
+        ensure that an energy PDF ratio is available for high energies where
+        no background is available from the experimental data.
+        If kde_smoothing is set to True, cap_ratio should be set to False!
+        Default is False.
+    compress_data : bool
+        Flag if the data should get converted from float64 into float32.
+    keep_data_fields : list of str | None
+        List of additional data field names that should get kept when loading
+        the data.
+    evt_sel_delta_angle_deg : float
+        The delta angle in degrees for the event selection optimization methods.
+    construct_sig_generator : bool
+        Flag if the signal generator should be constructed (``True``) or not
+        (``False``).
+    tl : TimeLord instance | None
+        The TimeLord instance to use to time the creation of the analysis.
+    ppbar : ProgressBar instance | None
+        The instance of ProgressBar for the optional parent progress bar.
+    logger_name : str | None
+        The name of the logger to be used. If set to ``None``, ``__name__`` will
+        be used.
+
+    Returns
+    -------
+    ana : instance of SingleSourceMultiDatasetLLHRatioAnalysis
+        The Analysis instance for this analysis.
+
+</pre></div></div>
+</div>
+<p>As source we use TXS 0506+056.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.source_model</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointLikeSource</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">PointLikeSource</span><span class="p">(</span><span class="n">ra</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">77.35</span><span class="p">),</span> <span class="n">dec</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">deg2rad</span><span class="p">(</span><span class="mf">5.7</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ana</span> <span class="o">=</span> <span class="n">create_analysis</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">cfg</span><span class="p">,</span> <span class="n">datasets</span><span class="o">=</span><span class="n">datasets</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+  0%|          | 0/5 [00:00&lt;?, ?it/s]100%|██████████| 43/43 [00:04&lt;00:00,  9.11it/s]
+100%|██████████| 43/43 [00:04&lt;00:00,  9.90it/s]
+100%|██████████| 43/43 [00:04&lt;00:00,  9.70it/s]
+100%|██████████| 43/43 [00:04&lt;00:00,  9.85it/s]
+100%|██████████| 43/43 [00:04&lt;00:00,  8.89it/s]
+100%|██████████| 5/5 [01:17&lt;00:00, 15.48s/it]
+100%|██████████| 220/220 [00:00&lt;00:00, 2409.32it/s]
+</pre></div></div>
+</div>
+</section>
+<section id="Initializing-a-trial">
+<h2>Initializing a trial<a class="headerlink" href="#Initializing-a-trial" title="Permalink to this heading"></a></h2>
+<p>After the <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> instance was created trials can be run. To do so the analysis needs to be initialized with some trial data. For instance we could initialize the analysis with the experimental data to “unblind” the analysis afterwards. Technically the <code class="docutils literal notranslate"><span class="pre">TrialDataManager</span></code> of each log-likelihood ratio function, i.e. dataset, is initialized with data.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> class provides the method <code class="docutils literal notranslate"><span class="pre">initialize_trial</span></code> to initialize a trial with data. It takes a list of <code class="docutils literal notranslate"><span class="pre">DataFieldRecordArray</span></code> instances holding the events. If we want to initialize a trial with the experimental data, we can get that list from the <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> instance itself:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">events_list</span> <span class="o">=</span> <span class="p">[</span> <span class="n">data</span><span class="o">.</span><span class="n">exp</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">ana</span><span class="o">.</span><span class="n">data_list</span> <span class="p">]</span>
+<span class="n">ana</span><span class="o">.</span><span class="n">initialize_trial</span><span class="p">(</span><span class="n">events_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Maximizing-the-log-likelihood-ratio-function">
+<h2>Maximizing the log-likelihood ratio function<a class="headerlink" href="#Maximizing-the-log-likelihood-ratio-function" title="Permalink to this heading"></a></h2>
+<p>After initializing a trial, we can maximize the LLH ratio function using the <code class="docutils literal notranslate"><span class="pre">maximize_llhratio</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> class. This method requires a <code class="docutils literal notranslate"><span class="pre">RandomStateService</span></code> instance in case the minimizer does not succeed and a new set of initial values for the fit parameters need to get generated. The method returns a 4-element tuple. The first element is the set of fit parameters used in the maximization. The second element is the value of the LLH ration function at its maximum. The third
+element is the array of the fit parameter values at the maximum, and the forth element is the status dictionary of the minimizer.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomStateService</span>
+<span class="n">rss</span> <span class="o">=</span> <span class="n">RandomStateService</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">log_lambda_max</span><span class="p">,</span> <span class="n">fitparam_values</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">llhratio</span><span class="o">.</span><span class="n">maximize</span><span class="p">(</span><span class="n">rss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;log_lambda_max = </span><span class="si">{</span><span class="n">log_lambda_max</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;fitparam_values = </span><span class="si">{</span><span class="n">fitparam_values</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;status = </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+log_lambda_max = 6.5725295599619535
+fitparam_values = [14.58017285  2.16856498]
+status = {&#39;grad&#39;: array([ 2.22650525e-06, -7.55260353e-05]), &#39;task&#39;: &#39;CONVERGENCE: REL_REDUCTION_OF_F_&lt;=_FACTR*EPSMCH&#39;, &#39;funcalls&#39;: 27, &#39;nit&#39;: 22, &#39;warnflag&#39;: 0, &#39;skyllh_minimizer_n_reps&#39;: 0, &#39;n_llhratio_func_calls&#39;: 27}
+</pre></div></div>
+</div>
+</section>
+<section id="Calculating-the-test-statistic">
+<h2>Calculating the test-statistic<a class="headerlink" href="#Calculating-the-test-statistic" title="Permalink to this heading"></a></h2>
+<p>Using the maximum of the LLH ratio function and the fit parameter values at the maximum we can calculate the test-statistic using the <code class="docutils literal notranslate"><span class="pre">calculate_test_statistic</span></code> method of the <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> class:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TS</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">calculate_test_statistic</span><span class="p">(</span><span class="n">log_lambda_max</span><span class="p">,</span> <span class="n">fitparam_values</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;TS = </span><span class="si">{</span><span class="n">TS</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TS = 13.145
+</pre></div></div>
+</div>
+</section>
+<section id="Unblinding-the-data">
+<h2>Unblinding the data<a class="headerlink" href="#Unblinding-the-data" title="Permalink to this heading"></a></h2>
+<p>After creating the analysis instance we can unblind the data for the choosen source. Hence, we initialize the analysis with a trial of the experimental data, maximize the log-likelihood ratio function for all given experimental data events, and calculate the test-statistic value. The analysis instance has the method <code class="docutils literal notranslate"><span class="pre">unblind</span></code> that can be used for that. This method requires a <code class="docutils literal notranslate"><span class="pre">RandomStateService</span></code> instance in case the minimizer does not succeed and a new set of initial values for the fit
+parameters need to get generated.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomStateService</span>
+<span class="n">rss</span> <span class="o">=</span> <span class="n">RandomStateService</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[19]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ana</span><span class="o">.</span><span class="n">unblind</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on method unblind in module skyllh.core.analysis:
+
+unblind(rss, tl=None) method of skyllh.core.analysis.SingleSourceMultiDatasetLLHRatioAnalysis instance
+    Evaluates the unscrambled data, i.e. unblinds the data.
+
+    Parameters
+    ----------
+    rss : instance of RandomStateService
+        The instance of RandomStateService that should be used draw random
+        numbers from.
+    tl : instance of TimeLord | None
+        The optional instance of TimeLord that should be used to time the
+        maximization of the LLH ratio function.
+
+    Returns
+    -------
+    TS : float
+        The test-statistic value.
+    global_params_dict : dict
+        The dictionary holding the global parameter names and their
+        best fit values. It includes fixed and floating parameters.
+    status : dict
+        The status dictionary with information about the performed
+        minimization process of the negative of the log-likelihood ratio
+        function.
+
+</pre></div></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">unblind</span></code> method returns the test-statistic value, the best-fit fit parameter values, and a status dictionary of the minimizer.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[20]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">unblind</span><span class="p">(</span><span class="n">rss</span><span class="o">=</span><span class="n">rss</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[21]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;TS = </span><span class="si">{</span><span class="n">ts</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;ns = </span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;ns&quot;</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;gamma = </span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;gamma&quot;</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TS = 13.145
+ns = 14.58
+gamma = 2.17
+</pre></div></div>
+</div>
+</section>
+<section id="Calculating-the-corresponding-flux-normalization">
+<h2>Calculating the corresponding flux normalization<a class="headerlink" href="#Calculating-the-corresponding-flux-normalization" title="Permalink to this heading"></a></h2>
+<p>By default the analysis is created with a flux normalization of 1 GeV<span class="math notranslate nohighlight">\(^{-1}\)</span>s<span class="math notranslate nohighlight">\(^{-1}\)</span>cm<span class="math notranslate nohighlight">\(^{-2}\)</span>sr<span class="math notranslate nohighlight">\(^{-1}\)</span> (see <code class="docutils literal notranslate"><span class="pre">refplflux_Phi0</span></code> argument of the <code class="docutils literal notranslate"><span class="pre">create_analysis</span></code> method). The analysis instance has the method <code class="docutils literal notranslate"><span class="pre">calculate_fluxmodel_scaling_factor</span></code> that calculates the scaling factor the reference flux normalization has to be multiplied with to represent a given analysis result, i.e. <span class="math notranslate nohighlight">\(n_{\text{s}}\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span> value. This function takes the
+detected mean <span class="math notranslate nohighlight">\(n_{\text{s}}\)</span> value as first argument and the list of source parameter values as second argument:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[22]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scaling_factor</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">calculate_fluxmodel_scaling_factor</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;ns&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s1">&#39;ns&#39;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s1">&#39;gamma&#39;</span><span class="p">]])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Flux scaling factor = </span><span class="si">{</span><span class="n">scaling_factor</span><span class="si">:</span><span class="s1">.3e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Flux scaling factor = 1.422e-15
+</pre></div></div>
+</div>
+<p>Hence, our result corresponds to a power-law flux of:</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[23]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">scaling_factor</span><span class="si">:</span><span class="s1">.3e</span><span class="si">}</span><span class="s1">&#39;&#39; (E/1000 GeV)^{-&#39;</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;gamma&quot;</span><span class="p">]</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="o">+</span><span class="s1">&#39;} 1/(GeV s cm^2 sr)&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+1.422e-15 (E/1000 GeV)^{-2.17} 1/(GeV s cm^2 sr)
+</pre></div></div>
+</div>
+</section>
+<section id="Evaluating-the-log-likelihood-ratio-function">
+<h2>Evaluating the log-likelihood ratio function<a class="headerlink" href="#Evaluating-the-log-likelihood-ratio-function" title="Permalink to this heading"></a></h2>
+<p>Sometimes it is useful to be able to evaluate the log-likelihood ratio function, e.g. for creating a likelihood contour plot. Because SkyLLH’s structure is based on the mathematical structure of the likelihood function, the <code class="docutils literal notranslate"><span class="pre">Analysis</span></code> instance has the property <code class="docutils literal notranslate"><span class="pre">llhratio</span></code> which is the class instance of the used log-likelihood ratio function. This instance has the method <code class="docutils literal notranslate"><span class="pre">evaluate</span></code>. The method takes an array of the fit parameter values as argument at which the LLH ratio function will be
+evaluated. It returns the value of the LLH ratio function at the given point and its gradients w.r.t. the fit parameters.</p>
+<p>In our case this is the number of signal events, <span class="math notranslate nohighlight">\(n_{\mathrm{s}}\)</span> and the spectral index <span class="math notranslate nohighlight">\(\gamma\)</span>. If we evaluate the LLH ratio function at the maximum, the gradients should be close to zero.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[24]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">ana</span><span class="o">.</span><span class="n">llhratio</span><span class="o">.</span><span class="n">evaluate</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on method evaluate in module skyllh.core.llhratio:
+
+evaluate(fitparam_values, src_params_recarray=None, tl=None) method of skyllh.core.llhratio.MultiDatasetTCLLHRatio instance
+    Evaluates the composite log-likelihood-ratio function and returns its
+    value and global fit parameter gradients.
+
+    Parameters
+    ----------
+    fitparam_values : instance of numpy ndarray
+        The (N_fitparams,)-shaped numpy 1D ndarray holding the current
+        values of the global fit parameters.
+    src_params_recarray : instance of numpy record ndarray | None
+        The numpy record ndarray of length N_sources holding the parameter
+        names and values of all sources.
+        See the documentation of the
+        :meth:`skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray`
+        method for more information about this array.
+        It case it is ``None``, it will be created automatically from the
+        ``fitparam_values`` argument using the
+        :class:`~skyllh.core.parameters.ParameterModelMapper` instance.
+    tl : instance of TimeLord | None
+        The optional instance of TimeLord that should be used for timing
+        measurements.
+
+    Returns
+    -------
+    log_lambda : float
+        The calculated log-lambda value of the composite
+        log-likelihood-ratio function.
+    grads : instance of numpy ndarray
+        The (N_fitparams,)-shaped 1D ndarray holding the gradient value of
+        the composite log-likelihood-ratio function for each global fit
+        parameter.
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[25]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">llhratio_value</span><span class="p">,</span> <span class="p">(</span><span class="n">grad_ns</span><span class="p">,</span> <span class="n">grad_gamma</span><span class="p">))</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">llhratio</span><span class="o">.</span><span class="n">evaluate</span><span class="p">([</span><span class="mf">14.58</span><span class="p">,</span> <span class="mf">2.17</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;llhratio_value = </span><span class="si">{</span><span class="n">llhratio_value</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;grad_ns = </span><span class="si">{</span><span class="n">grad_ns</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;grad_gamma = </span><span class="si">{</span><span class="n">grad_gamma</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+llhratio_value = 6.573
+grad_ns = 0.001
+grad_gamma = -0.027
+</pre></div></div>
+</div>
+<p>Using the <code class="docutils literal notranslate"><span class="pre">evaluate</span></code> method of the <code class="docutils literal notranslate"><span class="pre">LLHRatio</span></code> class we can scan the log-likelihood ratio space and create a contour plot showing the best fit and the 68%, 90%, and 95% quantile assuming Wilks-theorem.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[26]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">ns_min</span><span class="p">,</span> <span class="n">ns_max</span><span class="p">,</span> <span class="n">ns_step</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="p">(</span><span class="n">gamma_min</span><span class="p">,</span> <span class="n">gamma_max</span><span class="p">,</span> <span class="n">gamma_step</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+<span class="n">ns_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">ns_min</span><span class="p">,</span> <span class="n">ns_max</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">ns_max</span><span class="o">-</span><span class="n">ns_min</span><span class="p">)</span><span class="o">/</span><span class="n">ns_step</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">ns_vals</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">ns_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">ns_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">gamma_edges</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">gamma_min</span><span class="p">,</span> <span class="n">gamma_max</span><span class="p">,</span> <span class="nb">int</span><span class="p">((</span><span class="n">gamma_max</span><span class="o">-</span><span class="n">gamma_min</span><span class="p">)</span><span class="o">/</span><span class="n">gamma_step</span><span class="o">+</span><span class="mi">1</span><span class="p">))</span>
+<span class="n">gamma_vals</span> <span class="o">=</span> <span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">gamma_edges</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="o">+</span> <span class="n">gamma_edges</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="n">delta_ts</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">ns_vals</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">gamma_vals</span><span class="p">)),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">ns_i</span><span class="p">,</span> <span class="n">ns</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">ns_vals</span><span class="p">):</span>
+    <span class="k">for</span> <span class="p">(</span><span class="n">gamma_i</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">gamma_vals</span><span class="p">):</span>
+
+        <span class="n">delta_ts</span><span class="p">[</span><span class="n">ns_i</span><span class="p">,</span> <span class="n">gamma_i</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">ana</span><span class="o">.</span><span class="n">calculate_test_statistic</span><span class="p">(</span><span class="n">llhratio_value</span><span class="p">,</span> <span class="p">[</span><span class="mf">14.58</span><span class="p">,</span> <span class="mf">2.17</span><span class="p">])</span> <span class="o">-</span>
+            <span class="n">ana</span><span class="o">.</span><span class="n">calculate_test_statistic</span><span class="p">(</span><span class="n">ana</span><span class="o">.</span><span class="n">llhratio</span><span class="o">.</span><span class="n">evaluate</span><span class="p">([</span><span class="n">ns</span><span class="p">,</span> <span class="n">gamma</span><span class="p">])[</span><span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="n">ns</span><span class="p">,</span> <span class="n">gamma</span><span class="p">])</span>
+        <span class="p">)</span>
+
+<span class="c1"># Determine the best fit ns and gamma values from the scan.</span>
+<span class="n">index_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">delta_ts</span><span class="p">)</span>
+<span class="n">ns_i_max</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">index_max</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">gamma_vals</span><span class="p">))</span>
+<span class="n">gamma_i_max</span> <span class="o">=</span> <span class="n">index_max</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="n">gamma_vals</span><span class="p">)</span>
+<span class="n">ns_best</span> <span class="o">=</span> <span class="n">ns_vals</span><span class="p">[</span><span class="n">ns_i_max</span><span class="p">]</span>
+<span class="n">gamma_best</span> <span class="o">=</span> <span class="n">gamma_vals</span><span class="p">[</span><span class="n">gamma_i_max</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Determine the delta lambda value for the 95% quantile assuming a chi-sqaure</span>
+<span class="c1"># distribution with 2 degrees of freedom (i.e. assuming Wilks theorem).</span>
+<span class="n">chi2_68_quantile</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.68</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">chi2_90_quantile</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.90</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">chi2_95_quantile</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">chi2</span><span class="o">.</span><span class="n">ppf</span><span class="p">(</span><span class="mf">0.95</span><span class="p">,</span> <span class="n">df</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogNorm</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">6</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">pcolormesh</span><span class="p">(</span><span class="n">gamma_edges</span><span class="p">,</span> <span class="n">ns_edges</span><span class="p">,</span> <span class="n">delta_ts</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;nipy_spectral&#39;</span><span class="p">)</span>
+<span class="n">cbar</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+<span class="n">cbar</span><span class="o">.</span><span class="n">set_label</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\Delta$TS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">gamma_vals</span><span class="p">,</span> <span class="n">ns_vals</span><span class="p">,</span> <span class="n">delta_ts</span><span class="p">,</span> <span class="p">[</span><span class="n">chi2_68_quantile</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;#FFFFFF&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">gamma_vals</span><span class="p">,</span> <span class="n">ns_vals</span><span class="p">,</span> <span class="n">delta_ts</span><span class="p">,</span> <span class="p">[</span><span class="n">chi2_90_quantile</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;#AAAAAA&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">gamma_vals</span><span class="p">,</span> <span class="n">ns_vals</span><span class="p">,</span> <span class="n">delta_ts</span><span class="p">,</span> <span class="p">[</span><span class="n">chi2_95_quantile</span><span class="p">],</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;#444444&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">gamma_best</span><span class="p">,</span> <span class="n">ns_best</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">ms</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$\gamma$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;$n_{\mathrm</span><span class="si">{s}</span><span class="s1">}$&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylim</span><span class="p">(</span><span class="n">ns_min</span><span class="p">,</span> <span class="n">ns_max</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlim</span><span class="p">(</span><span class="n">gamma_min</span><span class="p">,</span> <span class="n">gamma_max</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(1.5, 4.0)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_publicdata_ps_54_1.png" src="../_images/tutorials_publicdata_ps_54_1.png" />
+</div>
+</div>
+</section>
+<section id="Calculating-the-significance-(local-p-value)">
+<h2>Calculating the significance (local p-value)<a class="headerlink" href="#Calculating-the-significance-(local-p-value)" title="Permalink to this heading"></a></h2>
+<p>The significance of the source, i.e. the local p-value, can be calculated by generating the test-statistic distribution of background-only data trials, i.e. for zero injected signal events. SkyLLH provides the helper function <code class="docutils literal notranslate"><span class="pre">create_trial_data_file</span></code> to do that:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[27]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.utils.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_trial_data_file</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[28]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">create_trial_data_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on function create_trial_data_file in module skyllh.core.utils.analysis:
+
+create_trial_data_file(ana, rss, n_trials, mean_n_sig=0, mean_n_sig_null=0, mean_n_bkg_list=None, bkg_kwargs=None, sig_kwargs=None, pathfilename=None, ncpu=None, ppbar=None, tl=None)
+    Creates and fills a trial data file with `n_trials` generated trials for
+    each mean number of injected signal events from `ns_min` up to `ns_max` for
+    a given analysis.
+
+    Parameters
+    ----------
+    ana : instance of Analysis
+        The Analysis instance to use for the trial generation.
+    rss : instance of RandomStateService
+        The RandomStateService instance to use for generating random
+        numbers.
+    n_trials : int
+        The number of trials to perform for each hypothesis test.
+    mean_n_sig : ndarray of float | float | 2- or 3-element sequence of float
+        The array of mean number of injected signal events (MNOISEs) for which
+        to generate trials. If this argument is not a ndarray, an array of
+        MNOISEs is generated based on this argument.
+        If a single float is given, only this given MNOISEs are injected.
+        If a 2-element sequence of floats is given, it specifies the range of
+        MNOISEs with a step size of one.
+        If a 3-element sequence of floats is given, it specifies the range plus
+        the step size of the MNOISEs.
+    mean_n_sig_null : ndarray of float | float | 2- or 3-element sequence of float
+        The array of the fixed mean number of signal events (FMNOSEs) for the
+        null-hypothesis for which to generate trials. If this argument is not a
+        ndarray, an array of FMNOSEs is generated based on this argument.
+        If a single float is given, only this given FMNOSEs are used.
+        If a 2-element sequence of floats is given, it specifies the range of
+        FMNOSEs with a step size of one.
+        If a 3-element sequence of floats is given, it specifies the range plus
+        the step size of the FMNOSEs.
+    mean_n_bkg_list : list of float | None
+        The mean number of background events that should be generated for
+        each dataset. This parameter is passed to the ``do_trials`` method of
+        the ``Analysis`` class. If set to None (the default), the background
+        generation method needs to obtain this number itself.
+    bkg_kwargs : dict | None
+        Additional keyword arguments for the `generate_events` method of the
+        background generation method class. An usual keyword argument is
+        `poisson`.
+    sig_kwargs : dict | None
+        Additional keyword arguments for the `generate_signal_events` method
+        of the `SignalGenerator` class. An usual keyword argument is
+        `poisson`.
+    pathfilename : string | None
+        Trial data file path including the filename.
+        If set to None generated trials won&#39;t be saved.
+    ncpu : int | None
+        The number of CPUs to use.
+    ppbar : instance of ProgressBar | None
+        The optional instance of the parent progress bar.
+    tl: instance of TimeLord | None
+        The instance of TimeLord that should be used to measure individual
+        tasks.
+
+    Returns
+    -------
+    seed : int
+        The seed used to generate the trials.
+    mean_n_sig : 1d ndarray
+        The array holding the mean number of signal events used to generate the
+        trials.
+    mean_n_sig_null : 1d ndarray
+        The array holding the fixed mean number of signal events for the
+        null-hypothesis used to generate the trials.
+    trial_data : structured numpy ndarray
+        The generated trial data.
+
+</pre></div></div>
+</div>
+<p>At first we will generate 10k trials and look at the test-statistic distribution. We will time the trial generation using the <code class="docutils literal notranslate"><span class="pre">TimeLord</span></code> class.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[29]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.timing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeLord</span>
+<span class="n">tl</span> <span class="o">=</span> <span class="n">TimeLord</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[31]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rss</span> <span class="o">=</span> <span class="n">RandomStateService</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">(</span><span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">trials</span><span class="p">)</span> <span class="o">=</span> <span class="n">create_trial_data_file</span><span class="p">(</span>
+    <span class="n">ana</span><span class="o">=</span><span class="n">ana</span><span class="p">,</span>
+    <span class="n">rss</span><span class="o">=</span><span class="n">rss</span><span class="p">,</span>
+    <span class="n">n_trials</span><span class="o">=</span><span class="mf">1e4</span><span class="p">,</span>
+    <span class="n">mean_n_sig</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">pathfilename</span><span class="o">=</span><span class="s1">&#39;/home/mwolf/projects/publicdata_ps/txs_bkg_trails.npy&#39;</span><span class="p">,</span>
+    <span class="n">ncpu</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">tl</span><span class="o">=</span><span class="n">tl</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">tl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+100%|██████████| 10001/10001 [08:52&lt;00:00, 18.78it/s]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TimeLord: Executed tasks:
+[Generating background events for data set 0.]   0.002 sec/iter (10000)
+[Generating background events for data set 1.]   0.003 sec/iter (10000)
+[Generating background events for data set 2.]   0.003 sec/iter (10000)
+[Generating background events for data set 3.]   0.006 sec/iter (10000)
+[Generating background events for data set 4.]   0.019 sec/iter (10000)
+[Generating pseudo data.                     ]   0.027 sec/iter (10000)
+[Initializing trial.                         ]   0.030 sec/iter (10000)
+[Get sig probability densities and grads.    ] 4.4e-06 sec/iter (1950580)
+[Get bkg probability densities and grads.    ] 3.3e-06 sec/iter (1950580)
+[Calculate PDF ratios.                       ] 9.9e-05 sec/iter (1950580)
+[Calc pdfratio value Ri                      ] 5.4e-04 sec/iter (975290)
+[Calc logLamds and grads                     ] 2.7e-04 sec/iter (975290)
+[Evaluate llh-ratio function.                ]   0.003 sec/iter (195058)
+[Minimize -llhratio function.                ]   0.058 sec/iter (10000)
+[Maximizing LLH ratio function.              ]   0.058 sec/iter (10000)
+[Calculating test statistic.                 ] 5.1e-05 sec/iter (10000)
+</pre></div></div>
+</div>
+<p>After generating the background trials, we can histogram the test-statistic values and plot the TS distribution.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">be</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">])</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">be</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">be</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">h</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps-mid&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;background&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;TS(TXS 0506+056)=</span><span class="si">{</span><span class="n">ts</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;TS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;#trials per bin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_publicdata_ps_63_0.png" src="../_images/tutorials_publicdata_ps_63_0.png" />
+</div>
+</div>
+<p>We can see that the TS value of the unblinded data for TXS is rather large and 10k trials are not enough to calculate a reliable estimate for the p-value. Hence, we will generate a few more trials. SkyLLH provides also a helper function to extend the trial data file we just created. It is called <code class="docutils literal notranslate"><span class="pre">extend_trial_data_file</span></code>:</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[32]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.utils.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">extend_trial_data_file</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[33]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">help</span><span class="p">(</span><span class="n">extend_trial_data_file</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Help on function extend_trial_data_file in module skyllh.core.utils.analysis:
+
+extend_trial_data_file(ana, rss, n_trials, trial_data, mean_n_sig=0, mean_n_sig_null=0, mean_n_bkg_list=None, bkg_kwargs=None, sig_kwargs=None, pathfilename=None, **kwargs)
+    Appends to the trial data file `n_trials` generated trials for each
+    mean number of injected signal events up to `ns_max` for a given analysis.
+
+    Parameters
+    ----------
+    ana : Analysis
+        The Analysis instance to use for sensitivity estimation.
+    rss : RandomStateService
+        The RandomStateService instance to use for generating random
+        numbers.
+    n_trials : int
+        The number of trials the trial data file needs to be extended by.
+    trial_data : structured numpy ndarray
+        The structured numpy ndarray holding the trials.
+    mean_n_sig : ndarray of float | float | 2- or 3-element sequence of float
+        The array of mean number of injected signal events (MNOISEs) for which
+        to generate trials. If this argument is not a ndarray, an array of
+        MNOISEs is generated based on this argument.
+        If a single float is given, only this given MNOISEs are injected.
+        If a 2-element sequence of floats is given, it specifies the range of
+        MNOISEs with a step size of one.
+        If a 3-element sequence of floats is given, it specifies the range plus
+        the step size of the MNOISEs.
+    mean_n_sig_null : ndarray of float | float | 2- or 3-element sequence of
+                      float
+        The array of the fixed mean number of signal events (FMNOSEs) for the
+        null-hypothesis for which to generate trials. If this argument is not a
+        ndarray, an array of FMNOSEs is generated based on this argument.
+        If a single float is given, only this given FMNOSEs are used.
+        If a 2-element sequence of floats is given, it specifies the range of
+        FMNOSEs with a step size of one.
+        If a 3-element sequence of floats is given, it specifies the range plus
+        the step size of the FMNOSEs.
+    bkg_kwargs : dict | None
+        Additional keyword arguments for the `generate_events` method of the
+        background generation method class. An usual keyword argument is
+        `poisson`.
+    sig_kwargs : dict | None
+        Additional keyword arguments for the `generate_signal_events` method
+        of the `SignalGenerator` class. An usual keyword argument is
+        `poisson`.
+    pathfilename : string | None
+        Trial data file path including the filename.
+
+    Additional keyword arguments
+    ----------------------------
+    Additional keyword arguments are passed-on to the ``create_trial_data_file``
+    function.
+
+    Returns
+    -------
+    trial_data :
+        Trial data file extended by the required number of trials for each
+        mean number of injected signal events..
+
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[34]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tl</span> <span class="o">=</span> <span class="n">TimeLord</span><span class="p">()</span>
+<span class="n">rss</span> <span class="o">=</span> <span class="n">RandomStateService</span><span class="p">(</span><span class="n">seed</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">trials</span> <span class="o">=</span> <span class="n">extend_trial_data_file</span><span class="p">(</span>
+    <span class="n">ana</span><span class="o">=</span><span class="n">ana</span><span class="p">,</span>
+    <span class="n">rss</span><span class="o">=</span><span class="n">rss</span><span class="p">,</span>
+    <span class="n">n_trials</span><span class="o">=</span><span class="mf">4e4</span><span class="p">,</span>
+    <span class="n">trial_data</span><span class="o">=</span><span class="n">trials</span><span class="p">,</span>
+    <span class="n">pathfilename</span><span class="o">=</span><span class="s1">&#39;/home/mwolf/projects/publicdata_ps/txs_bkg_trails.npy&#39;</span><span class="p">,</span>
+    <span class="n">ncpu</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span>
+    <span class="n">tl</span><span class="o">=</span><span class="n">tl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+100%|██████████| 40001/40001 [1:33:15&lt;00:00,  7.15it/s]
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[35]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TimeLord: Executed tasks:
+[Generating background events for data set 0.]   0.003 sec/iter (40000)
+[Generating background events for data set 1.]   0.005 sec/iter (40000)
+[Generating background events for data set 2.]   0.004 sec/iter (40000)
+[Generating background events for data set 3.]   0.008 sec/iter (40000)
+[Generating background events for data set 4.]   0.029 sec/iter (40000)
+[Generating pseudo data.                     ]   0.045 sec/iter (40000)
+[Initializing trial.                         ]   0.126 sec/iter (40000)
+[Get sig probability densities and grads.    ] 2.6e-04 sec/iter (7959160)
+[Evaluating bkg log-spline.                  ] 3.3e-04 sec/iter (7959160)
+[Get bkg probability densities and grads.    ] 4.0e-04 sec/iter (7959160)
+[Calculate PDF ratios.                       ] 1.3e-04 sec/iter (7959160)
+[Calc pdfratio value Ri                      ]   0.002 sec/iter (3979580)
+[Calc logLamds and grads                     ] 4.4e-04 sec/iter (3979580)
+[Evaluate llh-ratio function.                ]   0.008 sec/iter (795916)
+[Minimize -llhratio function.                ]   0.166 sec/iter (40000)
+[Maximizing LLH ratio function.              ]   0.166 sec/iter (40000)
+[Calculating test statistic.                 ] 6.1e-05 sec/iter (40000)
+</pre></div></div>
+</div>
+<p>The local p-value is defined as the fraction of background trials with TS value greater than the unblinded TS value of the source.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[36]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">minus_log10_pval</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">ts</span><span class="p">])</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">trials</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;-log10(p_local) = </span><span class="si">{</span><span class="n">minus_log10_pval</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+-log10(p_local) = 2.89
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[37]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">be</span><span class="p">)</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">trials</span><span class="p">[</span><span class="s1">&#39;ts&#39;</span><span class="p">])</span><span class="o">+</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="mf">0.5</span><span class="o">*</span><span class="p">(</span><span class="n">be</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="n">be</span><span class="p">[</span><span class="mi">1</span><span class="p">:]),</span> <span class="n">h</span><span class="p">,</span> <span class="n">drawstyle</span><span class="o">=</span><span class="s1">&#39;steps-mid&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;background&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">ts</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">h</span><span class="p">),</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;TS(TXS 0506+056)=</span><span class="si">{</span><span class="n">ts</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">yscale</span><span class="p">(</span><span class="s1">&#39;log&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;TS&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;#trials per bin&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/tutorials_publicdata_ps_71_0.png" src="../_images/tutorials_publicdata_ps_71_0.png" />
+</div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="getting_started.html" class="btn btn-neutral float-left" title="Getting started" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="publicdata_ps_timedep.html" class="btn btn-neutral float-right" title="Time dependent analyses with the public 10-year IceCube point-source data" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: master
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="publicdata_ps.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="../../../dm/html/index.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="../../../fix230/html/index.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="../../../v20_01_09/html/index.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="../../../v22_04_28/html/index.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="../../../v23.0.0/html/index.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="../../../v23.2.1/html/index.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="../../../v24.1.0/html/index.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

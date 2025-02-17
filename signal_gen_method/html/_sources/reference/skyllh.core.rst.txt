@@ -1,0 +1,387 @@
+skyllh.core package
+===================
+
+.. automodule:: skyllh.core
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 0
+
+   skyllh.core.minimizers
+   skyllh.core.utils
+
+Submodules
+----------
+
+skyllh.core.analysis module
+---------------------------
+
+.. automodule:: skyllh.core.analysis
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.background\_generation module
+-----------------------------------------
+
+.. automodule:: skyllh.core.background_generation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.background\_generator module
+----------------------------------------
+
+.. automodule:: skyllh.core.background_generator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.backgroundpdf module
+--------------------------------
+
+.. automodule:: skyllh.core.backgroundpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.binning module
+--------------------------
+
+.. automodule:: skyllh.core.binning
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.catalog module
+--------------------------
+
+.. automodule:: skyllh.core.catalog
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.config module
+-------------------------
+
+.. automodule:: skyllh.core.config
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.datafields module
+-----------------------------
+
+.. automodule:: skyllh.core.datafields
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.dataset module
+--------------------------
+
+.. automodule:: skyllh.core.dataset
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.debugging module
+----------------------------
+
+.. automodule:: skyllh.core.debugging
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.detsigyield module
+------------------------------
+
+.. automodule:: skyllh.core.detsigyield
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.display module
+--------------------------
+
+.. automodule:: skyllh.core.display
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.event\_selection module
+-----------------------------------
+
+.. automodule:: skyllh.core.event_selection
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.expectation\_maximization module
+--------------------------------------------
+
+.. automodule:: skyllh.core.expectation_maximization
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.flux\_model module
+------------------------------
+
+.. automodule:: skyllh.core.flux_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.interpolate module
+------------------------------
+
+.. automodule:: skyllh.core.interpolate
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.livetime module
+---------------------------
+
+.. automodule:: skyllh.core.livetime
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.llhratio module
+---------------------------
+
+.. automodule:: skyllh.core.llhratio
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.math module
+-----------------------
+
+.. automodule:: skyllh.core.math
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.minimizer module
+----------------------------
+
+.. automodule:: skyllh.core.minimizer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.model module
+------------------------
+
+.. automodule:: skyllh.core.model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.multiproc module
+----------------------------
+
+.. automodule:: skyllh.core.multiproc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.parameters module
+-----------------------------
+
+.. automodule:: skyllh.core.parameters
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.pdf module
+----------------------
+
+.. automodule:: skyllh.core.pdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.pdfratio module
+---------------------------
+
+.. automodule:: skyllh.core.pdfratio
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.pdfratio\_fill module
+---------------------------------
+
+.. automodule:: skyllh.core.pdfratio_fill
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.progressbar module
+------------------------------
+
+.. automodule:: skyllh.core.progressbar
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.py module
+---------------------
+
+.. automodule:: skyllh.core.py
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.random module
+-------------------------
+
+.. automodule:: skyllh.core.random
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.scrambling module
+-----------------------------
+
+.. automodule:: skyllh.core.scrambling
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.services module
+---------------------------
+
+.. automodule:: skyllh.core.services
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.session module
+--------------------------
+
+.. automodule:: skyllh.core.session
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.sidereal\_time module
+---------------------------------
+
+.. automodule:: skyllh.core.sidereal_time
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.signal\_generation module
+-------------------------------------
+
+.. automodule:: skyllh.core.signal_generation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.signal\_generator module
+------------------------------------
+
+.. automodule:: skyllh.core.signal_generator
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.signalpdf module
+----------------------------
+
+.. automodule:: skyllh.core.signalpdf
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.smoothing module
+----------------------------
+
+.. automodule:: skyllh.core.smoothing
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.source\_hypo\_grouping module
+-----------------------------------------
+
+.. automodule:: skyllh.core.source_hypo_grouping
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.source\_model module
+--------------------------------
+
+.. automodule:: skyllh.core.source_model
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.storage module
+--------------------------
+
+.. automodule:: skyllh.core.storage
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.test\_statistic module
+----------------------------------
+
+.. automodule:: skyllh.core.test_statistic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.times module
+------------------------
+
+.. automodule:: skyllh.core.times
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.timing module
+-------------------------
+
+.. automodule:: skyllh.core.timing
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.tool module
+-----------------------
+
+.. automodule:: skyllh.core.tool
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.trialdata module
+----------------------------
+
+.. automodule:: skyllh.core.trialdata
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+skyllh.core.types module
+------------------------
+
+.. automodule:: skyllh.core.types
+   :members:
+   :undoc-members:
+   :show-inheritance:

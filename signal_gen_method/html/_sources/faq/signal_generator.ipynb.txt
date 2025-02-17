@@ -1,0 +1,78 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# Signal Generator"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## How can I change the flux model of my sources (for my signal events)?"
+   ]
+  },
+  {
+   "cell_type": "raw",
+   "metadata": {
+    "raw_mimetype": "text/restructuredtext"
+   },
+   "source": [
+    "When SkyLLH generates pseudo data for an analysis, it will generate background\n",
+    "and signal events. It might be desired to change the flux model of the sources \n",
+    "to generate signal events following a different flux model as originally choosen\n",
+    "when the analysis was created.\n",
+    "\n",
+    "The most general procedure to change the flux model(s) of the source(s) of \n",
+    "(only) the signal generator is to create a new signal generator with a \n",
+    ":py:class:`~skyllh.core.source_hypo_grouping.SourceHypoGroupManager` instance \n",
+    "that includes the sources with the changed flux model.\n",
+    "\n",
+    "The new signal generator instance should then be set to the\n",
+    ":py:attr:`~skyllh.core.analysis.Analysis._sig_generator` attribute of the\n",
+    ":py:class:`~skyllh.core.analysis.Analysis` class. However, if the analysis \n",
+    "signal generator relies on signal generators for each individual dataset, such\n",
+    "dataset signal generators need to be re-created as well and set to the\n",
+    ":py:attr:`~skyllh.core.analysis.Analysis._sig_generator_list` attribute of the\n",
+    ":py:class:`~skyllh.core.analysis.Analysis` class.\n",
+    "\n",
+    ".. note::\n",
+    "\n",
+    "    If the flux model(s) of the source(s) should be set for the analysis itself,\n",
+    "    i.e. also for the detector signal yield calculation, which is used to weigh\n",
+    "    the datasets of a multi-dataset analysis, the \n",
+    "    :py:meth:`~skyllh.core.analysis.Analysis.change_shg_mgr` method should be\n",
+    "    called with the new \n",
+    "    :py:class:`~skyllh.core.source_hypo_grouping.SourceHypoGroupManager` \n",
+    "    instance. This method will call the ``change_shg_mgr`` method of all \n",
+    "    analysis components.\n",
+    "    \n",
+    "    A re-creation of the signal generator instances is then not required.\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.12"
+  },
+  "orig_nbformat": 4
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

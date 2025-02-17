@@ -1,0 +1,1875 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>skyllh.i3 package &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="skyllh.i3.utils package" href="skyllh.i3.utils.html" />
+    <link rel="prev" title="skyllh.core.utils package" href="skyllh.core.utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../analysis/index.html">Analysis</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hypothesis/index.html">Hypothesis Definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unit_tests.html">Unit tests</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="skyllh.html">skyllh package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="skyllh.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="skyllh.cluster.html">skyllh.cluster package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.core.html">skyllh.core package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">skyllh.i3 package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.background_generation">skyllh.i3.background_generation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.backgroundpdf">skyllh.i3.backgroundpdf module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.config">skyllh.i3.config module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#skyllh-i3-coords-module">skyllh.i3.coords module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.dataset">skyllh.i3.dataset module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.detsigyield">skyllh.i3.detsigyield module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.livetime">skyllh.i3.livetime module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.pdf">skyllh.i3.pdf module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.pdfratio">skyllh.i3.pdfratio module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.scrambling">skyllh.i3.scrambling module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.signal_generation">skyllh.i3.signal_generation module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#module-skyllh.i3.signalpdf">skyllh.i3.signalpdf module</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.physics.html">skyllh.physics package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.plotting.html">skyllh.plotting package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.utils.html">skyllh.utils package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="skyllh.html">skyllh package</a></li>
+      <li class="breadcrumb-item active">skyllh.i3 package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/skyllh.i3.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-skyllh.i3">
+<span id="skyllh-i3-package"></span><h1>skyllh.i3 package<a class="headerlink" href="#module-skyllh.i3" title="Permalink to this heading"></a></h1>
+<section id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this heading"></a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="skyllh.i3.utils.html">skyllh.i3.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="skyllh.i3.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="skyllh.i3.utils.html#skyllh-i3-utils-sensitivity-module">skyllh.i3.utils.sensitivity module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-skyllh.i3.background_generation">
+<span id="skyllh-i3-background-generation-module"></span><h2>skyllh.i3.background_generation module<a class="headerlink" href="#module-skyllh.i3.background_generation" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.background_generation.FixedScrambledExpDataI3BkgGenMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.background_generation.</span></span><span class="sig-name descname"><span class="pre">FixedScrambledExpDataI3BkgGenMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_scrambler</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.background_generation.FixedScrambledExpDataI3BkgGenMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.background_generation.BackgroundGenerationMethod" title="skyllh.core.background_generation.BackgroundGenerationMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">BackgroundGenerationMethod</span></code></a></p>
+<p>This class implements the background event generation method for the
+IceCube detector using scrambled experimental data as background hypothesis
+with a fixed number of background events equal to the number of events in
+the dataset. This background generation method is the one used in SkyLab.</p>
+<p>Creates a new background generation method instance to generate
+background events from scrambled experimental data with a fixed number
+of events equal to the number of events in the dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data_scrambler</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.scrambling.DataScrambler" title="skyllh.core.scrambling.DataScrambler"><em>DataScrambler</em></a>) – The DataScrambler instance to use to generate scrambled experimental
+data.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.background_generation.FixedScrambledExpDataI3BkgGenMethod.data_scrambler">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">data_scrambler</span></span><a class="headerlink" href="#skyllh.i3.background_generation.FixedScrambledExpDataI3BkgGenMethod.data_scrambler" title="Permalink to this definition"></a></dt>
+<dd><p>The DataScrambler instance that implements the data scrambling.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.background_generation.FixedScrambledExpDataI3BkgGenMethod.generate_events">
+<span class="sig-name descname"><span class="pre">generate_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.background_generation.FixedScrambledExpDataI3BkgGenMethod.generate_events" title="Permalink to this definition"></a></dt>
+<dd><p>Generates background events from the given data, by scrambling the
+experimental data. The number of events is equal to the size of the
+given dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The instance of RandomStateService that should be used to generate
+random numbers from. It is used to scramble the experimental data.</p></li>
+<li><p><strong>dataset</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The Dataset instance describing the dataset for which background
+events should get generated.</p></li>
+<li><p><strong>data</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.DatasetData" title="skyllh.core.dataset.DatasetData"><em>DatasetData</em></a>) – The DatasetData instance holding the data of the dataset for which
+background events should get generated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>n_bkg</strong> (<em>int</em>) – The number of generated background events.</p></li>
+<li><p><strong>bkg_events</strong> (<em>instance of DataFieldRecordArray</em>) – The instance of DataFieldRecordArray holding the generated
+background events.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.backgroundpdf">
+<span id="skyllh-i3-backgroundpdf-module"></span><h2>skyllh.i3.backgroundpdf module<a class="headerlink" href="#module-skyllh.i3.backgroundpdf" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.backgroundpdf.</span></span><span class="sig-name descname"><span class="pre">BackgroundI3SpatialPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_sin_dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_weights</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_order_sin_dec</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.SpatialPDF" title="skyllh.core.pdf.SpatialPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">SpatialPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.binning.UsesBinning" title="skyllh.core.binning.UsesBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsesBinning</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.IsBackgroundPDF" title="skyllh.core.pdf.IsBackgroundPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsBackgroundPDF</span></code></a></p>
+<p>This is the base class for all IceCube specific spatial background PDF
+models. IceCube spatial background PDFs depend solely on the zenith angle,
+and hence, on the declination of the event.</p>
+<p>The IceCube spatial background PDF is modeled as a 1d spline function in
+sin(declination).</p>
+<p>Creates a new IceCube spatial background PDF object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_sin_dec</strong> (<em>1d ndarray</em>) – The array holding the sin(dec) values of the events.</p></li>
+<li><p><strong>data_weights</strong> (<em>1d ndarray</em>) – The array holding the weight of each event used for histogramming.</p></li>
+<li><p><strong>sin_dec_binning</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the sin(declination) axis.</p></li>
+<li><p><strong>spline_order_sin_dec</strong> (<em>int</em>) – The order of the spline function for the logarithmic values of the
+spatial background PDF along the sin(dec) axis.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.spline_order_sin_dec">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spline_order_sin_dec</span></span><a class="headerlink" href="#skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.spline_order_sin_dec" title="Permalink to this definition"></a></dt>
+<dd><p>The order (int) of the logarithmic spline function, that splines the
+background PDF, along the sin(dec) axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.add_events">
+<span class="sig-name descname"><span class="pre">add_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.add_events" title="Permalink to this definition"></a></dt>
+<dd><p>Add events to spatial background PDF object and recalculate
+logarithmic spline function.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>events</strong> (<em>numpy record ndarray</em>) – <p>The array holding the event data. The following data fields must
+exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sin(declination) value of the event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.reset" title="Permalink to this definition"></a></dt>
+<dd><p>Reset the logarithmic spline to the original function, which was
+calculated when the object was initialized.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.initialize_for_new_trial">
+<span class="sig-name descname"><span class="pre">initialize_for_new_trial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.initialize_for_new_trial" title="Permalink to this definition"></a></dt>
+<dd><p>Pre-cumputes the probability density values when new trial data is
+available.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.get_pd">
+<span class="sig-name descname"><span class="pre">get_pd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_recarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF.get_pd" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the spatial background probability on the sphere of each
+event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – <p>The TrialDataManager instance holding the trial event data for which
+to calculate the PDF values. The following data fields must exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sin(declination) value of the event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p></li>
+<li><p><strong>params_recarray</strong> (<em>None</em>) – Unused interface parameter.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional TimeLord instance that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pd</strong> (<em>instance of numpy ndarray</em>) – The (N_events,)-shaped numpy ndarray holding the background
+probability density value for each event.</p></li>
+<li><p><strong>grads</strong> (<em>dict</em>) – The dictionary holding the gradients of the probability density
+w.r.t. each global fit parameter.
+The background PDF does not depend on any global fit parameter,
+hence, this is an empty dictionary.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.DataBackgroundI3SpatialPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.backgroundpdf.</span></span><span class="sig-name descname"><span class="pre">DataBackgroundI3SpatialPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_exp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_order_sin_dec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.DataBackgroundI3SpatialPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF" title="skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">BackgroundI3SpatialPDF</span></code></a></p>
+<p>This is the IceCube spatial background PDF, which gets constructed from
+experimental data.</p>
+<p>Constructs a new IceCube spatial background PDF from experimental
+data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_exp</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a>) – <p>The instance of DataFieldRecordArray holding the experimental data.
+The following data fields must exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sin(declination) of the data event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p></li>
+<li><p><strong>sin_dec_binning</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the sin(declination).</p></li>
+<li><p><strong>spline_order_sin_dec</strong> (<em>int</em>) – The order of the spline function for the logarithmic values of the
+spatial background PDF along the sin(dec) axis.
+The default is 2.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.MCBackgroundI3SpatialPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.backgroundpdf.</span></span><span class="sig-name descname"><span class="pre">MCBackgroundI3SpatialPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_mc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">physics_weight_field_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_order_sin_dec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.MCBackgroundI3SpatialPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF" title="skyllh.i3.backgroundpdf.BackgroundI3SpatialPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">BackgroundI3SpatialPDF</span></code></a></p>
+<p>This is the IceCube spatial background PDF, which gets constructed from
+monte-carlo data.</p>
+<p>Constructs a new IceCube spatial background PDF from monte-carlo
+data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_mc</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a>) – <p>The array holding the monte-carlo data. The following data fields
+must exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sine of the reconstructed declination of the data event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p></li>
+<li><p><strong>physics_weight_field_names</strong> (<em>str</em><em> | </em><em>list</em><em> of </em><em>str</em>) – The name or the list of names of the monte-carlo data fields, which
+should be used as event weights. If a list is given, the weight
+values of all the fields will be summed to construct the final event
+weight.</p></li>
+<li><p><strong>sin_dec_binning</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the sin(declination).</p></li>
+<li><p><strong>spline_order_sin_dec</strong> (<em>int</em>) – The order of the spline function for the logarithmic values of the
+spatial background PDF along the sin(dec) axis.
+The default is 2.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.DataBackgroundI3EnergyPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.backgroundpdf.</span></span><span class="sig-name descname"><span class="pre">DataBackgroundI3EnergyPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_exp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_energy_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.DataBackgroundI3EnergyPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.pdf.I3EnergyPDF" title="skyllh.i3.pdf.I3EnergyPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3EnergyPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.IsBackgroundPDF" title="skyllh.core.pdf.IsBackgroundPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsBackgroundPDF</span></code></a></p>
+<p>This is the IceCube energy background PDF, which gets constructed from
+experimental data. This class is derived from I3EnergyPDF.</p>
+<p>Constructs a new IceCube energy background PDF from experimental
+data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_exp</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a>) – <p>The array holding the experimental data. The following data fields
+must exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The logarithm of the reconstructed energy value of the data
+event.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sine of the reconstructed declination of the data event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p></li>
+<li><p><strong>log10_energy_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the binning in log10(E).</p></li>
+<li><p><strong>sin_dec_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the sin(declination).</p></li>
+<li><p><strong>smoothing_filter</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.smoothing.SmoothingFilter" title="skyllh.core.smoothing.SmoothingFilter"><em>SmoothingFilter</em></a><em> | </em><em>None</em>) – The smoothing filter to use for smoothing the energy histogram.
+If None, no smoothing will be applied.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.backgroundpdf.MCBackgroundI3EnergyPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.backgroundpdf.</span></span><span class="sig-name descname"><span class="pre">MCBackgroundI3EnergyPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_mc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">physics_weight_field_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_energy_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.backgroundpdf.MCBackgroundI3EnergyPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.pdf.I3EnergyPDF" title="skyllh.i3.pdf.I3EnergyPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3EnergyPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.IsBackgroundPDF" title="skyllh.core.pdf.IsBackgroundPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsBackgroundPDF</span></code></a></p>
+<p>This is the IceCube energy background PDF, which gets constructed from
+monte-carlo data. This class is derived from I3EnergyPDF.</p>
+<p>Constructs a new IceCube energy background PDF from monte-carlo
+data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_mc</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a>) – <p>The array holding the monte-carlo data. The following data fields
+must exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The logarithm of the reconstructed energy value of the data
+event.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sine of the reconstructed declination of the data event.</p>
+</dd>
+<dt>mcweight: float</dt><dd><p>The monte-carlo weight of the event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p></li>
+<li><p><strong>physics_weight_field_names</strong> (<em>str</em><em> | </em><em>list</em><em> of </em><em>str</em>) – The name or the list of names of the monte-carlo data fields, which
+should be used as physics event weights. If a list is given, the
+weight values of all the fields will be summed to construct the
+final event physics weight.</p></li>
+<li><p><strong>log10_energy_binning</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the binning in log10(E).</p></li>
+<li><p><strong>sin_dec_binning</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the sin(declination).</p></li>
+<li><p><strong>smoothing_filter</strong> (<em>SmoothingFilter instance</em><em> | </em><em>None</em>) – The smoothing filter to use for smoothing the energy histogram.
+If None, no smoothing will be applied.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.config">
+<span id="skyllh-i3-config-module"></span><h2>skyllh.i3.config module<a class="headerlink" href="#module-skyllh.i3.config" title="Permalink to this heading"></a></h2>
+<p>This file defines IceCube specific global configuration.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.config.add_icecube_specific_analysis_required_data_fields">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.config.</span></span><span class="sig-name descname"><span class="pre">add_icecube_specific_analysis_required_data_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.config.add_icecube_specific_analysis_required_data_fields" title="Permalink to this definition"></a></dt>
+<dd><p>Adds IceCube specific data fields required by an IceCube analysis to
+the given local configuration.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>cfg</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.config.Config" title="skyllh.core.config.Config"><em>Config</em></a>) – The instance of Config holding the local configuration.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="skyllh-i3-coords-module">
+<h2>skyllh.i3.coords module<a class="headerlink" href="#skyllh-i3-coords-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-skyllh.i3.dataset">
+<span id="skyllh-i3-dataset-module"></span><h2>skyllh.i3.dataset module<a class="headerlink" href="#module-skyllh.i3.dataset" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.dataset.</span></span><span class="sig-name descname"><span class="pre">I3Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">livetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">grl_pathfilenames</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dataset</span></code></a></p>
+<p>The I3Dataset class is an IceCube specific Dataset class that adds
+IceCube specific properties to the Dataset class. These additional
+properties are:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>good-run-list (GRL)</p></li>
+</ul>
+</div></blockquote>
+<p>Creates a new IceCube specific dataset, that also can hold a list
+of GRL data files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>livetime</strong> (<em>float</em><em> | </em><em>None</em>) – The live-time of the dataset in days. It can be <code class="docutils literal notranslate"><span class="pre">None</span></code>, if
+good-run-list data files are provided.</p></li>
+<li><p><strong>grl_pathfilenames</strong> (<em>str</em><em> | </em><em>sequence</em><em> of </em><em>str</em>) – The sequence of pathfilenames pointing to the good-run-list (GRL)
+data files.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.get_combined_grl_pathfilenames">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">get_combined_grl_pathfilenames</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">datasets</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.get_combined_grl_pathfilenames" title="Permalink to this definition"></a></dt>
+<dd><p>Creates the combined list of grl pathfilenames of all the given
+datasets.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>datasets</strong> (<em>sequence</em><em> of </em><a class="reference internal" href="#skyllh.i3.dataset.I3Dataset" title="skyllh.i3.dataset.I3Dataset"><em>I3Dataset</em></a>) – The sequence of I3Dataset instances.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>grl_pathfilenames</strong> (<em>list</em>) – The combined list of grl pathfilenames.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.grl_pathfilename_list">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grl_pathfilename_list</span></span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.grl_pathfilename_list" title="Permalink to this definition"></a></dt>
+<dd><p>The list of file names of the good-run-list (GRL) data files for this
+dataset. If a file name is given with a relative path, it will be
+relative to the <code class="docutils literal notranslate"><span class="pre">root_dir</span></code> property of this Dataset instance.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.grl_abs_pathfilename_list">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grl_abs_pathfilename_list</span></span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.grl_abs_pathfilename_list" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The list of absolute path file names of the good-run-list
+data files.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.grl_field_name_renaming_dict">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grl_field_name_renaming_dict</span></span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.grl_field_name_renaming_dict" title="Permalink to this definition"></a></dt>
+<dd><p>The dictionary specifying the field names of the good-run-list data
+which need to get renamed just after loading the data. The dictionary
+keys are the old names and their values are the new names.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.exists">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">exists</span></span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.exists" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) Flag if all the data files of this data set exists. It is
+<code class="docutils literal notranslate"><span class="pre">True</span></code> if all data files exist and <code class="docutils literal notranslate"><span class="pre">False</span></code> otherwise.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.create_file_list">
+<span class="sig-name descname"><span class="pre">create_file_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.create_file_list" title="Permalink to this definition"></a></dt>
+<dd><p>Creates the list of files of this dataset.
+The file paths are relative to the dataset’s root directory.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>file_list</strong> (<em>list of str</em>) – The list of files of this dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.load_grl">
+<span class="sig-name descname"><span class="pre">load_grl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">efficiency_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.load_grl" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the good-run-list and returns a DataFieldRecordArray instance
+which should contain the following data fields:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>run<span class="classifier">int</span></dt><dd><p>The run number.</p>
+</dd>
+<dt>start<span class="classifier">float</span></dt><dd><p>The MJD start time of the run.</p>
+</dd>
+<dt>stop<span class="classifier">float</span></dt><dd><p>The MJD stop time of the run.</p>
+</dd>
+<dt>livetime<span class="classifier">float</span></dt><dd><p>The livetime in days of the run.</p>
+</dd>
+<dt>events<span class="classifier">int</span></dt><dd><p>The number of experimental events in the run.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>efficiency_mode</strong> (<em>str</em><em> | </em><em>None</em>) – <p>The efficiency mode the data should get loaded with. Possible values
+are:</p>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt>’memory’:</dt><dd><p>The data will be load in a memory efficient way. This will
+require more time, because all data records of a file will
+be loaded sequentially.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’time’</dt><dd><p>The data will be loaded in a time efficient way. This will
+require more memory, because each data file gets loaded in
+memory at once.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">'time'</span></code>. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default
+value will be used.</p>
+</p></li>
+<li><p><strong>tl</strong> (<em>TimeLord instance</em><em> | </em><em>None</em>) – The TimeLord instance to use to time the data loading procedure.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>grl_data</strong> (<em>instance of DataFieldRecordArray</em>) – The DataFieldRecordArray instance holding the good-run-list
+information of the dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.load_data">
+<span class="sig-name descname"><span class="pre">load_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">livetime</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtc_dict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtc_except_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">efficiency_mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.load_data" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the data, which is described by the dataset. If a good-run-list
+(GRL) is provided for this dataset, only experimental data will be
+selected which matches the GRL.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>livetime</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.livetime.Livetime" title="skyllh.core.livetime.Livetime"><em>Livetime</em></a><em> | </em><em>float</em><em> | </em><em>None</em>) – If not None, uses this livetime (if float livetime in days) as
+livetime for the DatasetData instance, otherwise uses the live time
+from the Dataset instance or, if available, the livetime from the
+good-run-list (GRL).</p></li>
+<li><p><strong>keep_fields</strong> (<em>list</em><em> of </em><em>str</em><em> | </em><em>None</em>) – The list of user-defined data fields that should get loaded and kept
+in addition to the analysis required data fields.</p></li>
+<li><p><strong>dtc_dict</strong> (<em>dict</em><em> | </em><em>None</em>) – This dictionary defines how data fields of specific data types (key)
+should get converted into other data types (value).
+This can be used to use less memory. If set to None, no data
+convertion is performed.</p></li>
+<li><p><strong>dtc_except_fields</strong> (<em>str</em><em> | </em><em>sequence</em><em> of </em><em>str</em><em> | </em><em>None</em>) – The sequence of field names whose data type should not get
+converted.</p></li>
+<li><p><strong>efficiency_mode</strong> (<em>str</em><em> | </em><em>None</em>) – <p>The efficiency mode the data should get loaded with. Possible values
+are:</p>
+<blockquote>
+<div><ul>
+<li><dl class="simple">
+<dt>’memory’:</dt><dd><p>The data will be load in a memory efficient way. This will
+require more time, because all data records of a file will
+be loaded sequentially.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’time’</dt><dd><p>The data will be loaded in a time efficient way. This will
+require more memory, because each data file gets loaded in
+memory at once.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+<p>The default value is <code class="docutils literal notranslate"><span class="pre">'time'</span></code>. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, the default
+value will be used.</p>
+</p></li>
+<li><p><strong>tl</strong> (<em>TimeLord instance</em><em> | </em><em>None</em>) – The TimeLord instance that should be used to time the data load
+operation.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> (<em>instance of DatasetData</em>) – A DatasetData instance holding the experimental and monte-carlo
+data of this data set.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3Dataset.prepare_data">
+<span class="sig-name descname"><span class="pre">prepare_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.dataset.I3Dataset.prepare_data" title="Permalink to this definition"></a></dt>
+<dd><p>Prepares the data for IceCube by pre-calculating the following
+experimental data fields:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>sin_dec: float</dt><dd><p>The sin value of the declination coordinate.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<p>and monte-carlo data fields:</p>
+<ul class="simple">
+<li><dl class="simple">
+<dt>sin_true_dec: float</dt><dd><p>The sin value of the true declination coordinate.</p>
+</dd>
+</dl>
+</li>
+</ul>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>DatasetData instance</em>) – The DatasetData instance holding the data as numpy record ndarray.</p></li>
+<li><p><strong>tl</strong> (<em>TimeLord instance</em><em> | </em><em>None</em>) – The TimeLord instance that should be used to time the data
+preparation.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3DatasetData">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.dataset.</span></span><span class="sig-name descname"><span class="pre">I3DatasetData</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_grl</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.dataset.I3DatasetData" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.DatasetData" title="skyllh.core.dataset.DatasetData"><code class="xref py py-class docutils literal notranslate"><span class="pre">DatasetData</span></code></a></p>
+<p>The class provides the container for the loaded experimental and
+monto-carlo data of a data set. It’s the IceCube specific class that also
+holds the good-run-list (GRL) data.</p>
+<p>Constructs a new I3DatasetData instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.DatasetData" title="skyllh.core.dataset.DatasetData"><em>DatasetData</em></a>) – The instance of DatasetData holding the experimental and monte-carlo
+data.</p></li>
+<li><p><strong>data_grl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a><em> | </em><em>None</em>) – The instance of DataFieldRecordArray holding the good-run-list data
+of the dataset. This can be None, if no GRL data is available.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.dataset.I3DatasetData.grl">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">grl</span></span><a class="headerlink" href="#skyllh.i3.dataset.I3DatasetData.grl" title="Permalink to this definition"></a></dt>
+<dd><p>The DataFieldRecordArray instance holding the good-run-list (GRL)
+data of the IceCube data set. It is None, if there is no GRL data
+available for this IceCube data set.</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.detsigyield">
+<span id="skyllh-i3-detsigyield-module"></span><h2>skyllh.i3.detsigyield module<a class="headerlink" href="#module-skyllh.i3.detsigyield" title="Permalink to this heading"></a></h2>
+<p>This module contains classes for IceCube specific detector signal yields,
+for a variation of source model and flux model combinations.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.I3DetSigYield">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.detsigyield.</span></span><span class="sig-name descname"><span class="pre">I3DetSigYield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fluxmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">livetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.I3DetSigYield" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.detsigyield.DetSigYield" title="skyllh.core.detsigyield.DetSigYield"><code class="xref py py-class docutils literal notranslate"><span class="pre">DetSigYield</span></code></a></p>
+<p>Abstract base class for all IceCube specific detector signal yield
+classes. It assumes that sin(dec) binning is required for calculating the
+detector effective area and hence the detector signal yield.</p>
+<p>Constructor of the IceCube specific detector signal yield base
+class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_names</strong> (<em>sequence</em><em> of </em><em>str</em>) – The sequence of parameter names this detector signal yield depends
+on. These are either fixed or floating parameters.</p></li>
+<li><p><strong>dataset</strong> (<em>Dataset instance</em>) – The Dataset instance holding the monte-carlo event data.</p></li>
+<li><p><strong>fluxmodel</strong> (<em>FluxModel</em>) – The flux model instance. Must be an instance of FluxModel.</p></li>
+<li><p><strong>livetime</strong> (<em>float</em><em> | </em><em>Livetime instance</em>) – The live-time.</p></li>
+<li><p><strong>sin_dec_binning</strong> (<em>BinningDefinition instance</em>) – The BinningDefinition instance defining the sin(dec) binning.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.I3DetSigYield.sin_dec_binning">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sin_dec_binning</span></span><a class="headerlink" href="#skyllh.i3.detsigyield.I3DetSigYield.sin_dec_binning" title="Permalink to this definition"></a></dt>
+<dd><p>The BinningDefinition instance defining the sin(dec) binning.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.I3DetSigYieldBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.detsigyield.</span></span><span class="sig-name descname"><span class="pre">I3DetSigYieldBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.I3DetSigYieldBuilder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.detsigyield.DetSigYieldBuilder" title="skyllh.core.detsigyield.DetSigYieldBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">DetSigYieldBuilder</span></code></a></p>
+<p>Abstract base class for an IceCube specific detector signal yield
+builder class.</p>
+<p>Constructor of the IceCube specific detector signal yield
+builder class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sin_dec_binning</strong> (<em>BinningDefinition instance</em>) – The instance of BinningDefinition defining the sin(dec) binning.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.I3DetSigYieldBuilder.sin_dec_binning">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sin_dec_binning</span></span><a class="headerlink" href="#skyllh.i3.detsigyield.I3DetSigYieldBuilder.sin_dec_binning" title="Permalink to this definition"></a></dt>
+<dd><p>The BinningDefinition instance for the sin(dec) binning that should
+be used for computing the sin(dec) dependency of the detector signal
+yield. If None, the binning is supposed to be taken from the Dataset’s
+binning definitions.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.I3DetSigYieldBuilder.get_sin_dec_binning">
+<span class="sig-name descname"><span class="pre">get_sin_dec_binning</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.I3DetSigYieldBuilder.get_sin_dec_binning" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the sin(dec) binning definition either as setting from this
+detector signal yield implementation method itself, or from the
+given dataset.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.PointLikeSourceI3DetSigYield">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.detsigyield.</span></span><span class="sig-name descname"><span class="pre">PointLikeSourceI3DetSigYield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fluxmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">livetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.PointLikeSourceI3DetSigYield" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.detsigyield.I3DetSigYield" title="skyllh.i3.detsigyield.I3DetSigYield"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3DetSigYield</span></code></a></p>
+<p>Abstract base class for all IceCube specific detector signal yield
+classes for point-like sources.</p>
+<p>Constructor of the IceCube specific detector signal yield base
+class for point-like sources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_names</strong> (<em>sequence</em><em> of </em><em>str</em>) – The sequence of parameter names this detector signal yield depends
+on. These are either fixed or floating parameters.</p></li>
+<li><p><strong>dataset</strong> (<em>Dataset instance</em>) – The Dataset instance holding the monte-carlo event data.</p></li>
+<li><p><strong>fluxmodel</strong> (<em>FluxModel</em>) – The flux model instance. Must be an instance of FluxModel.</p></li>
+<li><p><strong>livetime</strong> (<em>float</em><em> | </em><em>Livetime instance</em>) – The livetime in days or an instance of Livetime.</p></li>
+<li><p><strong>sin_dec_binning</strong> (<em>BinningDefinition instance</em>) – The BinningDefinition instance defining the sin(dec) binning.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.PointLikeSourceI3DetSigYield.sources_to_recarray">
+<span class="sig-name descname"><span class="pre">sources_to_recarray</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sources</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.PointLikeSourceI3DetSigYield.sources_to_recarray" title="Permalink to this definition"></a></dt>
+<dd><p>Converts the sequence of PointLikeSource sources into a numpy record
+array holding the information of the sources needed for the
+detector signal yield calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sources</strong> (<em>SourceModel</em><em> | </em><em>sequence</em><em> of </em><em>SourceModel</em>) – The source model(s) containing the information of the source(s).</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>recarr</strong> (<em>numpy record ndarray</em>) – The generated (N_sources,)-shaped 1D numpy record ndarray holding
+the information for each source.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.PointLikeSourceI3DetSigYieldBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.detsigyield.</span></span><span class="sig-name descname"><span class="pre">PointLikeSourceI3DetSigYieldBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.PointLikeSourceI3DetSigYieldBuilder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.detsigyield.I3DetSigYieldBuilder" title="skyllh.i3.detsigyield.I3DetSigYieldBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">I3DetSigYieldBuilder</span></code></a></p>
+<p>Abstract base class for all IceCube specific detector signal yield
+builders for point-like sources. All IceCube detector signal
+yield builders require a sin(dec) binning definition for
+the effective area. By default it is taken from the binning definitions
+stored in the dataset, but a user-defined sin(dec) binning can be specified
+if needed.</p>
+<p>Initializes a new detector signal yield builder object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>sin_dec_binning</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a><em> | </em><em>None</em>) – The BinningDefinition instance defining the sin(dec) binning that
+should be used to compute the sin(dec) dependency of the detector
+effective area. If set to None, the binning will be taken from the
+Dataset binning definitions.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYield">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.detsigyield.</span></span><span class="sig-name descname"><span class="pre">FixedFluxPointLikeSourceI3DetSigYield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_names</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fluxmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">livetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_spl_sinDec</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYield" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.detsigyield.PointLikeSourceI3DetSigYield" title="skyllh.i3.detsigyield.PointLikeSourceI3DetSigYield"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointLikeSourceI3DetSigYield</span></code></a></p>
+<p>The detector signal yield class for a point-source with a fixed flux.</p>
+<p>Constructs an IceCube detector signal yield instance for a
+point-like source with a fixed flux.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_names</strong> (<em>sequence</em><em> of </em><em>str</em>) – The sequence of parameter names this detector signal yield depends
+on. These are either fixed or floating parameters.</p></li>
+<li><p><strong>dataset</strong> (<em>Dataset instance</em>) – The instance of Dataset holding the monte-carlo data this detector
+signal yield is made for.</p></li>
+<li><p><strong>fluxmodel</strong> (<em>FluxModel instance</em>) – The instance of FluxModel with fixed parameters this detector signal
+yield is made for.</p></li>
+<li><p><strong>livetime</strong> (<em>float</em><em> | </em><em>Livetime instance</em>) – The livetime in days or an instance of Livetime.</p></li>
+<li><p><strong>sin_dec_binning</strong> (<em>BinningDefinition instance</em>) – The binning definition for sin(dec).</p></li>
+<li><p><strong>log_spl_sinDec</strong> (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.InterpolatedUnivariateSpline.html#scipy.interpolate.InterpolatedUnivariateSpline" title="(in SciPy v1.15.1)"><em>scipy.interpolate.InterpolatedUnivariateSpline</em></a>) – The spline instance representing the log value of the detector
+signal yield as a function of sin(dec).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYield.log_spl_sinDec">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_spl_sinDec</span></span><a class="headerlink" href="#skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYield.log_spl_sinDec" title="Permalink to this definition"></a></dt>
+<dd><p>The <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.InterpolatedUnivariateSpline.html#scipy.interpolate.InterpolatedUnivariateSpline" title="(in SciPy v1.15.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.interpolate.InterpolatedUnivariateSpline</span></code></a> instance
+representing the spline for the log value of the detector signal
+yield as a function of sin(dec).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYield.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_recarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_params_recarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYield.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the detector signal yield for the list of given sources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src_recarray</strong> (<em>numpy record ndarray</em>) – The numpy record ndarray with the field <code class="docutils literal notranslate"><span class="pre">dec</span></code> holding the
+declination of the source.</p></li>
+<li><p><strong>src_params_recarray</strong> (<em>None</em>) – Unused interface argument, because this detector signal yield does
+not depend on any source parameters.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>values</strong> (<em>numpy 1d ndarray</em>) – The array with the detector signal yield for each source.</p></li>
+<li><p><strong>grads</strong> (<em>dict</em>) – This detector signal yield does not depend on any parameters.
+So there are no gradients and the dictionary is empty.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.detsigyield.</span></span><span class="sig-name descname"><span class="pre">FixedFluxPointLikeSourceI3DetSigYieldBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_order_sinDec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.detsigyield.PointLikeSourceI3DetSigYieldBuilder" title="skyllh.i3.detsigyield.PointLikeSourceI3DetSigYieldBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointLikeSourceI3DetSigYieldBuilder</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.multiproc.IsParallelizable" title="skyllh.core.multiproc.IsParallelizable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsParallelizable</span></code></a></p>
+<p>This detector signal yield builder constructs a
+detector signal yield for a fixed flux model, assuming a point-like
+source. This means that the detector signal yield does not depend on
+any source parameters, hence it is only dependent on the detector
+effective area.
+It constructs a one-dimensional spline function in sin(dec), using a
+<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.InterpolatedUnivariateSpline.html#scipy.interpolate.InterpolatedUnivariateSpline" title="(in SciPy v1.15.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.interpolate.InterpolatedUnivariateSpline</span></code></a>.</p>
+<p>This detector signal yield builder works with all flux models.</p>
+<p>It is tailored to the IceCube detector at the South Pole, where the
+effective area depends soley on the zenith angle, and hence on the
+declination, of the source.</p>
+<p>Creates a new IceCube detector signal yield builder object for a
+fixed flux model. It requires a sinDec binning definition to compute
+the sin(dec) dependency of the detector effective area.
+The construct_detsigyield class method of this builder will create a
+spline function of a given order in logarithmic space of the
+effective area.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sin_dec_binning</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a><em> | </em><em>None</em>) – The BinningDefinition instance which defines the sin(dec) binning.
+If set to None, the binning will be taken from the Dataset binning
+definitions.</p></li>
+<li><p><strong>spline_order_sinDec</strong> (<em>int</em>) – The order of the spline function for the logarithmic values of the
+detector signal yield along the sin(dec) axis.
+The default is 2.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder.spline_order_sinDec">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spline_order_sinDec</span></span><a class="headerlink" href="#skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder.spline_order_sinDec" title="Permalink to this definition"></a></dt>
+<dd><p>The order (int) of the logarithmic spline function, that splines the
+detector signal yield, along the sin(dec) axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder.construct_detsigyields">
+<span class="sig-name descname"><span class="pre">construct_detsigyields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shgs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder.construct_detsigyields" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs a set of FixedFluxPointLikeSourceI3DetSigYield instances,
+one for each provided fluxmodel.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The instance of Dataset holding meta information about the data.</p></li>
+<li><p><strong>data</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.DatasetData" title="skyllh.core.dataset.DatasetData"><em>DatasetData</em></a>) – <p>The instance of DatasetData holding the monte-carlo event data.
+The numpy record ndarray holding the monte-carlo event data must
+contain the following data fields:</p>
+<ul>
+<li><dl class="simple">
+<dt>’true_dec’<span class="classifier">float</span></dt><dd><p>The true declination of the data event.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’true_energy’<span class="classifier">float</span></dt><dd><p>The true energy value of the data event.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’mcweight’<span class="classifier">float</span></dt><dd><p>The monte-carlo weight of the data event in the unit
+GeV cm^2 sr.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>shgs</strong> (<em>sequence</em><em> of </em><em>instance</em><em> of </em><em>SourceHypoGroup</em>) – The sequence of instance of SourceHypoGroup specifying the
+source hypothesis groups (i.e. flux model) for which the detector
+signal yields should get constructed.</p></li>
+<li><p><strong>ppbar</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.progressbar.ProgressBar" title="skyllh.core.progressbar.ProgressBar"><em>ProgressBar</em></a><em> | </em><em>None</em>) – The optional instance of ProgressBar of the parent progress bar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>detsigyields</strong> (<em>list of instance of FixedFluxPointLikeSourceI3DetSigYield</em>) – The list of instance of FixedFluxPointLikeSourceI3DetSigYield
+providing the detector signal yield function for a point-like source
+with each of the given fixed flux models.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder.construct_detsigyield">
+<span class="sig-name descname"><span class="pre">construct_detsigyield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder.construct_detsigyield" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs a detector signal yield log spline function for the
+given fixed flux model.</p>
+<p>This method calls the <code class="xref py py-meth docutils literal notranslate"><span class="pre">construct_detsigyiels()</span></code> method of this
+class.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The instance of Dataset holding meta information about the data.</p></li>
+<li><p><strong>data</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.DatasetData" title="skyllh.core.dataset.DatasetData"><em>DatasetData</em></a>) – <p>The instance of DatasetData holding the monte-carlo event data.
+The numpy record ndarray holding the monte-carlo event data must
+contain the following data fields:</p>
+<ul>
+<li><dl class="simple">
+<dt>’true_dec’<span class="classifier">float</span></dt><dd><p>The true declination of the data event.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’true_energy’<span class="classifier">float</span></dt><dd><p>The true energy value of the data event.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>’mcweight’<span class="classifier">float</span></dt><dd><p>The monte-carlo weight of the data event in the unit
+GeV cm^2 sr.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>shg</strong> (<em>instance</em><em> of </em><em>SourceHypoGroup</em>) – The instance of SourceHypoGroup (i.e. sources and flux model) for
+which the detector signal yield should get constructed.</p></li>
+<li><p><strong>ppbar</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.progressbar.ProgressBar" title="skyllh.core.progressbar.ProgressBar"><em>ProgressBar</em></a><em> | </em><em>None</em>) – The optional instance of ProgressBar of the parent progress bar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>detsigyield</strong> (<em>instance of FixedFluxPointLikeSourceI3DetSigYield</em>) – The instance of FixedFluxPointLikeSourceI3DetSigYield providing the
+detector signal yield function for a point-like source with a
+fixed flux.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder.get_detsigyield_construction_factory">
+<span class="sig-name descname"><span class="pre">get_detsigyield_construction_factory</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.FixedFluxPointLikeSourceI3DetSigYieldBuilder.get_detsigyield_construction_factory" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the factory callable for constructing a set of instance of
+FixedFluxPointLikeSourceI3DetSigYield.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>factory</strong> (<em>callable</em>) – The factory callable for constructing a set of instance of
+FixedFluxPointLikeSourceI3DetSigYield.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYield">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.detsigyield.</span></span><span class="sig-name descname"><span class="pre">SingleParamFluxPointLikeSourceI3DetSigYield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fluxmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">livetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_spl_sinDec_param</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYield" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.detsigyield.PointLikeSourceI3DetSigYield" title="skyllh.i3.detsigyield.PointLikeSourceI3DetSigYield"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointLikeSourceI3DetSigYield</span></code></a></p>
+<p>The detector signal yield class for a flux that depends on a single
+source parameter.</p>
+<p>Constructs the detector signal yield instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_name</strong> (<em>str</em>) – The parameter name this detector signal yield depends
+on. These are either fixed or floating parameter.</p></li>
+<li><p><strong>dataset</strong> (<em>Dataset instance</em>) – The Dataset instance holding the monte-carlo event data.</p></li>
+<li><p><strong>fluxmodel</strong> (<em>FluxModel</em>) – The flux model instance. Must be an instance of FluxModel.</p></li>
+<li><p><strong>livetime</strong> (<em>float</em><em> | </em><em>Livetime instance</em>) – The live-time.</p></li>
+<li><p><strong>sin_dec_binning</strong> (<em>BinningDefinition instance</em>) – The BinningDefinition instance defining the sin(dec) binning.</p></li>
+<li><p><strong>log_spl_sinDec_param</strong> (<em>scipy.interpolate.RectBivariateSpline instance</em>) – The 2D spline in sin(dec) and the parameter this detector signal
+yield depends on.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYield.log_spl_sinDec_param">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log_spl_sinDec_param</span></span><a class="headerlink" href="#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYield.log_spl_sinDec_param" title="Permalink to this definition"></a></dt>
+<dd><p>The <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RectBivariateSpline.html#scipy.interpolate.RectBivariateSpline" title="(in SciPy v1.15.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.interpolate.RectBivariateSpline</span></code></a> instance
+representing the spline for the log value of the detector signal
+yield as a function of sin(dec) and the floating parameter.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYield.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_recarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_params_recarray</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYield.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the detector signal yield for the given list of
+sources and their flux parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src_recarray</strong> (<em>numpy record ndarray</em>) – The numpy record ndarray with the field <code class="docutils literal notranslate"><span class="pre">dec</span></code> holding the
+declination of the source.</p></li>
+<li><p><strong>src_params_recarray</strong> (<em>(</em><em>N_sources</em><em>,</em><em>)</em><em>-shaped numpy record ndarray</em>) – The numpy record ndarray containing the parameter values of the
+sources. The parameter values can be different for the different
+sources.
+The record array needs to contain two fields for each source
+parameter, one named &lt;name&gt; with the source’s local parameter name
+holding the source’s local parameter value, and one named
+&lt;name:gpidx&gt; holding the global parameter index plus one for each
+source value. For values mapping to non-fit parameters, the index
+should be negative.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>values</strong> (<em>numpy (N_sources,)-shaped 1D ndarray</em>) – The array with the detector signal yield for each source.</p></li>
+<li><p><strong>grads</strong> (<em>dict</em>) – The dictionary holding the gradient values for each global floating
+parameter. The key is the global floating parameter index and the
+value is the (N_sources,)-shaped numpy ndarray holding the gradient
+value dY_k/dp_s.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.detsigyield.</span></span><span class="sig-name descname"><span class="pre">SingleParamFluxPointLikeSourceI3DetSigYieldBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_order_sinDec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_order_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.i3.detsigyield.PointLikeSourceI3DetSigYieldBuilder" title="skyllh.i3.detsigyield.PointLikeSourceI3DetSigYieldBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">PointLikeSourceI3DetSigYieldBuilder</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.multiproc.IsParallelizable" title="skyllh.core.multiproc.IsParallelizable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsParallelizable</span></code></a></p>
+<p>This detector signal yield builder constructs a
+detector signal yield for a variable flux model with a single parameter,
+assuming a point-like source.
+It constructs a two-dimensional spline function in sin(dec) and the
+parameter, using a <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RectBivariateSpline.html#scipy.interpolate.RectBivariateSpline" title="(in SciPy v1.15.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.interpolate.RectBivariateSpline</span></code></a>.
+Hence, the detector signal yield can vary with the declination and the
+parameter of the flux model.</p>
+<p>It is tailored to the IceCube detector at the South Pole, where the
+effective area depends soley on the zenith angle, and hence on the
+declination, of the source.</p>
+<p>Creates a new IceCube detector signal yield builder instance for a
+flux model with a single parameter.
+It requires a sinDec binning definition to compute the sin(dec)
+dependency of the detector effective area, and a parameter grid to
+compute the parameter dependency of the detector signal yield.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_grid</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterGrid" title="skyllh.core.parameters.ParameterGrid"><em>ParameterGrid</em></a>) – The instance of ParameterGrid which defines the grid of the
+parameter values. The name of the parameter is defined via the name
+property of the ParameterGrid instance.</p></li>
+<li><p><strong>sin_dec_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a><em> | </em><em>None</em>) – The instance of BinningDefinition which defines the sin(dec)
+binning. If set to None, the sin(dec) binning will be taken from the
+dataset’s binning definitions.</p></li>
+<li><p><strong>spline_order_sinDec</strong> (<em>int</em>) – The order of the spline function for the logarithmic values of the
+detector signal yield along the sin(dec) axis.
+The default is 2.</p></li>
+<li><p><strong>spline_order_gamma</strong> (<em>int</em>) – The order of the spline function for the logarithmic values of the
+detector signal yield along the gamma axis.
+The default is 2.</p></li>
+<li><p><strong>ncpu</strong> (<em>int</em><em> | </em><em>None</em>) – The number of CPUs to utilize. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, global setting
+will take place.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder.param_grid">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">param_grid</span></span><a class="headerlink" href="#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder.param_grid" title="Permalink to this definition"></a></dt>
+<dd><p>The ParameterGrid instance for the parameter grid that should be used
+for computing the parameter dependency of the detector signal yield.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder.spline_order_sinDec">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spline_order_sinDec</span></span><a class="headerlink" href="#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder.spline_order_sinDec" title="Permalink to this definition"></a></dt>
+<dd><p>The order (int) of the logarithmic spline function, that splines the
+detector signal yield, along the sin(dec) axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder.spline_order_param">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">spline_order_param</span></span><a class="headerlink" href="#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder.spline_order_param" title="Permalink to this definition"></a></dt>
+<dd><p>The order (int) of the logarithmic spline function, that splines the
+detector signal yield, along the parameter axis.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder.construct_detsigyield">
+<span class="sig-name descname"><span class="pre">construct_detsigyield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder.construct_detsigyield" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs a detector signal yield 2-dimensional log spline
+function for the given flux model with varying parameter values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The instance of Dataset holding the sin(dec) binning definition.</p></li>
+<li><p><strong>data</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.DatasetData" title="skyllh.core.dataset.DatasetData"><em>DatasetData</em></a>) – <p>The instance of DatasetData holding the monte-carlo event data.
+The numpy record array for the monte-carlo data of the dataset must
+contain the following data fields:</p>
+<dl class="simple">
+<dt><code class="docutils literal notranslate"><span class="pre">'true_dec'</span></code><span class="classifier">float</span></dt><dd><p>The true declination of the data event.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'mcweight'</span></code><span class="classifier">float</span></dt><dd><p>The monte-carlo weight of the data event in the unit
+GeV cm^2 sr.</p>
+</dd>
+<dt><code class="docutils literal notranslate"><span class="pre">'true_energy'</span></code><span class="classifier">float</span></dt><dd><p>The true energy value of the data event.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>shg</strong> (<em>instance</em><em> of </em><em>SourceHypoGroup</em>) – The instance of SourceHypoGroup for which the detector signal yield
+should get constructed.</p></li>
+<li><p><strong>ppbar</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.progressbar.ProgressBar" title="skyllh.core.progressbar.ProgressBar"><em>ProgressBar</em></a><em> | </em><em>None</em>) – The instance of ProgressBar of the optional parent progress bar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>detsigyield</strong> (<em>instance of SingleParamFluxPointLikeSourceI3DetSigYield</em>) – The I3DetSigYield instance for a point-like source with a flux model
+of a single parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.livetime">
+<span id="skyllh-i3-livetime-module"></span><h2>skyllh.i3.livetime module<a class="headerlink" href="#module-skyllh.i3.livetime" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.livetime.I3Livetime">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.livetime.</span></span><span class="sig-name descname"><span class="pre">I3Livetime</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.livetime.I3Livetime" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.livetime.Livetime" title="skyllh.core.livetime.Livetime"><code class="xref py py-class docutils literal notranslate"><span class="pre">Livetime</span></code></a></p>
+<p>The I3Livetime class provides the functionality to load a Livetime object
+from a good-run-list data file.</p>
+<p>Creates a new instance of I3Livetime.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.livetime.I3Livetime.from_grl_data">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_grl_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grl_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.livetime.I3Livetime.from_grl_data" title="Permalink to this definition"></a></dt>
+<dd><p>Creates an I3LiveTime instance from the given good-run-list (GRL)
+data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grl_data</strong> (<em>instance</em><em> of </em><em>numpy structured ndarray.</em>) – <p>The numpy structured ndarray of length N_runs holding the start end
+end times of the good runs. The following fields need to exist:</p>
+<dl class="simple">
+<dt>start<span class="classifier">float</span></dt><dd><p>The MJD of the run start.</p>
+</dd>
+<dt>end<span class="classifier">float</span></dt><dd><p>The MJD of the run stop.</p>
+</dd>
+</dl>
+</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>livetime</strong> (<em>instance of I3Livetime</em>) – The created instance of I3Livetime for the provided GRL data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.livetime.I3Livetime.from_grl_files">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_grl_files</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathfilenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.livetime.I3Livetime.from_grl_files" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an I3Livetime instance from the given good-run-list (GRL) data
+file. The data file needs to contain the following data fields:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>start<span class="classifier">float</span></dt><dd><p>The MJD of the run start.</p>
+</dd>
+<dt>stop<span class="classifier">float</span></dt><dd><p>The MJD of the run stop.</p>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pathfilenames</strong> (<em>str</em><em> | </em><em>list</em><em> of </em><em>str</em>) – The list of fully qualified file names of the GRL data files.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>livetime</strong> (<em>instance of I3Livetime</em>) – The created instance of I3Livetime for the provided GRL data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.livetime.I3Livetime.from_I3Dataset">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_I3Dataset</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.livetime.I3Livetime.from_I3Dataset" title="Permalink to this definition"></a></dt>
+<dd><p>Loads an I3Livetime instance from a given I3Dataset instance, which
+must have a good-run-list (GRL) files defined.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ds</strong> (<em>I3Dataset instance</em>) – The instance of I3Dataset which defined the good-run-list (GRL)
+files for the dataset.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>livetime</strong> (<em>instance of I3Livetime</em>) – The created instance of I3Livetime for the GRL data from the
+provided dataset.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.pdf">
+<span id="skyllh-i3-pdf-module"></span><h2>skyllh.i3.pdf module<a class="headerlink" href="#module-skyllh.i3.pdf" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.pdf.I3EnergyPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.pdf.</span></span><span class="sig-name descname"><span class="pre">I3EnergyPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pmm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_log10_energy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_sin_dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_mcweight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_physicsweight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_energy_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_filter</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.pdf.I3EnergyPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.EnergyPDF" title="skyllh.core.pdf.EnergyPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.binning.UsesBinning" title="skyllh.core.binning.UsesBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsesBinning</span></code></a></p>
+<p>This is the base class for all IceCube specific energy PDF models.
+IceCube energy PDFs depend soley on the energy and the
+zenith angle, and hence, on the declination of the event.</p>
+<p>The IceCube energy PDF is modeled as a 1d histogram in energy,
+but for different sin(declination) bins, hence, stored as a 2d histogram.</p>
+<p>Creates a new IceCube energy PDF object.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pmm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterModelMapper" title="skyllh.core.parameters.ParameterModelMapper"><em>ParameterModelMapper</em></a><em> | </em><em>None</em>) – The instance of ParameterModelMapper defining the global parameters
+and their mapping to local model/source parameters.
+It can be <code class="docutils literal notranslate"><span class="pre">None</span></code>, if the PDF does not depend on any parameters.</p></li>
+<li><p><strong>data_log10_energy</strong> (<em>1d ndarray</em>) – The array holding the log10(E) values of the events.</p></li>
+<li><p><strong>data_sin_dec</strong> (<em>1d ndarray</em>) – The array holding the sin(dec) values of the events.</p></li>
+<li><p><strong>data_mcweight</strong> (<em>1d ndarray</em>) – The array holding the monte-carlo weights of the events.
+The final data weight will be the product of data_mcweight and
+data_physicsweight.</p></li>
+<li><p><strong>data_physicsweight</strong> (<em>1d ndarray</em>) – The array holding the physics weights of the events.
+The final data weight will be the product of data_mcweight and
+data_physicsweight.</p></li>
+<li><p><strong>log10_energy_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the log10(E) axis.</p></li>
+<li><p><strong>sin_dec_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the sin(declination) axis.</p></li>
+<li><p><strong>smoothing_filter</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.smoothing.SmoothingFilter" title="skyllh.core.smoothing.SmoothingFilter"><em>SmoothingFilter</em></a><em> | </em><em>None</em>) – The smoothing filter to use for smoothing the energy histogram.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no smoothing will be applied.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.pdf.I3EnergyPDF.hist_smoothing_method">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist_smoothing_method</span></span><a class="headerlink" href="#skyllh.i3.pdf.I3EnergyPDF.hist_smoothing_method" title="Permalink to this definition"></a></dt>
+<dd><p>The HistSmoothingMethod instance defining the smoothing filter of the
+energy PDF histogram.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.pdf.I3EnergyPDF.hist">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist</span></span><a class="headerlink" href="#skyllh.i3.pdf.I3EnergyPDF.hist" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The 2D logE-sinDec histogram array.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.pdf.I3EnergyPDF.hist_mask_mc_covered">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist_mask_mc_covered</span></span><a class="headerlink" href="#skyllh.i3.pdf.I3EnergyPDF.hist_mask_mc_covered" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The boolean ndarray holding the mask of the 2D histogram
+bins for which there is monte-carlo coverage.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.pdf.I3EnergyPDF.hist_mask_mc_covered_zero_physics">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist_mask_mc_covered_zero_physics</span></span><a class="headerlink" href="#skyllh.i3.pdf.I3EnergyPDF.hist_mask_mc_covered_zero_physics" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The boolean ndarray holding the mask of the 2D histogram
+bins for which there is monte-carlo coverage but zero physics
+contribution.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.pdf.I3EnergyPDF.hist_mask_mc_covered_with_physics">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist_mask_mc_covered_with_physics</span></span><a class="headerlink" href="#skyllh.i3.pdf.I3EnergyPDF.hist_mask_mc_covered_with_physics" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The boolean ndarray holding the mask of the 2D histogram
+bins for which there is monte-carlo coverage and has physics
+contribution.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.pdf.I3EnergyPDF.assert_is_valid_for_trial_data">
+<span class="sig-name descname"><span class="pre">assert_is_valid_for_trial_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.pdf.I3EnergyPDF.assert_is_valid_for_trial_data" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if this energy PDF is valid for all the given trial events.
+It checks if all the data is within the log10(E) and sin(dec) binning
+range.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – <p>The instance of TrialDataManager holding the trial data events.
+The following data fields must exist:</p>
+<dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base-10 logarithm of the energy value of the data event.</p>
+</dd>
+<dt>dec<span class="classifier">float</span></dt><dd><p>The declination of the data event.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional instance of TimeLord for measuring timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If some of the data is outside the log10(E) or sin(dec) binning
+    range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.pdf.I3EnergyPDF.get_pd">
+<span class="sig-name descname"><span class="pre">get_pd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_recarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.pdf.I3EnergyPDF.get_pd" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the energy probability density of each event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – <p>The TrialDataManager instance holding the data events for which the
+probability density should be calculated.
+The following data fields must exist:</p>
+<dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base-10 logarithm of the energy value of the event.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sin(declination) value of the event.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>params_recarray</strong> (<em>None</em>) – Unused interface parameter.</p></li>
+<li><p><strong>tl</strong> (<em>TimeLord instance</em><em> | </em><em>None</em>) – The optional TimeLord instance that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pd</strong> (<em>instance of ndarray</em>) – The 1D (N_events,)-shaped numpy ndarray with the energy probability
+density for each event.</p></li>
+<li><p><strong>grads</strong> (<em>dict</em>) – The dictionary holding the gradients of the probability density
+w.r.t. each fit parameter. The key of the dictionary is the id
+of the global fit parameter. Because this energy PDF does not depend
+on any fit parameters, an empty dictionary is returned.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.pdfratio">
+<span id="skyllh-i3-pdfratio-module"></span><h2>skyllh.i3.pdfratio module<a class="headerlink" href="#module-skyllh.i3.pdfratio" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.pdfratio.SplinedI3EnergySigSetOverBkgPDFRatio">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.pdfratio.</span></span><span class="sig-name descname"><span class="pre">SplinedI3EnergySigSetOverBkgPDFRatio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig_pdf_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bkg_pdf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fillmethod</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">interpolmethod_cls</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.pdfratio.SplinedI3EnergySigSetOverBkgPDFRatio" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdfratio.SigSetOverBkgPDFRatio" title="skyllh.core.pdfratio.SigSetOverBkgPDFRatio"><code class="xref py py-class docutils literal notranslate"><span class="pre">SigSetOverBkgPDFRatio</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.multiproc.IsParallelizable" title="skyllh.core.multiproc.IsParallelizable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsParallelizable</span></code></a></p>
+<p>This class implements a splined signal over background PDF ratio for
+enegry PDFs of type I3EnergyPDF.
+It takes an instance, which is derived from PDFSet, and which is derived
+from IsSignalPDF, as signal PDF. Furthermore, it takes an instance, which
+is derived from I3EnergyPDF and IsBackgroundPDF, as background PDF, and
+creates a spline for the ratio of the signal and background PDFs for a grid
+of different discrete energy signal parameters, which are defined by the
+signal PDF set.</p>
+<p>Creates a new IceCube signal-over-background energy PDF ratio spline
+instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sig_pdf_set</strong> (<em>class instance derived from PDFSet</em><em> (</em><em>for PDF type</em>) – I3EnergyPDF), IsSignalPDF, and UsesBinning
+The PDF set, which provides signal energy PDFs for a set of
+discrete signal parameters.</p></li>
+<li><p><strong>bkg_pdf</strong> (<em>class instance derived from I3EnergyPDF</em><em>, </em><em>and</em>) – IsBackgroundPDF
+The background energy PDF object.</p></li>
+<li><p><strong>fillmethod</strong> (<em>instance</em><em> of </em><em>PDFRatioFillMethod</em><em> | </em><em>None</em>) – An instance of class derived from PDFRatioFillMethod that implements
+the desired ratio fill method.
+If set to None (default), the default ratio fill method
+MostSignalLikePDFRatioFillMethod will be used.</p></li>
+<li><p><strong>interpolmethod_cls</strong> (<em>class</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.interpolate.GridManifoldInterpolationMethod" title="skyllh.core.interpolate.GridManifoldInterpolationMethod"><em>GridManifoldInterpolationMethod</em></a>) – The class implementing the parameter interpolation method for
+the PDF ratio manifold grid.</p></li>
+<li><p><strong>ncpu</strong> (<em>int</em><em> | </em><em>None</em>) – The number of CPUs to use to create the ratio splines for the
+different sets of signal parameters.</p></li>
+<li><p><strong>ppbar</strong> (<em>ProgressBar instance</em><em> | </em><em>None</em>) – The instance of ProgressBar of the optional parent progress bar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the signal and background PDFs use different binning.</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.pdfratio.SplinedI3EnergySigSetOverBkgPDFRatio.fillmethod">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fillmethod</span></span><a class="headerlink" href="#skyllh.i3.pdfratio.SplinedI3EnergySigSetOverBkgPDFRatio.fillmethod" title="Permalink to this definition"></a></dt>
+<dd><p>The PDFRatioFillMethod object, which should be used for filling the
+PDF ratio bins.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.pdfratio.SplinedI3EnergySigSetOverBkgPDFRatio.get_ratio">
+<span class="sig-name descname"><span class="pre">get_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_params_recarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.pdfratio.SplinedI3EnergySigSetOverBkgPDFRatio.get_ratio" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the PDF ratio values for each given trial event data, given
+the given set of fit parameters. This method is called during the
+likelihood maximization process.
+For computational efficiency reasons, the gradients are calculated as
+well and will be cached.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – The TrialDataManager instance holding the trial event data for which
+the PDF ratio values should get calculated.</p></li>
+<li><p><strong>src_params_recarray</strong> (<em>instance</em><em> of </em><em>numpy record ndarray</em><em> | </em><em>None</em>) – The (N_sources,)-shaped numpy record ndarray holding the parameter
+names and values of the sources. See the
+<a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray" title="skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray"><code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray()</span></code></a>
+for more information.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional TimeLord instance that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ratio</strong> (<em>instance of numpy ndarray</em>) – The (N_values,)-shaped numpy ndarray of float holding the PDF ratio
+value for each source and trial event.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.pdfratio.SplinedI3EnergySigSetOverBkgPDFRatio.get_gradient">
+<span class="sig-name descname"><span class="pre">get_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_params_recarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitparam_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.pdfratio.SplinedI3EnergySigSetOverBkgPDFRatio.get_gradient" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the PDF ratio gradient for the given fit parameter
+<code class="docutils literal notranslate"><span class="pre">fitparam_id</span></code>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – The TrialDataManager instance holding the trial event data for which
+the PDF ratio gradient values should get calculated.</p></li>
+<li><p><strong>src_params_recarray</strong> (<em>instance</em><em> of </em><em>numpy record ndarray</em><em> | </em><em>None</em>) – The (N_sources,)-shaped numpy record ndarray holding the local
+parameter names and values of all sources. See the
+<a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray" title="skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray"><code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray()</span></code></a>
+method for more information.</p></li>
+<li><p><strong>fitparam_id</strong> (<em>int</em>) – The ID of the global fit parameter for which the gradient should
+get calculated.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional TimeLord instance that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>grad</strong> (<em>instance of ndarray</em>) – The (N_values,)-shaped numpy ndarray holding the gradient values
+for all sources and trial events w.r.t. the given global fit
+parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.scrambling">
+<span id="skyllh-i3-scrambling-module"></span><h2>skyllh.i3.scrambling module<a class="headerlink" href="#module-skyllh.i3.scrambling" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.scrambling.I3TimeScramblingMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.scrambling.</span></span><span class="sig-name descname"><span class="pre">I3TimeScramblingMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timegen</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.scrambling.I3TimeScramblingMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.scrambling.TimeScramblingMethod" title="skyllh.core.scrambling.TimeScramblingMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">TimeScramblingMethod</span></code></a></p>
+<p>The I3TimeScramblingMethod class provides a data scrambling method to
+perform time scrambling of the data,
+by drawing a MJD time from a given time generator.</p>
+<p>Initializes a new I3 time scrambling instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>timegen</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.times.TimeGenerator" title="skyllh.core.times.TimeGenerator"><em>TimeGenerator</em></a>) – The time generator that should be used to generate random MJD times.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.scrambling.I3TimeScramblingMethod.scramble">
+<span class="sig-name descname"><span class="pre">scramble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.scrambling.I3TimeScramblingMethod.scramble" title="Permalink to this definition"></a></dt>
+<dd><p>Draws a time from the time generator and calculates the right
+ascention coordinate from the azimuth angle according to the time.
+Sets the values of the <code class="docutils literal notranslate"><span class="pre">time</span></code> and <code class="docutils literal notranslate"><span class="pre">ra</span></code> keys of data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The random state service providing the random number
+generator (RNG).</p></li>
+<li><p><strong>dataset</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The instance of Dataset for which the data should get scrambled.</p></li>
+<li><p><strong>data</strong> (<em>DataFieldRecordArray instance</em>) – The DataFieldRecordArray instance containing the to be scrambled
+data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> (<em>numpy record ndarray</em>) – The given numpy record ndarray holding the scrambled data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.scrambling.I3SeasonalVariationTimeScramblingMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.scrambling.</span></span><span class="sig-name descname"><span class="pre">I3SeasonalVariationTimeScramblingMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.scrambling.I3SeasonalVariationTimeScramblingMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.scrambling.DataScramblingMethod" title="skyllh.core.scrambling.DataScramblingMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">DataScramblingMethod</span></code></a></p>
+<p>The I3SeasonalVariationTimeScramblingMethod class provides a data
+scrambling method to perform data coordinate scrambling based on a generated
+time, which follows seasonal variations within the experimental data.</p>
+<p>Initializes a new seasonal time scrambling instance.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>data</strong> (<em>instance</em><em> of </em><a class="reference internal" href="#skyllh.i3.dataset.I3DatasetData" title="skyllh.i3.dataset.I3DatasetData"><em>I3DatasetData</em></a>) – The instance of I3DatasetData holding the experimental data and
+good-run-list information.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.scrambling.I3SeasonalVariationTimeScramblingMethod.scramble">
+<span class="sig-name descname"><span class="pre">scramble</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.scrambling.I3SeasonalVariationTimeScramblingMethod.scramble" title="Permalink to this definition"></a></dt>
+<dd><p>Scrambles the given data based on random MJD times, which are
+generated uniformely within the data runs, where the data runs are
+weighted based on their amount of events compared to the total events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The random state service providing the random number
+generator (RNG).</p></li>
+<li><p><strong>dataset</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The instance of Dataset for which the data should get scrambled.</p></li>
+<li><p><strong>data</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a>) – The DataFieldRecordArray instance containing the to be scrambled
+data.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>data</strong> (<em>instance of DataFieldRecordArray</em>) – The given DataFieldRecordArray holding the scrambled data.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.signal_generation">
+<span id="skyllh-i3-signal-generation-module"></span><h2>skyllh.i3.signal_generation module<a class="headerlink" href="#module-skyllh.i3.signal_generation" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.signal_generation.source_sin_dec_shift_linear">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.signal_generation.</span></span><span class="sig-name descname"><span class="pre">source_sin_dec_shift_linear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.signal_generation.source_sin_dec_shift_linear" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the shift of the sine of the source declination, in order to
+allow the construction of the source sine declination band with
+sin(dec_src) +/- w. This shift function, S(x), is implemented as a line
+with the following points:</p>
+<blockquote>
+<div><p>S(L) = w
+S((L+U)/2) = 0
+S(U) = -w</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1D numpy ndarray</em>) – The sine of the source declination for each source.</p></li>
+<li><p><strong>w</strong> (<em>float</em>) – The half size of the sin(dec)-window.</p></li>
+<li><p><strong>L</strong> (<em>float</em>) – The lower value of the allowed sin(dec) range.</p></li>
+<li><p><strong>U</strong> (<em>float</em>) – The upper value of the allowed sin(dec) range.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>S</strong> (<em>1D numpy ndarray</em>) – The sin(dec) shift of the sin(dec) values of the given sources, such
+that <code class="docutils literal notranslate"><span class="pre">sin(dec_src)</span> <span class="pre">+</span> <span class="pre">S</span></code> is the new sin(dec) of the source, and
+<code class="docutils literal notranslate"><span class="pre">sin(dec_src)</span> <span class="pre">+</span> <span class="pre">S</span> <span class="pre">+/-</span> <span class="pre">w</span></code> is always within the sin(dec) range [L, U].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.i3.signal_generation.source_sin_dec_shift_cubic">
+<span class="sig-prename descclassname"><span class="pre">skyllh.i3.signal_generation.</span></span><span class="sig-name descname"><span class="pre">source_sin_dec_shift_cubic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">L</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">U</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.signal_generation.source_sin_dec_shift_cubic" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the shift of the sine of the source declination, in order to
+allow the construction of the source sine declination band with
+sin(dec_src) +/- w. This shift function, S(x), is implemented as a cubic
+function with the following points:</p>
+<blockquote>
+<div><p>S(L) = w
+S((L+U)/2) = 0
+S(U) = -w</p>
+</div></blockquote>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>1D numpy ndarray</em>) – The sine of the source declination for each source.</p></li>
+<li><p><strong>w</strong> (<em>float</em>) – The half size of the sin(dec)-window.</p></li>
+<li><p><strong>L</strong> (<em>float</em>) – The lower value of the allowed sin(dec) range.</p></li>
+<li><p><strong>U</strong> (<em>float</em>) – The upper value of the allowed sin(dec) range.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>S</strong> (<em>1D numpy ndarray</em>) – The sin(dec) shift of the sin(dec) values of the given sources, such
+that <code class="docutils literal notranslate"><span class="pre">sin(dec_src)</span> <span class="pre">+</span> <span class="pre">S</span></code> is the new sin(dec) of the source, and
+<code class="docutils literal notranslate"><span class="pre">sin(dec_src)</span> <span class="pre">+</span> <span class="pre">S</span> <span class="pre">+/-</span> <span class="pre">w</span></code> is always within the sin(dec) range [L, U].</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.signal_generation.</span></span><span class="sig-name descname"><span class="pre">PointLikeSourceI3SignalGenerationMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">src_sin_dec_half_bandwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01745240643728351</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_sin_dec_shift_func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">128</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.signal_generation.SignalGenerationMethod" title="skyllh.core.signal_generation.SignalGenerationMethod"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalGenerationMethod</span></code></a></p>
+<p>This class provides a signal generation method for point-like sources
+seen in the IceCube detector.</p>
+<p>Constructs a new signal generation method instance for a point-like
+source detected with IceCube.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src_sin_dec_half_bandwidth</strong> (<em>float</em>) – The half-width of the sin(dec) band to take MC events from around a
+source. The default is sin(1deg), i.e. a 1deg half-bandwidth.</p></li>
+<li><p><strong>src_sin_dec_shift_func</strong> (<em>callable</em><em> | </em><em>None</em>) – The function that provides the source sin(dec) shift needed for
+constructing the source declination bands from where to draw
+monte-carlo events from. If set to None, the default function
+<code class="docutils literal notranslate"><span class="pre">source_sin_dec_shift_linear</span></code> will be used.</p></li>
+<li><p><strong>energy_range</strong> (<em>2-element tuple</em><em> of </em><em>float</em><em> | </em><em>None</em>) – The energy range from which to take MC events into account for
+signal event generation.
+If set to None, the entire energy range [0, +inf] is used.</p></li>
+<li><p><strong>src_batch_size</strong> (<em>int</em>) – The source processing batch size used for the signal event flux
+calculation.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.src_sin_dec_half_bandwidth">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">src_sin_dec_half_bandwidth</span></span><a class="headerlink" href="#skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.src_sin_dec_half_bandwidth" title="Permalink to this definition"></a></dt>
+<dd><p>The half-width of the sin(dec) band to take MC events from around a
+source.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.src_sin_dec_shift_func">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">src_sin_dec_shift_func</span></span><a class="headerlink" href="#skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.src_sin_dec_shift_func" title="Permalink to this definition"></a></dt>
+<dd><p>The function that provides the source sin(dec) shift needed for
+constructing the source declination bands from where to draw
+monte-carlo events from.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.src_batch_size">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">src_batch_size</span></span><a class="headerlink" href="#skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.src_batch_size" title="Permalink to this definition"></a></dt>
+<dd><p>The source processing batch size used for the signal event flux
+calculation.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.calc_source_signal_mc_event_flux">
+<span class="sig-name descname"><span class="pre">calc_source_signal_mc_event_flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_mc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shg</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.calc_source_signal_mc_event_flux" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the signal flux of each given MC event for each source
+hypothesis of the given source hypothesis group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_mc</strong> (<em>numpy record ndarray</em>) – The numpy record array holding the MC events of a dataset.</p></li>
+<li><p><strong>shg</strong> (<em>SourceHypoGroup instance</em>) – The source hypothesis group, which defines the list of sources, and
+their flux model.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ev_idx_arr</strong> (<em>ndarray</em>) – The (N_selected_signal_events,)-shaped 1D ndarray holding the index
+of the MC event.</p></li>
+<li><p><strong>shg_src_idx_arr</strong> (<em>ndarray</em>) – The (N_selected_signal_events,)-shaped 1D ndarray holding the index
+of the source within the given source hypothesis group for each
+signal candidate event.</p></li>
+<li><p><strong>flux_arr</strong> (<em>ndarray</em>) – The (N_selected_signal_events,)-shaped 1D ndarray holding the flux
+value of each signal candidate event.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.signal_event_post_sampling_processing">
+<span class="sig-name descname"><span class="pre">signal_event_post_sampling_processing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shg_sig_events_meta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shg_sig_events</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.signal_generation.PointLikeSourceI3SignalGenerationMethod.signal_event_post_sampling_processing" title="Permalink to this definition"></a></dt>
+<dd><p>Rotates the generated signal events to their source location for a
+given source hypothesis group.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shg</strong> (<em>SourceHypoGroup instance</em>) – The source hypothesis group instance holding the sources and their
+locations.</p></li>
+<li><p><strong>shg_sig_events_meta</strong> (<em>numpy record ndarray</em>) – <p>The numpy record ndarray holding meta information about the
+generated signal events for the given source hypothesis group.
+The length of this array must be the same as shg_sig_events.
+It needs to contain the following data fields:</p>
+<ul>
+<li><dl class="simple">
+<dt>’shg_src_idx’: int</dt><dd><p>The source index within the source hypothesis group.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</p></li>
+<li><p><strong>shg_sig_events</strong> (<em>numpy record ndarray</em>) – The numpy record ndarray holding the generated signal events for
+the given source hypothesis group and in the format of the original
+MC events.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>shg_sig_events</strong> (<em>numpy record ndarray</em>) – The numpy record ndarray with the processed MC signal events.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.i3.signalpdf">
+<span id="skyllh-i3-signalpdf-module"></span><h2>skyllh.i3.signalpdf module<a class="headerlink" href="#module-skyllh.i3.signalpdf" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.i3.signalpdf.SignalI3EnergyPDFSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.i3.signalpdf.</span></span><span class="sig-name descname"><span class="pre">SignalI3EnergyPDFSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cfg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_mc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_energy_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sin_dec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fluxmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_grid_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.i3.signalpdf.SignalI3EnergyPDFSet" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.PDFSet" title="skyllh.core.pdf.PDFSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDFSet</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.IsSignalPDF" title="skyllh.core.pdf.IsSignalPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsSignalPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.PDF" title="skyllh.core.pdf.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.multiproc.IsParallelizable" title="skyllh.core.multiproc.IsParallelizable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsParallelizable</span></code></a></p>
+<p>This is the signal energy PDF for IceCube. It creates a set of
+I3EnergyPDF objects for a discrete set of energy signal parameters. Energy
+signal parameters influence the source’s flux model.</p>
+<p>Creates a new IceCube energy signal PDF for a given flux model and
+a set of parameter grids for the flux model.
+It creates a set of I3EnergyPDF objects for each signal parameter value
+permutation and stores it in an internal dictionary, where the hash of
+the parameters dictionary is the key.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>cfg</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.config.Config" title="skyllh.core.config.Config"><em>Config</em></a>) – The instance of Config holding the local configuration.</p></li>
+<li><p><strong>data_mc</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a>) – <p>The instance of DataFieldRecordArray holding the monte-carlo data.
+The following data fields must exist:</p>
+<dl class="simple">
+<dt>true_energy<span class="classifier">float</span></dt><dd><p>The true energy value of the data event.</p>
+</dd>
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base10-logarithm of the reconstructed energy value of the
+data event.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The declination of the data event.</p>
+</dd>
+<dt>mcweight<span class="classifier">float</span></dt><dd><p>The monte-carlo weight value of the data events in unit
+GeV cm^2 sr.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>log10_energy_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the reconstructed energy binning in
+log10(E).</p></li>
+<li><p><strong>sin_dec_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the binning in sin(declination).</p></li>
+<li><p><strong>fluxmodel</strong> (<em>instance</em><em> of </em><em>FluxModel</em>) – The flux model to use to create the signal energy PDF.</p></li>
+<li><p><strong>param_grid_set</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterGridSet" title="skyllh.core.parameters.ParameterGridSet"><em>ParameterGridSet</em></a><em> |</em>) – instance of ParameterGrid
+The set of parameter grids. A ParameterGrid instance for each
+energy parameter, for which an I3EnergyPDF object needs to be
+created.</p></li>
+<li><p><strong>smoothing_filter</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.smoothing.SmoothingFilter" title="skyllh.core.smoothing.SmoothingFilter"><em>SmoothingFilter</em></a><em> | </em><em>None</em>) – The smoothing filter to use for smoothing the energy histogram.
+If <code class="docutils literal notranslate"><span class="pre">None</span></code>, no smoothing will be applied.</p></li>
+<li><p><strong>ncpu</strong> (<em>int</em><em> | </em><em>None</em>) – The number of CPUs to use to create the different I3EnergyPDF
+instances for the different parameter grid values.
+If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, the configured default number of CPUs will be
+used.</p></li>
+<li><p><strong>ppbar</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.progressbar.ProgressBar" title="skyllh.core.progressbar.ProgressBar"><em>ProgressBar</em></a><em> | </em><em>None</em>) – The instance of ProgressBar of the optional parent progress bar.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="skyllh.core.utils.html" class="btn btn-neutral float-left" title="skyllh.core.utils package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="skyllh.i3.utils.html" class="btn btn-neutral float-right" title="skyllh.i3.utils package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: v20_01_09
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../master/html/index.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="../../../dm/html/index.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="../../../fix230/html/index.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="skyllh.i3.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="../../../v22_04_28/html/index.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="../../../v23.0.0/html/index.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="../../../v23.2.1/html/index.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="../../../v24.1.0/html/index.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1867 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>skyllh.analyses.i3.publicdata_ps package &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="skyllh.cluster package" href="skyllh.cluster.html" />
+    <link rel="prev" title="skyllh.analyses.i3 package" href="skyllh.analyses.i3.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../concepts/index.html">Concepts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/index.html">Frequently Ask Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../examples/index.html">Examples</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="skyllh.html">skyllh package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="skyllh.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="skyllh.analyses.html">skyllh.analyses package</a><ul class="current">
+<li class="toctree-l4 current"><a class="reference internal" href="skyllh.analyses.html#subpackages">Subpackages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.cluster.html">skyllh.cluster package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.core.html">skyllh.core package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.datasets.html">skyllh.datasets package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.i3.html">skyllh.i3 package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.plotting.html">skyllh.plotting package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="skyllh.scripting.html">skyllh.scripting package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/unit_tests.html">Unit tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="skyllh.html">skyllh package</a></li>
+          <li class="breadcrumb-item"><a href="skyllh.analyses.html">skyllh.analyses package</a></li>
+          <li class="breadcrumb-item"><a href="skyllh.analyses.i3.html">skyllh.analyses.i3 package</a></li>
+      <li class="breadcrumb-item active">skyllh.analyses.i3.publicdata_ps package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/reference/skyllh.analyses.i3.publicdata_ps.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-skyllh.analyses.i3.publicdata_ps">
+<span id="skyllh-analyses-i3-publicdata-ps-package"></span><h1>skyllh.analyses.i3.publicdata_ps package<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps" title="Permalink to this heading"></a></h1>
+<section id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.aeff">
+<span id="skyllh-analyses-i3-publicdata-ps-aeff-module"></span><h2>skyllh.analyses.i3.publicdata_ps.aeff module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.aeff" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.load_effective_area_array">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.aeff.</span></span><span class="sig-name descname"><span class="pre">load_effective_area_array</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathfilenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.load_effective_area_array" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the (nbins_decnu, nbins_log10enu)-shaped 2D effective
+area array from the given data file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pathfilename</strong> (<em>str</em><em> | </em><em>list</em><em> of </em><em>str</em>) – The file name of the data file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>aeff_decnu_log10enu</strong> (<em>(nbins_decnu, nbins_log10enu)-shaped 2D ndarray</em>) – The ndarray holding the effective area for each
+(dec_nu,log10(E_nu/GeV)) bin.</p></li>
+<li><p><strong>decnu_binedges_lower</strong> (<em>(nbins_decnu,)-shaped ndarray</em>) – The ndarray holding the lower bin edges of the dec_nu axis.</p></li>
+<li><p><strong>decnu_binedges_upper</strong> (<em>(nbins_decnu,)-shaped ndarray</em>) – The ndarray holding the upper bin edges of the dec_nu axis.</p></li>
+<li><p><strong>log10_enu_binedges_lower</strong> (<em>(nbins_log10enu,)-shaped ndarray</em>) – The ndarray holding the lower bin edges of the log10(E_nu/GeV) axis.</p></li>
+<li><p><strong>log10_enu_binedges_upper</strong> (<em>(nbins_log10enu,)-shaped ndarray</em>) – The ndarray holding the upper bin edges of the log10(E_nu/GeV) axis.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.aeff.</span></span><span class="sig-name descname"><span class="pre">PDAeff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathfilenames</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_dec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_log10enu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_log10enu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class provides a representation of the effective area provided by
+the public data.</p>
+<p>Creates an effective area instance by loading the effective area
+data from the given file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pathfilenames</strong> (<em>str</em><em> | </em><em>list</em><em> of </em><em>str</em>) – The path file names of the effective area data file(s) which should
+be used for this public data effective area instance.</p></li>
+<li><p><strong>src_dec</strong> (<em>float</em><em> | </em><em>None</em>) – The source declination in radians for which detection probabilities
+should get pre-calculated using the <code class="docutils literal notranslate"><span class="pre">get_detection_prob_for_decnu</span></code>
+method.</p></li>
+<li><p><strong>min_log10enu</strong> (<em>float</em><em> | </em><em>None</em>) – The minimum log10(E_nu/GeV) value that should be used for
+calculating the detection probability.
+If None, the lowest available neutrino energy bin edge of the
+effective area is used.</p></li>
+<li><p><strong>max_log10enu</strong> (<em>float</em><em> | </em><em>None</em>) – The maximum log10(E_nu/GeV) value that should be used for
+calculating the detection probability.
+If None, the highest available neutrino energy bin edge of the
+effective area is used.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.decnu_binedges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decnu_binedges</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.decnu_binedges" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The bin edges of the neutrino declination axis in
+radians.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.sin_decnu_binedges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">sin_decnu_binedges</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.sin_decnu_binedges" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The sin of the bin edges of the neutrino declination
+in radians.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.decnu_bincenters">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">decnu_bincenters</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.decnu_bincenters" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The bin center values of the neutrino declination axis in
+radians.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.n_decnu_bins">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_decnu_bins</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.n_decnu_bins" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The number of bins of the neutrino declination axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.log10_enu_binedges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log10_enu_binedges</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.log10_enu_binedges" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The bin edges of the log10(E_nu/GeV) neutrino energy
+axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.log10_enu_binedges_lower">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log10_enu_binedges_lower</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.log10_enu_binedges_lower" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The lower binedges of the log10(E_nu/GeV) neutrino energy
+axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.log10_enu_binedges_upper">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log10_enu_binedges_upper</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.log10_enu_binedges_upper" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The upper binedges of the log10(E_nu/GeV) neutrino energy
+axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.log10_enu_bincenters">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log10_enu_bincenters</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.log10_enu_bincenters" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The bin center values of the log10(E_nu/GeV) neutrino
+energy axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.n_log10_enu_bins">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_log10_enu_bins</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.n_log10_enu_bins" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The number of bins of the log10 neutrino energy axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.aeff_decnu_log10enu">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">aeff_decnu_log10enu</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.aeff_decnu_log10enu" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The effective area in cm^2 as (n_decnu,n_log10enu)-shaped
+2D numpy ndarray.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.create_sin_decnu_log10_enu_spline">
+<span class="sig-name descname"><span class="pre">create_sin_decnu_log10_enu_spline</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.create_sin_decnu_log10_enu_spline" title="Permalink to this definition"></a></dt>
+<dd><p>DEPRECATED!
+Creates a FctSpline2D object representing a 2D spline of the
+effective area in sin(dec_nu)-log10(E_nu/GeV)-space.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>spl</strong> (<em>FctSpline2D instance</em>) – The FctSpline2D instance representing a spline in the
+sin(dec_nu)-log10(E_nu/GeV)-space.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.get_aeff_for_decnu">
+<span class="sig-name descname"><span class="pre">get_aeff_for_decnu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decnu</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.get_aeff_for_decnu" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the effective area as function of log10_enu.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>decnu</strong> (<em>float</em>) – The true neutrino declination.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>aeff</strong> (<em>(n,)-shaped numpy ndarray</em>) – The effective area in cm^2 for the given true neutrino declination
+as a function of log10 true neutrino energy.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.get_detection_prob_for_decnu">
+<span class="sig-name descname"><span class="pre">get_detection_prob_for_decnu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decnu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enu_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enu_max</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enu_range_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">enu_range_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.aeff.PDAeff.get_detection_prob_for_decnu" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the detection probability for given true neutrino energy
+ranges for a given neutrino declination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decnu</strong> (<em>float</em>) – The neutrino declination in radians.</p></li>
+<li><p><strong>enu_min</strong> (<em>float</em><em> | </em><em>ndarray</em><em> of </em><em>float</em>) – The minimum energy in GeV.</p></li>
+<li><p><strong>enu_max</strong> (<em>float</em><em> | </em><em>ndarray</em><em> of </em><em>float</em>) – The maximum energy in GeV.</p></li>
+<li><p><strong>enu_range_min</strong> (<em>float</em>) – The minimum energy in GeV of the entire energy range.</p></li>
+<li><p><strong>enu_range_max</strong> (<em>float</em>) – The maximum energy in GeV of the entire energy range.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>det_prob</strong> (<em>ndarray of float</em>) – The neutrino energy detection probabilities for the given true
+enegry ranges.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.backgroundpdf">
+<span id="skyllh-analyses-i3-publicdata-ps-backgroundpdf-module"></span><h2>skyllh.analyses.i3.publicdata_ps.backgroundpdf module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.backgroundpdf" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.backgroundpdf.</span></span><span class="sig-name descname"><span class="pre">PDBackgroundI3EnergyPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_logE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_sinDec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_mcweight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data_physicsweight</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logE_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sinDec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_filter</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kde_smoothing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.EnergyPDF" title="skyllh.core.pdf.EnergyPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.IsBackgroundPDF" title="skyllh.core.pdf.IsBackgroundPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsBackgroundPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.binning.UsesBinning" title="skyllh.core.binning.UsesBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsesBinning</span></code></a></p>
+<p>This is the base class for an IceCube specific energy background PDF for
+the public data.</p>
+<p>IceCube energy PDFs depend solely on the energy and the zenith angle, and
+hence, on the declination of the event.</p>
+<p>The IceCube energy PDF is modeled as a 1d histogram in energy,
+but for different sin(declination) bins, hence, stored as a 2d histogram.</p>
+<p>Creates a new IceCube energy PDF object for the public data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_logE</strong> (<em>instance</em><em> of </em><em>ndarray</em>) – The 1d ndarray holding the log10(E) values of the events.</p></li>
+<li><p><strong>data_sinDec</strong> (<em>instance</em><em> of </em><em>ndarray</em>) – The 1d ndarray holding the sin(dec) values of the events.</p></li>
+<li><p><strong>data_mcweight</strong> (<em>instance</em><em> of </em><em>ndarray</em>) – The 1d ndarray holding the monte-carlo weights of the events.
+The final data weight will be the product of data_mcweight and
+data_physicsweight.</p></li>
+<li><p><strong>data_physicsweight</strong> (<em>instance</em><em> of </em><em>ndarray</em>) – The 1d ndarray holding the physics weights of the events.
+The final data weight will be the product of data_mcweight and
+data_physicsweight.</p></li>
+<li><p><strong>logE_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the log10(E) axis.</p></li>
+<li><p><strong>sinDec_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the sin(declination) axis.</p></li>
+<li><p><strong>smoothing_filter</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.smoothing.SmoothingFilter" title="skyllh.core.smoothing.SmoothingFilter"><em>SmoothingFilter</em></a><em> | </em><em>None</em>) – The smoothing filter to use for smoothing the energy histogram.
+If None, no smoothing will be applied.</p></li>
+<li><p><strong>kde_smoothing</strong> (<em>bool</em>) – Apply a kde smoothing to the energy pdf for each bin in sin(dec).
+This is useful for signal injections, because it ensures that the
+background is not zero when injecting high energy events.
+Default: False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist_smoothing_method">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist_smoothing_method</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist_smoothing_method" title="Permalink to this definition"></a></dt>
+<dd><p>The instance of HistSmoothingMethod defining the smoothing filter of
+the energy PDF histogram.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The 2D logE-sinDec histogram array.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist_mask_mc_covered">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist_mask_mc_covered</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist_mask_mc_covered" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The boolean ndarray holding the mask of the 2D histogram
+bins for which there is monte-carlo coverage.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist_mask_mc_covered_zero_physics">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist_mask_mc_covered_zero_physics</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist_mask_mc_covered_zero_physics" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The boolean ndarray holding the mask of the 2D histogram
+bins for which there is monte-carlo coverage but zero physics
+contribution.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist_mask_mc_covered_with_physics">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">hist_mask_mc_covered_with_physics</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.hist_mask_mc_covered_with_physics" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The boolean ndarray holding the mask of the 2D histogram
+bins for which there is monte-carlo coverage and has physics
+contribution.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.initialize_for_new_trial">
+<span class="sig-name descname"><span class="pre">initialize_for_new_trial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.initialize_for_new_trial" title="Permalink to this definition"></a></dt>
+<dd><p>Pre-compute the probability densitiy values of the trial data,
+which has to be done only once for a particular trial data.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.assert_is_valid_for_trial_data">
+<span class="sig-name descname"><span class="pre">assert_is_valid_for_trial_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.assert_is_valid_for_trial_data" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if this energy PDF covers the entire value range of the trail
+data events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – <p>The instance of TrialDataManager holding the trial data events.
+The following data fields need to exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base-10 logarithm of the reconstructed energy value.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sine of the declination value of the event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional instance of TimeLord to measure timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If parts of the trial data is outside the value range of this
+    PDF.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.get_pd">
+<span class="sig-name descname"><span class="pre">get_pd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_recarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF.get_pd" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the energy probability density (in 1/log10(E/GeV)) of each
+trial data event.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – <p>The TrialDataManager instance holding the data events for which the
+probability should be calculated for. The following data fields must
+exist:</p>
+<dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base-10 logarithm of the energy value of the event.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sin(declination) value of the event.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>params_recarray</strong> (<em>None</em>) – Unused interface parameter.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional TimeLord instance that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pd</strong> (<em>instance of ndarray</em>) – The (N_selected_events,)-shaped numpy ndarray holding the energy
+probability density value for each trial data event.</p></li>
+<li><p><strong>grads</strong> (<em>dict</em>) – The dictionary holding the gradients of the probability density
+w.r.t. each global fit parameter. By definition this PDF does not
+depend on any fit parameter, hence, this dictionary is empty.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDDataBackgroundI3EnergyPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.backgroundpdf.</span></span><span class="sig-name descname"><span class="pre">PDDataBackgroundI3EnergyPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data_exp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logE_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sinDec_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">smoothing_filter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kde_smoothing</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDDataBackgroundI3EnergyPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF" title="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDBackgroundI3EnergyPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDBackgroundI3EnergyPDF</span></code></a></p>
+<p>This is the IceCube energy background PDF, which gets constructed from
+the experimental data of the public data.</p>
+<p>Constructs a new IceCube energy background PDF from experimental
+data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_exp</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a>) – <p>The array holding the experimental data. The following data fields
+must exist:</p>
+<dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base-10 logarithm of the reconstructed energy value of the
+data event.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sine of the reconstructed declination of the data event.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>logE_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the binning in log10(E).</p></li>
+<li><p><strong>sinDec_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the sin(declination).</p></li>
+<li><p><strong>smoothing_filter</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.smoothing.SmoothingFilter" title="skyllh.core.smoothing.SmoothingFilter"><em>SmoothingFilter</em></a><em> | </em><em>None</em>) – The smoothing filter to use for smoothing the energy histogram.
+If None, no smoothing will be applied.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDMCBackgroundI3EnergyPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.backgroundpdf.</span></span><span class="sig-name descname"><span class="pre">PDMCBackgroundI3EnergyPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pdf_log10emu_sindecmu</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10emu_binning</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sindecmu_binning</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDMCBackgroundI3EnergyPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.EnergyPDF" title="skyllh.core.pdf.EnergyPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">EnergyPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.IsBackgroundPDF" title="skyllh.core.pdf.IsBackgroundPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsBackgroundPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.binning.UsesBinning" title="skyllh.core.binning.UsesBinning"><code class="xref py py-class docutils literal notranslate"><span class="pre">UsesBinning</span></code></a></p>
+<p>This class provides a background energy PDF constructed from the public
+data and a monte-carlo background flux model.</p>
+<p>Constructs a new background energy PDF with the given PDF data and
+binning.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pdf_log10emu_sindecmu</strong> (<em>instance</em><em> of </em><em>numpy ndarray</em>) – The (n_log10emu, n_sindecmu)-shaped 2D numpy ndarray holding the
+PDF values in unit 1/log10(E_mu/GeV).
+A copy of this data will be created and held within this class
+instance.</p></li>
+<li><p><strong>log10emu_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the binning in log10(E_mu/GeV).</p></li>
+<li><p><strong>sindecmu_binning</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.binning.BinningDefinition" title="skyllh.core.binning.BinningDefinition"><em>BinningDefinition</em></a>) – The binning definition for the binning in sin(dec_mu).</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDMCBackgroundI3EnergyPDF.assert_is_valid_for_trial_data">
+<span class="sig-name descname"><span class="pre">assert_is_valid_for_trial_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDMCBackgroundI3EnergyPDF.assert_is_valid_for_trial_data" title="Permalink to this definition"></a></dt>
+<dd><p>Checks if this energy PDF covers the entire value range of the trail
+data events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – <p>The instance of TrialDataManager holding the trial data events.
+The following data fields need to exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base-10 logarithm of the reconstructed energy value.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sine of the declination value of the event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional instance of TimeLord to measure timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If parts of the trial data is outside the value range of this
+    PDF.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDMCBackgroundI3EnergyPDF.get_pd">
+<span class="sig-name descname"><span class="pre">get_pd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_recarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDMCBackgroundI3EnergyPDF.get_pd" title="Permalink to this definition"></a></dt>
+<dd><p>Gets the probability density for the given trial data events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – <p>The instance of TrialDataManager holding the trial data events.
+The following data fields need to exist:</p>
+<blockquote>
+<div><dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base-10 logarithm of the reconstructed energy value.</p>
+</dd>
+<dt>sin_dec<span class="classifier">float</span></dt><dd><p>The sine of the declination value of the event.</p>
+</dd>
+</dl>
+</div></blockquote>
+</p></li>
+<li><p><strong>params_recarray</strong> (<em>None</em>) – Unused interface argument.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional instance of TimeLord that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pd</strong> (<em>instance of ndarray</em>) – The (N_selected_events,)-shaped numpy ndarray holding the
+probability density value for each event.</p></li>
+<li><p><strong>grads</strong> (<em>dict</em>) – The dictionary holding the gradients of the probability density
+w.r.t. each global fit parameter. By definition this PDF does not
+depend on any fit parameter, hence, this dictionary is empty.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.bkg_flux">
+<span id="skyllh-analyses-i3-publicdata-ps-bkg-flux-module"></span><h2>skyllh.analyses.i3.publicdata_ps.bkg_flux module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.bkg_flux" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.get_dOmega">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">get_dOmega</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dec_min</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_max</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.get_dOmega" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the solid angle given two declination angles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dec_min</strong> (<em>float</em><em> | </em><em>array</em><em> of </em><em>float</em>) – The smaller declination angle.</p></li>
+<li><p><strong>dec_max</strong> (<em>float</em><em> | </em><em>array</em><em> of </em><em>float</em>) – The larger declination angle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>solidangle</strong> (<em>float | array of float</em>) – The solid angle corresponding to the two given declination angles.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.southpole_zen2dec">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">southpole_zen2dec</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">zen</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.southpole_zen2dec" title="Permalink to this definition"></a></dt>
+<dd><p>Converts zenith angles at the South Pole to declination angles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>zen</strong> (<em>(</em><em>n</em><em>,</em><em>)</em><em>-shaped 1d numpy ndarray</em>) – The numpy ndarray holding the zenith angle values in radians.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>dec</strong> (<em>(n,)-shaped 1d numpy ndarray</em>) – The numpy ndarray holding the declination angle values in radians.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.get_flux_atmo_decnu_log10enu">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">get_flux_atmo_decnu_log10enu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_pathfilename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_enu_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.get_flux_atmo_decnu_log10enu" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs the atmospheric flux map function
+f_atmo(log10(E_nu/GeV),dec_nu) in unit 1/(GeV cm^2 sr s).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_pathfilename</strong> (<em>str</em>) – The pathfilename of the file containing the MCEq fluxes.</p></li>
+<li><p><strong>log10_enu_max</strong> (<em>float</em>) – The log10(E/GeV) value of the maximum neutrino energy to be considered.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>flux_atmo</strong> (<em>(n_dec, n_e_grid)-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the the atmospheric neutrino flux function in
+unit 1/(GeV cm^2 sr s).</p></li>
+<li><p><strong>decnu_binedges</strong> (<em>(n_decnu+1,)-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the dec_nu bin edges.</p></li>
+<li><p><strong>log10_enu_binedges</strong> (<em>(n_enu+1,)-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the neutrino energy bin edges in log10.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.get_flux_astro_decnu_log10enu">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">get_flux_astro_decnu_log10enu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">decnu_binedges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_enu_binedges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.get_flux_astro_decnu_log10enu" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs the astrophysical neutrino flux function
+f_astro(log10(E_nu/GeV),dec_nu) in unit 1/(GeV cm^2 sr s).</p>
+<p>It uses the best fit from the IceCube publication [1].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>decnu_binedges</strong> (<em>(</em><em>n_decnu+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the dec_nu bin edges.</p></li>
+<li><p><strong>log10_enu_binedges</strong> (<em>(</em><em>n_enu+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the log10 values of the neutrino energy bin
+edges in GeV.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>f_astro</strong> (<em>(n_decnu, n_log10enu)-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the astrophysical flux values in unit
+1/(GeV cm^2 sr s).</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p>[1] <a class="reference external" href="https://arxiv.org/pdf/2111.10299.pdf">https://arxiv.org/pdf/2111.10299.pdf</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.convert_flux_bkg_to_pdf_bkg">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">convert_flux_bkg_to_pdf_bkg</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_bkg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decnu_binedges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_enu_binedges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.convert_flux_bkg_to_pdf_bkg" title="Permalink to this definition"></a></dt>
+<dd><p>Converts the given background flux function f_bkg into a background flux
+PDF in unit 1/(log10(E/GeV) rad).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f_bkg</strong> (<em>(</em><em>n_decnu</em><em>, </em><em>n_enu</em><em>)</em><em>-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the background flux values in unit
+1/(GeV cm^2 s sr).</p></li>
+<li><p><strong>decnu_binedges</strong> (<em>(</em><em>n_decnu+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the dec_nu bin edges in radians.</p></li>
+<li><p><strong>log10_enu_binedges</strong> (<em>(</em><em>n_enu+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the log10 values of the neutrino energy bin
+edges in GeV.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>p_bkg</strong> (<em>(n_decnu, n_enu)-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the background flux pdf values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.get_pd_atmo_decnu_Enu">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">get_pd_atmo_decnu_Enu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_pathfilename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_true_e_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">9</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.get_pd_atmo_decnu_Enu" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs the atmospheric neutrino PDF p_atmo(E_nu,dec_nu) in unit
+1/(GeV rad).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>flux_pathfilename</strong> (<em>str</em>) – The pathfilename of the file containing the MCEq flux.</p></li>
+<li><p><strong>log10_true_e_max</strong> (<em>float</em>) – The log10(E/GeV) value of the maximum true energy to be considered.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pd_atmo</strong> (<em>(n_dec, n_e_grid)-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the the atmospheric neutrino PDF in unit
+1/(GeV rad).</p></li>
+<li><p><strong>decnu_binedges</strong> (<em>(n_decnu+1,)-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the dec_nu bin edges.</p></li>
+<li><p><strong>log10_e_grid_edges</strong> (<em>(n_e_grid+1,)-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the energy bin edges in log10.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.get_pd_atmo_E_nu_sin_dec_nu">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">get_pd_atmo_E_nu_sin_dec_nu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">flux_pathfilename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.get_pd_atmo_E_nu_sin_dec_nu" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs the atmospheric energy PDF p_atmo(E_nu|sin(dec_nu)) in
+unit 1/GeV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>flux_pathfilename</strong> (<em>str</em>) – The pathfilename of the file containing the MCEq flux.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pd_atmo</strong> (<em>(n_sin_dec, n_e_grid)-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the the atmospheric energy PDF in unit 1/GeV.</p></li>
+<li><p><strong>sin_dec_binedges</strong> (<em>numpy ndarray</em>) – The (n_sin_dec+1,)-shaped 1D numpy ndarray holding the sin(dec) bin
+edges.</p></li>
+<li><p><strong>log10_e_grid_edges</strong> (<em>numpy ndarray</em>) – The (n_e_grid+1,)-shaped 1D numpy ndarray holding the energy bin edges
+in log10.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.get_pd_astro_E_nu_sin_dec_nu">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">get_pd_astro_E_nu_sin_dec_nu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sin_dec_binedges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_e_grid_edges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.get_pd_astro_E_nu_sin_dec_nu" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs the astrophysical energy PDF p_astro(E_nu|sin(dec_nu)) in
+unit 1/GeV.
+It uses the best fit from the IceCube publication [1].</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sin_dec_binedges</strong> (<em>(</em><em>n_sin_dec+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the sin(dec) bin edges.</p></li>
+<li><p><strong>log10_e_grid_edges</strong> (<em>(</em><em>n_e_grid+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the log10 values of the energy bin edges in
+GeV of the energy grid.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pd_astro</strong> (<em>(n_sin_dec, n_e_grid)-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the energy probability density values
+p(E_nu|sin_dec_nu) in unit 1/GeV.</p>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<p>[1] <a class="reference external" href="https://arxiv.org/pdf/2111.10299.pdf">https://arxiv.org/pdf/2111.10299.pdf</a></p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.bkg_flux.get_pd_bkg_E_nu_sin_dec_nu">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.bkg_flux.</span></span><span class="sig-name descname"><span class="pre">get_pd_bkg_E_nu_sin_dec_nu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pd_atmo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pd_astro</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log10_e_grid_edges</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.bkg_flux.get_pd_bkg_E_nu_sin_dec_nu" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs the total background flux probability density
+p_bkg(E_nu|sin(dec_nu)) in unit 1/GeV.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pd_atmo</strong> (<em>(</em><em>n_sin_dec</em><em>, </em><em>n_e_grid</em><em>)</em><em>-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the probability density values
+p(E_nu|sin(dec_nu)) in 1/GeV of the atmospheric flux.</p></li>
+<li><p><strong>pd_astro</strong> (<em>(</em><em>n_sin_dec</em><em>, </em><em>n_e_grid</em><em>)</em><em>-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the probability density values
+p(E_nu|sin(dec_nu)) in 1/GeV of the astrophysical flux.</p></li>
+<li><p><strong>log10_e_grid_edges</strong> (<em>(</em><em>n_e_grid+1</em><em>,</em><em>)</em><em>-shaped numpy ndarray</em>) – The numpy ndarray holding the log10 values of the energy grid bin edges
+in GeV.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pd_bkg</strong> (<em>(n_sin_dec, n_e_grid)-shaped 2D numpy ndarray</em>) – The numpy ndarray holding total background probability density values
+p_bkg(E_nu|sin(dec_nu)) in unit 1/GeV.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.detsigyield">
+<span id="skyllh-analyses-i3-publicdata-ps-detsigyield-module"></span><h2>skyllh.analyses.i3.publicdata_ps.detsigyield module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.detsigyield" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.detsigyield.PDSingleParamFluxPointLikeSourceI3DetSigYieldBuilder">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.detsigyield.</span></span><span class="sig-name descname"><span class="pre">PDSingleParamFluxPointLikeSourceI3DetSigYieldBuilder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">param_grid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_order_sinDec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline_order_param</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.detsigyield.PDSingleParamFluxPointLikeSourceI3DetSigYieldBuilder" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.i3.html#skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder" title="skyllh.i3.detsigyield.SingleParamFluxPointLikeSourceI3DetSigYieldBuilder"><code class="xref py py-class docutils literal notranslate"><span class="pre">SingleParamFluxPointLikeSourceI3DetSigYieldBuilder</span></code></a></p>
+<p>This detector signal yield builder class constructs a
+detector signal yield instance for a variable flux model of a single
+parameter, assuming a point-like source.
+It constructs a two-dimensional spline function in sin(dec) and the
+parameter, using a <a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.RectBivariateSpline.html#scipy.interpolate.RectBivariateSpline" title="(in SciPy v1.15.1)"><code class="xref py py-class docutils literal notranslate"><span class="pre">scipy.interpolate.RectBivariateSpline</span></code></a>.
+Hence, the detector signal yield can vary with the declination and the
+parameter of the flux model.</p>
+<p>It is tailored to the IceCube detector at the South Pole, where the
+effective area depends solely on the zenith angle, and hence on the
+declination, of the source.</p>
+<p>It takes the effective area for the detector signal yield from the auxilary
+detector effective area data file given by the public data.</p>
+<p>Creates a new IceCube detector signal yield builder instance for
+a flux model with a single parameter.
+It requires the effective area from the public data, and a parameter
+grid to compute the parameter dependency of the detector signal yield.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>param_grid</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterGrid" title="skyllh.core.parameters.ParameterGrid"><em>ParameterGrid</em></a>) – The instance of ParameterGrid which defines the grid of parameter
+values.</p></li>
+<li><p><strong>spline_order_sinDec</strong> (<em>int</em>) – The order of the spline function for the logarithmic values of the
+detector signal yield along the sin(dec) axis.
+The default is 2.</p></li>
+<li><p><strong>spline_order_param</strong> (<em>int</em>) – The order of the spline function for the logarithmic values of the
+detector signal yield along the parameter axis.
+The default is 2.</p></li>
+<li><p><strong>ncpu</strong> (<em>int</em><em> | </em><em>None</em>) – The number of CPUs to utilize. If set to <code class="docutils literal notranslate"><span class="pre">None</span></code>, global setting
+will take place.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.detsigyield.PDSingleParamFluxPointLikeSourceI3DetSigYieldBuilder.assert_types_of_construct_detsigyield_arguments">
+<span class="sig-name descname"><span class="pre">assert_types_of_construct_detsigyield_arguments</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shgs</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.detsigyield.PDSingleParamFluxPointLikeSourceI3DetSigYieldBuilder.assert_types_of_construct_detsigyield_arguments" title="Permalink to this definition"></a></dt>
+<dd><p>Checks the correct types of the arguments for the
+<code class="docutils literal notranslate"><span class="pre">construct_detsigyield</span></code> method.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.detsigyield.PDSingleParamFluxPointLikeSourceI3DetSigYieldBuilder.construct_detsigyield">
+<span class="sig-name descname"><span class="pre">construct_detsigyield</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dataset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shg</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.detsigyield.PDSingleParamFluxPointLikeSourceI3DetSigYieldBuilder.construct_detsigyield" title="Permalink to this definition"></a></dt>
+<dd><p>Constructs a detector signal yield 2-dimensional log spline
+function for the given flux model with varying parameter values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dataset</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The Dataset instance holding the sin(dec) binning definition.</p></li>
+<li><p><strong>data</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.DatasetData" title="skyllh.core.dataset.DatasetData"><em>DatasetData</em></a>) – The instance of DatasetData holding the monte-carlo event data.
+This implementation loads the effective area from the provided
+public data and hence does not need monte-carlo data.</p></li>
+<li><p><strong>shg</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.source_hypo_grouping.SourceHypoGroup" title="skyllh.core.source_hypo_grouping.SourceHypoGroup"><em>SourceHypoGroup</em></a>) – The instance of SourceHypoGroup (i.e. sources and flux model) for
+which the detector signal yield should get constructed.</p></li>
+<li><p><strong>ppbar</strong> (<em>ProgressBar instance</em><em> | </em><em>None</em>) – The instance of ProgressBar of the optional parent progress bar.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>detsigyield</strong> (<em>instance of SingleParamFluxPointLikeSourceI3DetSigYield</em>) – The DetSigYield instance for a point-like source with a flux model
+of a single parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="skyllh-analyses-i3-publicdata-ps-mcbkg-ps-module">
+<h2>skyllh.analyses.i3.publicdata_ps.mcbkg_ps module<a class="headerlink" href="#skyllh-analyses-i3-publicdata-ps-mcbkg-ps-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.pdfratio">
+<span id="skyllh-analyses-i3-publicdata-ps-pdfratio-module"></span><h2>skyllh.analyses.i3.publicdata_ps.pdfratio module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.pdfratio" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.pdfratio.PDSigSetOverBkgPDFRatio">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.pdfratio.</span></span><span class="sig-name descname"><span class="pre">PDSigSetOverBkgPDFRatio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sig_pdf_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bkg_pdf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cap_ratio</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.pdfratio.PDSigSetOverBkgPDFRatio" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdfratio.SigSetOverBkgPDFRatio" title="skyllh.core.pdfratio.SigSetOverBkgPDFRatio"><code class="xref py py-class docutils literal notranslate"><span class="pre">SigSetOverBkgPDFRatio</span></code></a></p>
+<p>Creates a PDFRatio instance for the public data.
+It takes a signal PDF set for different discrete gamma values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>sig_pdf_set</strong> (<em>instance</em><em> of </em><a class="reference internal" href="#skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDFSet" title="skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDFSet"><em>PDSignalEnergyPDFSet</em></a>) – The PDSignalEnergyPDFSet instance holding the set of signal energy
+PDFs.</p></li>
+<li><p><strong>bkg_pdf</strong> (<em>instance</em><em> of </em><a class="reference internal" href="#skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDDataBackgroundI3EnergyPDF" title="skyllh.analyses.i3.publicdata_ps.backgroundpdf.PDDataBackgroundI3EnergyPDF"><em>PDDataBackgroundI3EnergyPDF</em></a>) – The PDDataBackgroundI3EnergyPDF instance holding the background
+energy PDF.</p></li>
+<li><p><strong>cap_ratio</strong> (<em>bool</em>) – Switch whether the S/B PDF ratio should get capped where no
+background is available. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.pdfratio.PDSigSetOverBkgPDFRatio.cap_ratio">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">cap_ratio</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.pdfratio.PDSigSetOverBkgPDFRatio.cap_ratio" title="Permalink to this definition"></a></dt>
+<dd><p>Boolean switch whether to cap the ratio where no background
+information is available (True) or use the smallest possible floating
+point number greater than zero as background pdf value (False).</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.pdfratio.PDSigSetOverBkgPDFRatio.get_ratio">
+<span class="sig-name descname"><span class="pre">get_ratio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_params_recarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.pdfratio.PDSigSetOverBkgPDFRatio.get_ratio" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the PDF ratio values for all events and sources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – The instance of TrialDataManager holding the trial data events for
+which the PDF ratio values should get calculated.</p></li>
+<li><p><strong>src_params_recarray</strong> (<em>instance</em><em> of </em><em>numpy structured ndarray</em><em> | </em><em>None</em>) – The (N_sources,)-shaped numpy structured ndarray holding the
+parameter names and values of the sources.
+See the documentation of the
+<a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray" title="skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray"><code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray()</span></code></a>
+method for more information.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional instance of TimeLord that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ratios</strong> (<em>instance of ndarray</em>) – The (N_values,)-shaped 1d numpy ndarray of float holding the PDF
+ratio value for each trial event and source.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.pdfratio.PDSigSetOverBkgPDFRatio.get_gradient">
+<span class="sig-name descname"><span class="pre">get_gradient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_params_recarray</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fitparam_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.pdfratio.PDSigSetOverBkgPDFRatio.get_gradient" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the PDF ratio gradient for the global fit parameter
+<code class="docutils literal notranslate"><span class="pre">fitparam_id</span></code> for each trial data event and source, given the given
+set of parameters <code class="docutils literal notranslate"><span class="pre">src_params_recarray</span></code> for each source.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – The instance of TrialDataManager holding the trial data events for
+which the PDF ratio gradient values should get calculated.</p></li>
+<li><p><strong>src_params_recarray</strong> (<em>instance</em><em> of </em><em>numpy structured ndarray</em><em> | </em><em>None</em>) – The (N_sources,)-shaped numpy structured ndarray holding the
+parameter names and values of the sources.
+See the documentation of the
+<a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray" title="skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray"><code class="xref py py-meth docutils literal notranslate"><span class="pre">skyllh.core.parameters.ParameterModelMapper.create_src_params_recarray()</span></code></a>
+method for more information.</p></li>
+<li><p><strong>fitparam_id</strong> (<em>int</em>) – The name of the fit parameter for which the gradient should get
+calculated.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional TimeLord instance that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>grad</strong> (<em>instance of ndarray</em>) – The (N_values,)-shaped numpy ndarray holding the gradient values
+for all sources and trial events w.r.t. the given global fit
+parameter.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.signal_generator">
+<span id="skyllh-analyses-i3-publicdata-ps-signal-generator-module"></span><h2>skyllh.analyses.i3.publicdata_ps.signal_generator module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.signal_generator" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.signal_generator.</span></span><span class="sig-name descname"><span class="pre">PDDatasetSignalGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shg_mgr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_cut_spline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_sindec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.signal_generator.SignalGenerator" title="skyllh.core.signal_generator.SignalGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">SignalGenerator</span></code></a></p>
+<p>This class implements a signal generator for a single public data
+dataset.</p>
+<p>Creates a new instance of the signal generator for generating
+signal events from a specific public data dataset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shg_mgr</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.source_hypo_grouping.SourceHypoGroupManager" title="skyllh.core.source_hypo_grouping.SourceHypoGroupManager"><em>SourceHypoGroupManager</em></a>) – The instance of SourceHypoGroupManager defining the source
+hypothesis groups.</p></li>
+<li><p><strong>ds</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The instance of Dataset for which signal events should get
+generated.</p></li>
+<li><p><strong>ds_idx</strong> (<em>int</em>) – The index of the dataset.</p></li>
+<li><p><strong>energy_cut_spline</strong> (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.UnivariateSpline.html#scipy.interpolate.UnivariateSpline" title="(in SciPy v1.15.1)"><em>scipy.interpolate.UnivariateSpline</em></a>) – A spline of E(sin_dec) that defines the declination
+dependent energy cut in the IceCube southern sky.</p></li>
+<li><p><strong>cut_sindec</strong> (<em>float</em>) – The sine of the declination to start applying the energy cut.
+The cut will be applied from this declination down.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator.change_shg_mgr">
+<span class="sig-name descname"><span class="pre">change_shg_mgr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shg_mgr</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator.change_shg_mgr" title="Permalink to this definition"></a></dt>
+<dd><p>Changes the source hypothesis group manager. This will recreate the
+internal source dependent data structures.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator.create_energy_filter_mask">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">create_energy_filter_mask</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">events</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spline</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_sindec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">logger</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator.create_energy_filter_mask" title="Permalink to this definition"></a></dt>
+<dd><p>Creates a mask for cutting all events below <code class="docutils literal notranslate"><span class="pre">cut_sindec</span></code>
+that have an energy smaller than the energy spline at their
+declination.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>events</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.storage.DataFieldRecordArray" title="skyllh.core.storage.DataFieldRecordArray"><em>DataFieldRecordArray</em></a>) – The instance of DataFieldRecordArray holding the generated signal
+events.</p></li>
+<li><p><strong>spline</strong> (<em>instance</em><em> of </em><a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.UnivariateSpline.html#scipy.interpolate.UnivariateSpline" title="(in SciPy v1.15.1)"><em>scipy.interpolate.UnivariateSpline</em></a>) – A spline of E(sin_dec) that defines the declination
+dependent energy cut in the IceCube southern sky.</p></li>
+<li><p><strong>cut_sindec</strong> (<em>float</em>) – The sine of the declination to start applying the energy cut.
+The cut will be applied from this declination down.</p></li>
+<li><p><strong>logger</strong> (<em>instance</em><em> of </em><em>logging.Logger</em>) – The Logger instance.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>filter_mask</strong> (<em>instance of numpy ndarray</em>) – The (len(events),)-shaped numpy ndarray with the mask of the events
+to cut.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator.generate_signal_events_for_source">
+<span class="sig-name descname"><span class="pre">generate_signal_events_for_source</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_events</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator.generate_signal_events_for_source" title="Permalink to this definition"></a></dt>
+<dd><p>Generates <code class="docutils literal notranslate"><span class="pre">n_events</span></code> signal events for the given source location
+and flux model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The instance of RandomStateService providing the random number
+generator state.</p></li>
+<li><p><strong>src_idx</strong> (<em>int</em>) – The index of the source.</p></li>
+<li><p><strong>n_events</strong> (<em>int</em>) – Number of signal events to be generated.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><p><strong>events</strong> (<em>instance of DataFieldRecordArray</em>) – The numpy record array holding the event data.
+It contains the following data fields:</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>’isvalid’</p></li>
+<li><p>’log_true_energy’</p></li>
+<li><p>’log_energy’</p></li>
+<li><p>’dec’</p></li>
+<li><p>’ra’</p></li>
+<li><p>’ang_err’</p></li>
+</ul>
+</div></blockquote>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator.generate_signal_events">
+<span class="sig-name descname"><span class="pre">generate_signal_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poisson</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_detsigyield_weights_service</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator.generate_signal_events" title="Permalink to this definition"></a></dt>
+<dd><p>Generates <code class="docutils literal notranslate"><span class="pre">mean</span></code> number of signal events.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The instance of RandomStateService providing the random number
+generator state.</p></li>
+<li><p><strong>mean</strong> (<em>int</em><em> | </em><em>float</em>) – The mean number of signal events. If the <code class="docutils literal notranslate"><span class="pre">poisson</span></code> argument is set
+to True, the actual number of generated signal events will be drawn
+from a Poisson distribution with this given mean value of signal
+events.</p></li>
+<li><p><strong>poisson</strong> (<em>bool</em>) – If set to True, the actual number of generated signal events will
+be drawn from a Poisson distribution with the given mean value of
+signal events.
+If set to False, the argument <code class="docutils literal notranslate"><span class="pre">mean</span></code> specifies the actual number
+of generated signal events.</p></li>
+<li><p><strong>src_detsigyield_weights_service</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.services.SrcDetSigYieldWeightsService" title="skyllh.core.services.SrcDetSigYieldWeightsService"><em>SrcDetSigYieldWeightsService</em></a>) – The instance of SrcDetSigYieldWeightsService providing the weighting
+of the sources within the detector.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>n_signal</strong> (<em>int</em>) – The number of generated signal events.</p></li>
+<li><p><strong>signal_events_dict</strong> (<em>dict of DataFieldRecordArray</em>) – The dictionary holding the DataFieldRecordArray instances with the
+generated signal events. Each key of this dictionary represents the
+dataset index for which the signal events have been generated.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signal_generator.TimeDependentPDDatasetSignalGenerator">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.signal_generator.</span></span><span class="sig-name descname"><span class="pre">TimeDependentPDDatasetSignalGenerator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">shg_mgr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ds_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">livetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time_flux_profile</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">energy_cut_spline</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cut_sindec</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.TimeDependentPDDatasetSignalGenerator" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator" title="skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDDatasetSignalGenerator</span></code></a></p>
+<p>This time dependent signal generator for a public PS dataset generates
+events using the
+<a class="reference internal" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator" title="skyllh.analyses.i3.publicdata_ps.signal_generator.PDDatasetSignalGenerator"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDDatasetSignalGenerator</span></code></a>
+class. It then draws times for each event and adds them to the event array.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>shg_mgr</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.source_hypo_grouping.SourceHypoGroupManager" title="skyllh.core.source_hypo_grouping.SourceHypoGroupManager"><em>SourceHypoGroupManager</em></a>) – The instance of SourceHypoGroupManager that defines the list of
+source hypothesis groups, i.e. the list of sources.</p></li>
+<li><p><strong>ds</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The instance of Dataset for which signal events should get
+generated.</p></li>
+<li><p><strong>ds_idx</strong> (<em>int</em>) – The index of the dataset.</p></li>
+<li><p><strong>livetime</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.livetime.Livetime" title="skyllh.core.livetime.Livetime"><em>Livetime</em></a>) – The instance of Livetime providing the live-time information of the
+dataset.</p></li>
+<li><p><strong>time_flux_profile</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.flux_model.TimeFluxProfile" title="skyllh.core.flux_model.TimeFluxProfile"><em>TimeFluxProfile</em></a>) – <p>The instance of TimeFluxProfile providing the time profile of the
+source(s).</p>
+<p>Note:</p>
+<blockquote>
+<div><p>At this time the some time profile will be used for all
+sources!</p>
+</div></blockquote>
+</p></li>
+<li><p><strong>energy_cut_spline</strong> (<a class="reference external" href="https://docs.scipy.org/doc/scipy/reference/generated/scipy.interpolate.UnivariateSpline.html#scipy.interpolate.UnivariateSpline" title="(in SciPy v1.15.1)"><em>scipy.interpolate.UnivariateSpline</em></a>) – A spline of E(sin_dec) that defines the declination
+dependent energy cut in the IceCube southern sky.</p></li>
+<li><p><strong>cut_sindec</strong> (<em>float</em>) – The sine of the declination to start applying the energy cut.
+The cut will be applied from this declination down.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signal_generator.TimeDependentPDDatasetSignalGenerator.livetime">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">livetime</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.TimeDependentPDDatasetSignalGenerator.livetime" title="Permalink to this definition"></a></dt>
+<dd><p>The instance of Livetime providing the live-time information of the
+dataset.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signal_generator.TimeDependentPDDatasetSignalGenerator.generate_signal_events">
+<span class="sig-name descname"><span class="pre">generate_signal_events</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">poisson</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_detsigyield_weights_service</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signal_generator.TimeDependentPDDatasetSignalGenerator.generate_signal_events" title="Permalink to this definition"></a></dt>
+<dd><p>Generates <code class="docutils literal notranslate"><span class="pre">mean</span></code> number of signal events with times.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The instance of RandomStateService providing the random number
+generator state.</p></li>
+<li><p><strong>mean</strong> (<em>int</em><em> | </em><em>float</em>) – The mean number of signal events. If the <code class="docutils literal notranslate"><span class="pre">poisson</span></code> argument is set
+to True, the actual number of generated signal events will be drawn
+from a Poisson distribution with this given mean value of signal
+events.</p></li>
+<li><p><strong>poisson</strong> (<em>bool</em>) – If set to True, the actual number of generated signal events will
+be drawn from a Poisson distribution with the given mean value of
+signal events.
+If set to False, the argument <code class="docutils literal notranslate"><span class="pre">mean</span></code> specifies the actual number
+of generated signal events.</p></li>
+<li><p><strong>src_detsigyield_weights_service</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.services.SrcDetSigYieldWeightsService" title="skyllh.core.services.SrcDetSigYieldWeightsService"><em>SrcDetSigYieldWeightsService</em></a>) – The instance of SrcDetSigYieldWeightsService providing the weighting
+of the sources within the detector.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>n_signal</strong> (<em>int</em>) – The number of generated signal events.</p></li>
+<li><p><strong>signal_events_dict</strong> (<em>dict of DataFieldRecordArray</em>) – The dictionary holding the DataFieldRecordArray instances with the
+generated signal events. Each key of this dictionary represents the
+dataset index for which the signal events have been generated.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.signalpdf">
+<span id="skyllh-analyses-i3-publicdata-ps-signalpdf-module"></span><h2>skyllh.analyses.i3.publicdata_ps.signalpdf module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.signalpdf" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDF">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.signalpdf.</span></span><span class="sig-name descname"><span class="pre">PDSignalEnergyPDF</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f_e_spl</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDF" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.PDF" title="skyllh.core.pdf.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.IsSignalPDF" title="skyllh.core.pdf.IsSignalPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsSignalPDF</span></code></a></p>
+<p>This class provides a signal energy PDF for a spectrial index value.</p>
+<p>Creates a new signal energy PDF instance for a particular spectral
+index value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>f_e_spl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="#skyllh.analyses.i3.publicdata_ps.utils.FctSpline1D" title="skyllh.analyses.i3.publicdata_ps.utils.FctSpline1D"><em>FctSpline1D</em></a>) – The instance of FctSpline1D representing the spline of the energy
+PDF.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDF.assert_is_valid_for_trial_data">
+<span class="sig-name descname"><span class="pre">assert_is_valid_for_trial_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDF.assert_is_valid_for_trial_data" title="Permalink to this definition"></a></dt>
+<dd><p>This method is supposed to check if this PDF is valid for
+all the given trial data. This means, it needs to check if there
+is a PDF value for each trial data event that will be used in the
+likelihood evaluation. This is just a seatbelt.
+The method must raise a <code class="docutils literal notranslate"><span class="pre">ValueError</span></code> if the PDF is not valid for the
+given trial data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – The instance of TrialDataManager holding the trial data events.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional instance of TimeLord for measuring timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If some of the trial data is outside the PDF’s value space.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDF.get_pd_by_log10_reco_e">
+<span class="sig-name descname"><span class="pre">get_pd_by_log10_reco_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log10_reco_e</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDF.get_pd_by_log10_reco_e" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the probability density for the given log10(E_reco/GeV)
+values using the spline representation of the PDF.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log10_reco_e</strong> (<em>instance</em><em> of </em><em>ndarray</em>) – The (n_log10_reco_e,)-shaped numpy ndarray holding the
+log10(E_reco/GeV) values for which the energy PDF should get
+evaluated.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional instance of TimeLord that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>pd</strong> (<em>instance of numpy ndarray</em>) – The (n_log10_reco_e,)-shaped numpy ndarray with the probability
+density for each energy value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDF.get_pd">
+<span class="sig-name descname"><span class="pre">get_pd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tdm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">params_recarray</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tl</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDF.get_pd" title="Permalink to this definition"></a></dt>
+<dd><p>Calculates the probability density for all given trial data events
+and sources.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tdm</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.trialdata.TrialDataManager" title="skyllh.core.trialdata.TrialDataManager"><em>TrialDataManager</em></a>) – <p>The instance of TrialDataManager holding the trial data events for
+which the probability density should be looked up.
+The following data fields must be present:</p>
+<dl class="simple">
+<dt>log_energy<span class="classifier">float</span></dt><dd><p>The base-10 logarithm of the reconstructed energy.</p>
+</dd>
+</dl>
+</p></li>
+<li><p><strong>params_recarray</strong> (<em>None</em>) – Unused interface argument.</p></li>
+<li><p><strong>tl</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.timing.TimeLord" title="skyllh.core.timing.TimeLord"><em>TimeLord</em></a><em> | </em><em>None</em>) – The optional instance of TimeLord that should be used to measure
+timing information.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pd</strong> (<em>instance of ndarray</em>) – The (N_values,)-shaped numpy ndarray holding the probability density
+for each trial data event and source.</p></li>
+<li><p><strong>grads</strong> (<em>dict</em>) – The dictionary holding the gradient values for each global fit
+parameter. By definition this PDF does not depend on any fit
+parameters, hence, this is an empty dictionary.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDFSet">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.signalpdf.</span></span><span class="sig-name descname"><span class="pre">PDSignalEnergyPDFSet</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fluxmodel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">param_grid_set</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ncpu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ppbar</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.signalpdf.PDSignalEnergyPDFSet" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.PDFSet" title="skyllh.core.pdf.PDFSet"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDFSet</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.IsSignalPDF" title="skyllh.core.pdf.IsSignalPDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsSignalPDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.pdf.PDF" title="skyllh.core.pdf.PDF"><code class="xref py py-class docutils literal notranslate"><span class="pre">PDF</span></code></a>, <a class="reference internal" href="skyllh.core.html#skyllh.core.multiproc.IsParallelizable" title="skyllh.core.multiproc.IsParallelizable"><code class="xref py py-class docutils literal notranslate"><span class="pre">IsParallelizable</span></code></a></p>
+<p>This class provides a signal energy PDF set using the public data.
+It creates a set of PDSignalEnergyPDF instances, one for each spectral
+index value on a grid.</p>
+<p>Creates a new PDSignalEnergyPDFSet instance for the public data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ds</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.dataset.Dataset" title="skyllh.core.dataset.Dataset"><em>Dataset</em></a>) – The instance of Dataset that defines the dataset of the public data.</p></li>
+<li><p><strong>src_dec</strong> (<em>float</em>) – The declination of the source in radians.</p></li>
+<li><p><strong>fluxmodel</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.flux_model.FactorizedFluxModel" title="skyllh.core.flux_model.FactorizedFluxModel"><em>FactorizedFluxModel</em></a>) – The instance of FactorizedFluxModel that defines the source’s flux
+model.</p></li>
+<li><p><strong>param_grid_set</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterGrid" title="skyllh.core.parameters.ParameterGrid"><em>ParameterGrid</em></a><em> | </em><em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.parameters.ParameterGridSet" title="skyllh.core.parameters.ParameterGridSet"><em>ParameterGridSet</em></a>) – The parameter grid set defining the grids of the parameters this
+energy PDF set depends on.</p></li>
+<li><p><strong>ncpu</strong> (<em>int</em><em> | </em><em>None</em>) – The number of CPUs to utilize. Global setting will take place if
+not specified, i.e. set to None.</p></li>
+<li><p><strong>ppbar</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.progressbar.ProgressBar" title="skyllh.core.progressbar.ProgressBar"><em>ProgressBar</em></a><em> | </em><em>None</em>) – The instance of ProgressBar for the optional parent progress bar.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.smearing_matrix">
+<span id="skyllh-analyses-i3-publicdata-ps-smearing-matrix-module"></span><h2>skyllh.analyses.i3.publicdata_ps.smearing_matrix module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.smearing_matrix" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.load_smearing_histogram">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.smearing_matrix.</span></span><span class="sig-name descname"><span class="pre">load_smearing_histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathfilenames</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.load_smearing_histogram" title="Permalink to this definition"></a></dt>
+<dd><p>Loads the 5D smearing histogram from the given data file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pathfilenames</strong> (<em>str</em><em> | </em><em>list</em><em> of </em><em>str</em>) – The file name of the data file.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>histogram</strong> (<em>5d ndarray</em>) – The 5d histogram array holding the probability values of the smearing
+matrix.
+The axes are (true_e, true_dec, reco_e, psi, ang_err).</p></li>
+<li><p><strong>true_e_bin_edges</strong> (<em>1d ndarray</em>) – The ndarray holding the bin edges of the true energy axis.</p></li>
+<li><p><strong>true_dec_bin_edges</strong> (<em>1d ndarray</em>) – The ndarray holding the bin edges of the true declination axis in
+radians.</p></li>
+<li><p><strong>reco_e_lower_edges</strong> (<em>3d ndarray</em>) – The 3d ndarray holding the lower bin edges of the reco energy axis.
+For each pair of true_e and true_dec different reco energy bin edges
+are provided.
+The shape is (n_true_e, n_true_dec, n_reco_e).</p></li>
+<li><p><strong>reco_e_upper_edges</strong> (<em>3d ndarray</em>) – The 3d ndarray holding the upper bin edges of the reco energy axis.
+For each pair of true_e and true_dec different reco energy bin edges
+are provided.
+The shape is (n_true_e, n_true_dec, n_reco_e).</p></li>
+<li><p><strong>psi_lower_edges</strong> (<em>4d ndarray</em>) – The 4d ndarray holding the lower bin edges of the psi axis in radians.
+The shape is (n_true_e, n_true_dec, n_reco_e, n_psi).</p></li>
+<li><p><strong>psi_upper_edges</strong> (<em>4d ndarray</em>) – The 4d ndarray holding the upper bin edges of the psi axis in radians.
+The shape is (n_true_e, n_true_dec, n_reco_e, n_psi).</p></li>
+<li><p><strong>ang_err_lower_edges</strong> (<em>5d ndarray</em>) – The 5d ndarray holding the lower bin edges of the angular error axis
+in radians.
+The shape is (n_true_e, n_true_dec, n_reco_e, n_psi, n_ang_err).</p></li>
+<li><p><strong>ang_err_upper_edges</strong> (<em>5d ndarray</em>) – The 5d ndarray holding the upper bin edges of the angular error axis
+in radians.
+The shape is (n_true_e, n_true_dec, n_reco_e, n_psi, n_ang_err).</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.smearing_matrix.</span></span><span class="sig-name descname"><span class="pre">PDSmearingMatrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pathfilenames</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>This class is a helper class for dealing with the smearing matrix
+provided by the public data.</p>
+<p>Creates a smearing matrix instance by loading the smearing matrix
+from the given file.</p>
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.n_log10_true_e_bins">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_log10_true_e_bins</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.n_log10_true_e_bins" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The number of log10 true energy bins.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.true_e_bin_edges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">true_e_bin_edges</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.true_e_bin_edges" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The (n_true_e+1,)-shaped 1D numpy ndarray holding the
+bin edges of the true energy.</p>
+<p>Depricated! Use log10_true_enu_binedges instead!</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.true_e_bin_centers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">true_e_bin_centers</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.true_e_bin_centers" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The (n_true_e,)-shaped 1D numpy ndarray holding the bin
+center values of the true energy.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.log10_true_enu_binedges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log10_true_enu_binedges</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.log10_true_enu_binedges" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The (n_log10_true_enu+1,)-shaped 1D numpy ndarray holding
+the bin edges of the log10 true neutrino energy.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.n_true_dec_bins">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">n_true_dec_bins</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.n_true_dec_bins" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The number of true declination bins.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.true_dec_bin_edges">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">true_dec_bin_edges</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.true_dec_bin_edges" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The (n_true_dec+1,)-shaped 1D numpy ndarray holding the
+bin edges of the true declination.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.true_dec_bin_centers">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">true_dec_bin_centers</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.true_dec_bin_centers" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The (n_true_dec,)-shaped 1D ndarray holding the bin
+center values of the true declination.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.log10_reco_e_binedges_lower">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log10_reco_e_binedges_lower</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.log10_reco_e_binedges_lower" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The upper bin edges of the log10 reco energy axes.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.log10_reco_e_binedges_upper">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">log10_reco_e_binedges_upper</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.log10_reco_e_binedges_upper" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The upper bin edges of the log10 reco energy axes.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.min_log10_reco_e">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_log10_reco_e</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.min_log10_reco_e" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The minimum value of the reconstructed energy axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.max_log10_reco_e">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_log10_reco_e</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.max_log10_reco_e" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The maximum value of the reconstructed energy axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.min_log10_psi">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">min_log10_psi</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.min_log10_psi" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The minimum log10 value of the psi axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.max_log10_psi">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">max_log10_psi</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.max_log10_psi" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The maximum log10 value of the psi axis.</p>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.pdf">
+<em class="property"><span class="pre">property</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">pdf</span></span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.pdf" title="Permalink to this definition"></a></dt>
+<dd><p>(read-only) The probability-density-function
+P(E_reco,psi,ang_err|E_nu,dec_nu), which, by definition, is the
+histogram property divided by the 3D bin volumes for E_reco, psi, and
+ang_err.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_true_dec_idx">
+<span class="sig-name descname"><span class="pre">get_true_dec_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_dec</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_true_dec_idx" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the true declination index for the given true declination
+value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>true_dec</strong> (<em>float</em>) – The true declination value in radians.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>true_dec_idx</strong> (<em>int</em>) – The index of the declination bin for the given declination value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_log10_true_e_idx">
+<span class="sig-name descname"><span class="pre">get_log10_true_e_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log10_true_e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_log10_true_e_idx" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the bin index for the given true log10 energy value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>log10_true_e</strong> (<em>float</em>) – The log10 value of the true energy.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>log10_true_e_idx</strong> (<em>int</em>) – The index of the true log10 energy bin for the given log10 true
+energy value.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_reco_e_idx">
+<span class="sig-name descname"><span class="pre">get_reco_e_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_dec_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reco_e</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_reco_e_idx" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the bin index for the given reco energy value given the
+given true energy and true declination bin indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true_e_idx</strong> (<em>int</em>) – The index of the true energy bin.</p></li>
+<li><p><strong>true_dec_idx</strong> (<em>int</em>) – The index of the true declination bin.</p></li>
+<li><p><strong>reco_e</strong> (<em>float</em>) – The reco energy value for which the bin index should get returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>reco_e_idx</strong> (<em>int | None</em>) – The index of the reco energy bin the given reco energy value falls
+into. It returns None if the value is out of range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_psi_idx">
+<span class="sig-name descname"><span class="pre">get_psi_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_dec_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reco_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_psi_idx" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the bin index for the given psi value given the
+true energy, true declination and reco energy bin indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true_e_idx</strong> (<em>int</em>) – The index of the true energy bin.</p></li>
+<li><p><strong>true_dec_idx</strong> (<em>int</em>) – The index of the true declination bin.</p></li>
+<li><p><strong>reco_e_idx</strong> (<em>int</em>) – The index of the reco energy bin.</p></li>
+<li><p><strong>psi</strong> (<em>float</em>) – The psi value in radians for which the bin index should get
+returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>psi_idx</strong> (<em>int | None</em>) – The index of the psi bin the given psi value falls into.
+It returns None if the value is out of range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_ang_err_idx">
+<span class="sig-name descname"><span class="pre">get_ang_err_idx</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">true_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">true_dec_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reco_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ang_err</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_ang_err_idx" title="Permalink to this definition"></a></dt>
+<dd><p>Returns the bin index for the given angular error value given the
+true energy, true declination, reco energy, and psi bin indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>true_e_idx</strong> (<em>int</em>) – The index of the true energy bin.</p></li>
+<li><p><strong>true_dec_idx</strong> (<em>int</em>) – The index of the true declination bin.</p></li>
+<li><p><strong>reco_e_idx</strong> (<em>int</em>) – The index of the reco energy bin.</p></li>
+<li><p><strong>psi_idx</strong> (<em>int</em>) – The index of the psi bin.</p></li>
+<li><p><strong>ang_err</strong> (<em>float</em>) – The angular error value in radians for which the bin index should
+get returned.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ang_err_idx</strong> (<em>int | None</em>) – The index of the angular error bin the given angular error value
+falls into. It returns None if the value is out of range.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_true_log_e_range_with_valid_log_e_pdfs">
+<span class="sig-name descname"><span class="pre">get_true_log_e_range_with_valid_log_e_pdfs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dec_idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_true_log_e_range_with_valid_log_e_pdfs" title="Permalink to this definition"></a></dt>
+<dd><p>Determines the true log energy range for which log_e PDFs are
+available for the given declination bin.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dec_idx</strong> (<em>int</em>) – The declination bin index.</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>min_log_true_e</strong> (<em>float</em>) – The minimum true log energy value.</p></li>
+<li><p><strong>max_log_true_e</strong> (<em>float</em>) – The maximum true log energy value.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_log_e_pdf">
+<span class="sig-name descname"><span class="pre">get_log_e_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_true_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_log_e_pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the log_e PDF from the given true energy bin index and
+source bin index.
+Returns (None, None, None, None) if any of the bin indices are less then
+zero, or if the sum of all pdf bins is zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_true_e_idx</strong> (<em>int</em>) – The index of the true energy bin.</p></li>
+<li><p><strong>dec_idx</strong> (<em>int</em>) – The index of the declination bin.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pdf</strong> (<em>1d ndarray</em>) – The log_e pdf values.</p></li>
+<li><p><strong>lower_bin_edges</strong> (<em>1d ndarray</em>) – The lower bin edges of the energy pdf histogram.</p></li>
+<li><p><strong>upper_bin_edges</strong> (<em>1d ndarray</em>) – The upper bin edges of the energy pdf histogram.</p></li>
+<li><p><strong>bin_widths</strong> (<em>1d ndarray</em>) – The bin widths of the energy pdf histogram.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_psi_pdf">
+<span class="sig-name descname"><span class="pre">get_psi_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_true_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_e_idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_psi_pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the psi PDF from the given true energy bin index, the
+source bin index, and the log_e bin index.
+Returns (None, None, None, None) if any of the bin indices are less then
+zero, or if the sum of all pdf bins is zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_true_e_idx</strong> (<em>int</em>) – The index of the true energy bin.</p></li>
+<li><p><strong>dec_idx</strong> (<em>int</em>) – The index of the declination bin.</p></li>
+<li><p><strong>log_e_idx</strong> (<em>int</em>) – The index of the log_e bin.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pdf</strong> (<em>1d ndarray</em>) – The psi pdf values.</p></li>
+<li><p><strong>lower_bin_edges</strong> (<em>1d ndarray</em>) – The lower bin edges of the psi pdf histogram.</p></li>
+<li><p><strong>upper_bin_edges</strong> (<em>1d ndarray</em>) – The upper bin edges of the psi pdf histogram.</p></li>
+<li><p><strong>bin_widths</strong> (<em>1d ndarray</em>) – The bin widths of the psi pdf histogram.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_ang_err_pdf">
+<span class="sig-name descname"><span class="pre">get_ang_err_pdf</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">log_true_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_e_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_idx</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.get_ang_err_pdf" title="Permalink to this definition"></a></dt>
+<dd><p>Retrieves the angular error PDF from the given true energy bin index,
+the source bin index, the log_e bin index, and the psi bin index.
+Returns (None, None, None, None) if any of the bin indices are less then
+zero, or if the sum of all pdf bins is zero.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_true_e_idx</strong> (<em>int</em>) – The index of the true energy bin.</p></li>
+<li><p><strong>dec_idx</strong> (<em>int</em>) – The index of the declination bin.</p></li>
+<li><p><strong>log_e_idx</strong> (<em>int</em>) – The index of the log_e bin.</p></li>
+<li><p><strong>psi_idx</strong> (<em>int</em>) – The index of the psi bin.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>pdf</strong> (<em>1d ndarray</em>) – The ang_err pdf values.</p></li>
+<li><p><strong>lower_bin_edges</strong> (<em>1d ndarray</em>) – The lower bin edges of the ang_err pdf histogram.</p></li>
+<li><p><strong>upper_bin_edges</strong> (<em>1d ndarray</em>) – The upper bin edges of the ang_err pdf histogram.</p></li>
+<li><p><strong>bin_widths</strong> (<em>1d ndarray</em>) – The bin widths of the ang_err pdf histogram.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.sample_log_e">
+<span class="sig-name descname"><span class="pre">sample_log_e</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_true_e_idxs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.sample_log_e" title="Permalink to this definition"></a></dt>
+<dd><p>Samples log energy values for the given source declination and true
+energy bins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The RandomStateService which should be used for drawing random
+numbers from.</p></li>
+<li><p><strong>dec_idx</strong> (<em>int</em>) – The index of the source declination bin.</p></li>
+<li><p><strong>log_true_e_idxs</strong> (<em>1d ndarray</em><em> of </em><em>int</em>) – The bin indices of the true energy bins.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>log_e_idx</strong> (<em>1d ndarray of int</em>) – The bin indices of the log_e pdf corresponding to the sampled
+log_e values.</p></li>
+<li><p><strong>log_e</strong> (<em>1d ndarray of float</em>) – The sampled log_e values.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.sample_psi">
+<span class="sig-name descname"><span class="pre">sample_psi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_true_e_idxs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_e_idxs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.sample_psi" title="Permalink to this definition"></a></dt>
+<dd><p>Samples psi values for the given source declination, true
+energy bins, and log_e bins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The RandomStateService which should be used for drawing random
+numbers from.</p></li>
+<li><p><strong>dec_idx</strong> (<em>int</em>) – The index of the source declination bin.</p></li>
+<li><p><strong>log_true_e_idxs</strong> (<em>1d ndarray</em><em> of </em><em>int</em>) – The bin indices of the true energy bins.</p></li>
+<li><p><strong>log_e_idxs</strong> (<em>1d ndarray</em><em> of </em><em>int</em>) – The bin indices of the log_e bins.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>psi_idx</strong> (<em>1d ndarray of int</em>) – The bin indices of the psi pdf corresponding to the sampled psi
+values.</p></li>
+<li><p><strong>psi</strong> (<em>1d ndarray of float</em>) – The sampled psi values in radians.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.sample_ang_err">
+<span class="sig-name descname"><span class="pre">sample_ang_err</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dec_idx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_true_e_idxs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_e_idxs</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi_idxs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.smearing_matrix.PDSmearingMatrix.sample_ang_err" title="Permalink to this definition"></a></dt>
+<dd><p>Samples ang_err values for the given source declination, true
+energy bins, log_e bins, and psi bins.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The RandomStateService which should be used for drawing random
+numbers from.</p></li>
+<li><p><strong>dec_idx</strong> (<em>int</em>) – The index of the source declination bin.</p></li>
+<li><p><strong>log_true_e_idxs</strong> (<em>1d ndarray</em><em> of </em><em>int</em>) – The bin indices of the true energy bins.</p></li>
+<li><p><strong>log_e_idxs</strong> (<em>1d ndarray</em><em> of </em><em>int</em>) – The bin indices of the log_e bins.</p></li>
+<li><p><strong>psi_idxs</strong> (<em>1d ndarray</em><em> of </em><em>int</em>) – The bin indices of the psi bins.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>ang_err_idx</strong> (<em>1d ndarray of int</em>) – The bin indices of the angular error pdf corresponding to the
+sampled angular error values.</p></li>
+<li><p><strong>ang_err</strong> (<em>1d ndarray of float</em>) – The sampled angular error values in radians.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="skyllh-analyses-i3-publicdata-ps-time-dependent-ps-module">
+<h2>skyllh.analyses.i3.publicdata_ps.time_dependent_ps module<a class="headerlink" href="#skyllh-analyses-i3-publicdata-ps-time-dependent-ps-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="skyllh-analyses-i3-publicdata-ps-time-integrated-ps-module">
+<h2>skyllh.analyses.i3.publicdata_ps.time_integrated_ps module<a class="headerlink" href="#skyllh-analyses-i3-publicdata-ps-time-integrated-ps-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-skyllh.analyses.i3.publicdata_ps.utils">
+<span id="skyllh-analyses-i3-publicdata-ps-utils-module"></span><h2>skyllh.analyses.i3.publicdata_ps.utils module<a class="headerlink" href="#module-skyllh.analyses.i3.publicdata_ps.utils" title="Permalink to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.utils.FctSpline1D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.utils.</span></span><span class="sig-name descname"><span class="pre">FctSpline1D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_binedges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.utils.FctSpline1D" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to represent a 1D function spline using the PchipInterpolator
+class from scipy.</p>
+<p>The evaluate the spline, use the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method.</p>
+<p>Creates a new 1D function spline using the PchipInterpolator
+class from scipy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>(</em><em>n_x</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the function values at the bin centers.</p></li>
+<li><p><strong>x_binedges</strong> (<em>(</em><em>n_x+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the bin edges of the x-axis.</p></li>
+<li><p><strong>norm</strong> (<em>bool</em>) – Whether to precalculate and save normalization internally.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.utils.FctSpline1D.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oor_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.utils.FctSpline1D.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates the spline at the given x values. For x-values
+outside the spline’s range, the oor_value is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>(</em><em>n_x</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the x values at which the spline should
+get evaluated.</p></li>
+<li><p><strong>oor_value</strong> (<em>float</em>) – The value for out-of-range (oor) coordinates.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>f</strong> (<em>(n_x,)-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the evaluated values of the spline.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.utils.FctSpline1D.evaluate">
+<span class="sig-name descname"><span class="pre">evaluate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.utils.FctSpline1D.evaluate" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for the __call__ method.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.utils.FctSpline2D">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.utils.</span></span><span class="sig-name descname"><span class="pre">FctSpline2D</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">x_binedges</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_binedges</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.utils.FctSpline2D" title="Permalink to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Class to represent a 2D function spline using the RectBivariateSpline
+class from scipy.</p>
+<p>The spline is constructed in the log10 space of the function value to
+ensure a smooth spline.</p>
+<p>The evaluate the spline, use the <code class="docutils literal notranslate"><span class="pre">__call__</span></code> method.</p>
+<p>Creates a new 2D function spline using the RectBivariateSpline
+class from scipy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>f</strong> (<em>(</em><em>n_x</em><em>, </em><em>n_y</em><em>)</em><em>-shaped 2D numpy ndarray</em>) – he numpy ndarray holding the function values at the bin centers.</p></li>
+<li><p><strong>x_binedges</strong> (<em>(</em><em>n_x+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the bin edges of the x-axis.</p></li>
+<li><p><strong>y_binedges</strong> (<em>(</em><em>n_y+1</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the bin edges of the y-axis.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.utils.FctSpline2D.__call__">
+<span class="sig-name descname"><span class="pre">__call__</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">oor_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.utils.FctSpline2D.__call__" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates the spline at the given coordinates. For coordinates
+outside the spline’s range, the oor_value is returned.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>x</strong> (<em>(</em><em>n_x</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the x values at which the spline should
+get evaluated.</p></li>
+<li><p><strong>y</strong> (<em>(</em><em>n_y</em><em>,</em><em>)</em><em>-shaped 1D numpy ndarray</em>) – The numpy ndarray holding the y values at which the spline should
+get evaluated.</p></li>
+<li><p><strong>oor_value</strong> (<em>float</em>) – The value for out-of-range (oor) coordinates.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>f</strong> (<em>(n_x, n_y)-shaped 2D numpy ndarray</em>) – The numpy ndarray holding the evaluated values of the spline.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.utils.clip_grl_start_times">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.utils.</span></span><span class="sig-name descname"><span class="pre">clip_grl_start_times</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">grl_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.utils.clip_grl_start_times" title="Permalink to this definition"></a></dt>
+<dd><p>Make sure that the start time of a run is not smaller than the stop time
+of the previous run.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>grl_data</strong> (<em>instance</em><em> of </em><em>numpy structured ndarray</em>) – <p>The numpy structured ndarray of length N_runs, with the following
+fields:</p>
+<dl class="simple">
+<dt>start<span class="classifier">float</span></dt><dd><p>The start time of the run.</p>
+</dd>
+<dt>stop<span class="classifier">float</span></dt><dd><p>The stop time of the run.</p>
+</dd>
+</dl>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.utils.psi_to_dec_and_ra">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.utils.</span></span><span class="sig-name descname"><span class="pre">psi_to_dec_and_ra</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">rss</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_dec</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">src_ra</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">psi</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.utils.psi_to_dec_and_ra" title="Permalink to this definition"></a></dt>
+<dd><p>Generates random declinations and right-ascension coordinates for the
+given source location and opening angle <cite>psi</cite>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>rss</strong> (<em>instance</em><em> of </em><a class="reference internal" href="skyllh.core.html#skyllh.core.random.RandomStateService" title="skyllh.core.random.RandomStateService"><em>RandomStateService</em></a>) – The instance of RandomStateService to use for drawing random numbers.</p></li>
+<li><p><strong>src_dec</strong> (<em>float</em>) – The declination of the source in radians.</p></li>
+<li><p><strong>src_ra</strong> (<em>float</em>) – The right-ascension of the source in radians.</p></li>
+<li><p><strong>psi</strong> (<em>1d ndarray</em><em> of </em><em>float</em>) – The opening-angle values in radians.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p><ul class="simple">
+<li><p><strong>dec</strong> (<em>1d ndarray of float</em>) – The declination values.</p></li>
+<li><p><strong>ra</strong> (<em>1d ndarray of float</em>) – The right-ascension values.</p></li>
+</ul>
+</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="skyllh.analyses.i3.publicdata_ps.utils.create_energy_cut_spline">
+<span class="sig-prename descclassname"><span class="pre">skyllh.analyses.i3.publicdata_ps.utils.</span></span><span class="sig-name descname"><span class="pre">create_energy_cut_spline</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ds</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exp_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">spl_smooth</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#skyllh.analyses.i3.publicdata_ps.utils.create_energy_cut_spline" title="Permalink to this definition"></a></dt>
+<dd><p>Create the spline for the declination-dependent energy cut
+that the signal generator needs for injection in the southern sky
+Some special conditions are needed for IC79 and IC86_I, because
+their experimental dataset shows events that should probably have
+been cut by the IceCube selection.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="skyllh.analyses.i3.html" class="btn btn-neutral float-left" title="skyllh.analyses.i3 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="skyllh.cluster.html" class="btn btn-neutral float-right" title="skyllh.cluster package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: dm
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../master/html/index.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="skyllh.analyses.i3.publicdata_ps.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="../../../fix230/html/index.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="../../../v20_01_09/html/index.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="../../../v22_04_28/html/index.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="../../../v23.0.0/html/index.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="../../../v23.2.1/html/index.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="../../../v24.1.0/html/index.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

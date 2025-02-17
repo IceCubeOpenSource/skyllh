@@ -1,0 +1,397 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "# IC170922A_wGFU\n",
+    "\n",
+    ".. contents:: :local:"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Introduction\n",
+    "\n",
+    "The IC170922A_wGFU analysis is a multi-dataset time-integrated single source\n",
+    "analysis with a two-component likelihood function using a spacial and an energy\n",
+    "event PDF."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Setup\n",
+    "\n",
+    "Import analysis creation function from \"i3skyllh\" project."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "from i3skyllh.analyses.IC170922A_wGFU.analysis import create_analysis"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Add the required imports for the analysis."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import logging\n",
+    "import numpy as np\n",
+    "\n",
+    "# Classes to define the source hypothesis.\n",
+    "from skyllh.physics.source import PointLikeSource\n",
+    "\n",
+    "# Classes for utility functionality.\n",
+    "from skyllh.core.config import CFG\n",
+    "from skyllh.core.random import RandomStateService\n",
+    "from skyllh.core.timing import TimeLord\n",
+    "\n",
+    "# Logging setup utilities.\n",
+    "from skyllh.core.debugging import (\n",
+    "    setup_logger,\n",
+    "    setup_console_handler,\n",
+    "    setup_file_handler\n",
+    ")\n",
+    "\n",
+    "# The pre-defined data samples.\n",
+    "from i3skyllh.datasets import data_samples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Define TXS 0506+056 location to use as a point source."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def TXS_location():\n",
+    "    src_ra  = np.radians(77.358)\n",
+    "    src_dec = np.radians(5.693)\n",
+    "    return (src_ra, src_dec)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Setup logging first to get log messages from \"skyllh\" project."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "setup_logger('skyllh', logging.DEBUG)\n",
+    "log_format = '%(asctime)s %(processName)s %(name)s %(levelname)s: '\\\n",
+    "             '%(message)s'\n",
+    "setup_console_handler('skyllh', logging.INFO, log_format)\n",
+    "#setup_file_handler('skyllh', logging.DEBUG, log_format, 'debug.log')"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Set a number of CPUs available for parallel calculations."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "CFG['multiproc']['ncpu'] = 16"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Define which datasets seasons to use."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "sample_seasons = [\n",
+    "    (\"PointSourceTracks\", \"IC40\"),\n",
+    "    (\"PointSourceTracks\", \"IC59\"),\n",
+    "    (\"PointSourceTracks\", \"IC79\"),\n",
+    "    (\"PointSourceTracks\", \"IC86, 2011\"),\n",
+    "    (\"PointSourceTracks\", \"IC86, 2012\"),\n",
+    "    (\"PointSourceTracks\", \"IC86, 2013\"),\n",
+    "    (\"PointSourceTracks\", \"IC86, 2014\"),\n",
+    "    (\"PointSourceTracks\", \"IC86, 2015\"),\n",
+    "    (\"PointSourceTracks\", \"IC86, 2016\"),\n",
+    "    (\"PointSourceTracks\", \"IC86, 2017\"),\n",
+    "    (\"GFU\", \"IC86, 2015-2018\")\n",
+    "]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Get the datasets."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "datasets = []\n",
+    "for (sample, season) in sample_seasons:\n",
+    "    # Get the dataset from the correct dataset collection.\n",
+    "    dsc = data_samples[sample].create_dataset_collection()\n",
+    "    datasets.append(dsc.get_dataset(season))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Set a rss seed and define a random state service."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "rss_seed = 1\n",
+    "rss = RandomStateService(rss_seed)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Define the source."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "source = PointLikeSource(*TXS_location())"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Create a TimeLord instance. It is used to keep track of execution times of specific code segments."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "tl = TimeLord()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Create analysis."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "scrolled": true
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[==========================================================] 100% ELT 0h:03m:57s\n",
+      "[==========================================================] 100% ELT 0h:01m:34s\n"
+     ]
+    }
+   ],
+   "source": [
+    "with tl.task_timer('Creating analysis.'):\n",
+    "    ana = create_analysis(\n",
+    "        datasets, source,\n",
+    "        data_base_path=None,\n",
+    "        compress_data=False,\n",
+    "        tl=tl)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Unblind the data and print best fit parameters."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "TS = 25.1273\n",
+      "ns_fit = 15.8888\n",
+      "gamma_fit = 1.98958\n"
+     ]
+    }
+   ],
+   "source": [
+    "with tl.task_timer('Unblinding data.'):\n",
+    "    (TS, fitparam_dict, status) = ana.unblind(rss)\n",
+    "print('TS = %g'%(TS))\n",
+    "print('ns_fit = %g'%(fitparam_dict['ns']))\n",
+    "print('gamma_fit = %g'%(fitparam_dict['gamma']))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Generate some signal events."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "('n_sig: %d', 98)\n",
+      "signal datasets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]\n"
+     ]
+    }
+   ],
+   "source": [
+    "with tl.task_timer('Generating signal events.'):\n",
+    "    (n_sig, signal_events_dict) = ana.sig_generator.generate_signal_events(rss, 100)\n",
+    "print('n_sig: %d', n_sig)\n",
+    "print('signal datasets: '+str(signal_events_dict.keys()))"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "Print the TimeLord instance to get a summary of execution times."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Executed tasks:\n",
+      "[                                     Loading grl data from disk.] 0.622766 sec\n",
+      "[                                     Loading exp data from disk.] 2.55504 sec\n",
+      "[                                      Loading mc data from disk.] 64.3951 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.0118048 sec\n",
+      "[                Preparing data of dataset \"IC40\" by \"data_prep\".] 0.0924909 sec\n",
+      "[             Appending IceCube-specific data fields to exp data.] 0.0445914 sec\n",
+      "[              Appending IceCube-specific data fields to MC data.] 4.54178 sec\n",
+      "[                                              Cleaning exp data.] 0.0034306 sec\n",
+      "[                                               Cleaning MC data.] 0.179492 sec\n",
+      "[                                          Asserting data format.] 0.000287294 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.013073 sec\n",
+      "[                Preparing data of dataset \"IC59\" by \"data_prep\".] 0.22692 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.00786304 sec\n",
+      "[                Preparing data of dataset \"IC79\" by \"data_prep\".] 0.216612 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.0117018 sec\n",
+      "[          Preparing data of dataset \"IC86, 2011\" by \"data_prep\".] 0.0715699 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.01633 sec\n",
+      "[          Preparing data of dataset \"IC86, 2012\" by \"data_prep\".] 1.39812 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.0136781 sec\n",
+      "[          Preparing data of dataset \"IC86, 2013\" by \"data_prep\".] 2.32966 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.0154629 sec\n",
+      "[          Preparing data of dataset \"IC86, 2014\" by \"data_prep\".] 1.78734 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.0154121 sec\n",
+      "[          Preparing data of dataset \"IC86, 2015\" by \"data_prep\".] 1.34278 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.0102689 sec\n",
+      "[          Preparing data of dataset \"IC86, 2016\" by \"data_prep\".] 1.51473 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.015995 sec\n",
+      "[          Preparing data of dataset \"IC86, 2017\" by \"data_prep\".] 1.33161 sec\n",
+      "[Selected only the experimental data that matches the GRL for dat] 0.114225 sec\n",
+      "[     Preparing data of dataset \"IC86, 2015-2018\" by \"data_prep\".] 1.10847 sec\n",
+      "[                                              Creating analysis.] 335.913 sec\n",
+      "[                                                Unblinding data.] 0.361189 sec\n",
+      "[                                       Generating signal events.] 0.0934389 sec\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(tl)"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 2",
+   "language": "python",
+   "name": "python2"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 2
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython2",
+   "version": "2.7.13"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

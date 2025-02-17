@@ -1,0 +1,435 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>IC170922A_wGFU &mdash; SkyLLH  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
+      <script src="../_static/doctools.js?v=888ff710"></script>
+      <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Hypothesis Definition" href="../hypothesis/index.html" />
+    <link rel="prev" title="Time-integrated point source search analysis example" href="kdepdf_mcbg_ps.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SkyLLH
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">User Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tutorials</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="getting_started.html">Getting started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="kdepdf_mcbg_ps.html">Time-integrated point source search analysis example</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">IC170922A_wGFU</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Introduction">Introduction</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Setup">Setup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../hypothesis/index.html">Hypothesis Definition</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../unit_tests.html">Unit tests</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/skyllh.html">skyllh package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../notes.html">Notes</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Developer Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../dev_docs/logging.html">Logging</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SkyLLH</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="index.html">Tutorials</a></li>
+      <li class="breadcrumb-item active">IC170922A_wGFU</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/tutorials/trad_ps_expbg.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="IC170922A_wGFU">
+<h1>IC170922A_wGFU<a class="headerlink" href="#IC170922A_wGFU" title="Permalink to this heading"></a></h1>
+<nav class="contents local" id="contents">
+<ul class="simple">
+<li><p><a class="reference internal" href="#Introduction" id="id1">Introduction</a></p></li>
+<li><p><a class="reference internal" href="#Setup" id="id2">Setup</a></p></li>
+</ul>
+</nav>
+<section id="Introduction">
+<h2><a class="toc-backref" href="#id1" role="doc-backlink">Introduction</a><a class="headerlink" href="#Introduction" title="Permalink to this heading"></a></h2>
+<p>The IC170922A_wGFU analysis is a multi-dataset time-integrated single source analysis with a two-component likelihood function using a spacial and an energy event PDF.</p>
+</section>
+<section id="Setup">
+<h2><a class="toc-backref" href="#id2" role="doc-backlink">Setup</a><a class="headerlink" href="#Setup" title="Permalink to this heading"></a></h2>
+<p>Import analysis creation function from “i3skyllh” project.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">i3skyllh.analyses.IC170922A_wGFU.analysis</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_analysis</span>
+</pre></div>
+</div>
+</div>
+<p>Add the required imports for the analysis.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="c1"># Classes to define the source hypothesis.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.physics.source</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointLikeSource</span>
+
+<span class="c1"># Classes for utility functionality.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">CFG</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.random</span><span class="w"> </span><span class="kn">import</span> <span class="n">RandomStateService</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.timing</span><span class="w"> </span><span class="kn">import</span> <span class="n">TimeLord</span>
+
+<span class="c1"># Logging setup utilities.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">skyllh.core.debugging</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">setup_logger</span><span class="p">,</span>
+    <span class="n">setup_console_handler</span><span class="p">,</span>
+    <span class="n">setup_file_handler</span>
+<span class="p">)</span>
+
+<span class="c1"># The pre-defined data samples.</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">i3skyllh.datasets</span><span class="w"> </span><span class="kn">import</span> <span class="n">data_samples</span>
+</pre></div>
+</div>
+</div>
+<p>Define TXS 0506+056 location to use as a point source.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">TXS_location</span><span class="p">():</span>
+    <span class="n">src_ra</span>  <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">77.358</span><span class="p">)</span>
+    <span class="n">src_dec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">radians</span><span class="p">(</span><span class="mf">5.693</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">src_ra</span><span class="p">,</span> <span class="n">src_dec</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Setup logging first to get log messages from “skyllh” project.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">setup_logger</span><span class="p">(</span><span class="s1">&#39;skyllh&#39;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">)</span>
+<span class="n">log_format</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(processName)s</span><span class="s1"> </span><span class="si">%(name)s</span><span class="s1"> </span><span class="si">%(levelname)s</span><span class="s1">: &#39;</span>\
+             <span class="s1">&#39;</span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+<span class="n">setup_console_handler</span><span class="p">(</span><span class="s1">&#39;skyllh&#39;</span><span class="p">,</span> <span class="n">logging</span><span class="o">.</span><span class="n">INFO</span><span class="p">,</span> <span class="n">log_format</span><span class="p">)</span>
+<span class="c1">#setup_file_handler(&#39;skyllh&#39;, logging.DEBUG, log_format, &#39;debug.log&#39;)</span>
+</pre></div>
+</div>
+</div>
+<p>Set a number of CPUs available for parallel calculations.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">CFG</span><span class="p">[</span><span class="s1">&#39;multiproc&#39;</span><span class="p">][</span><span class="s1">&#39;ncpu&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">16</span>
+</pre></div>
+</div>
+</div>
+<p>Define which datasets seasons to use.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sample_seasons</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC40&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC59&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC79&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86, 2011&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86, 2012&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86, 2013&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86, 2014&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86, 2015&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86, 2016&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;PointSourceTracks&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86, 2017&quot;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s2">&quot;GFU&quot;</span><span class="p">,</span> <span class="s2">&quot;IC86, 2015-2018&quot;</span><span class="p">)</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>Get the datasets.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datasets</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">season</span><span class="p">)</span> <span class="ow">in</span> <span class="n">sample_seasons</span><span class="p">:</span>
+    <span class="c1"># Get the dataset from the correct dataset collection.</span>
+    <span class="n">dsc</span> <span class="o">=</span> <span class="n">data_samples</span><span class="p">[</span><span class="n">sample</span><span class="p">]</span><span class="o">.</span><span class="n">create_dataset_collection</span><span class="p">()</span>
+    <span class="n">datasets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">dsc</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">(</span><span class="n">season</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<p>Set a rss seed and define a random state service.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rss_seed</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">rss</span> <span class="o">=</span> <span class="n">RandomStateService</span><span class="p">(</span><span class="n">rss_seed</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<p>Define the source.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="o">=</span> <span class="n">PointLikeSource</span><span class="p">(</span><span class="o">*</span><span class="n">TXS_location</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<p>Create a TimeLord instance. It is used to keep track of execution times of specific code segments.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tl</span> <span class="o">=</span> <span class="n">TimeLord</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<p>Create analysis.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tl</span><span class="o">.</span><span class="n">task_timer</span><span class="p">(</span><span class="s1">&#39;Creating analysis.&#39;</span><span class="p">):</span>
+    <span class="n">ana</span> <span class="o">=</span> <span class="n">create_analysis</span><span class="p">(</span>
+        <span class="n">datasets</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span>
+        <span class="n">data_base_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">compress_data</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">tl</span><span class="o">=</span><span class="n">tl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+[==========================================================] 100% ELT 0h:03m:57s
+[==========================================================] 100% ELT 0h:01m:34s
+</pre></div></div>
+</div>
+<p>Unblind the data and print best fit parameters.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tl</span><span class="o">.</span><span class="n">task_timer</span><span class="p">(</span><span class="s1">&#39;Unblinding data.&#39;</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">TS</span><span class="p">,</span> <span class="n">fitparam_dict</span><span class="p">,</span> <span class="n">status</span><span class="p">)</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">unblind</span><span class="p">(</span><span class="n">rss</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;TS = </span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">TS</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;ns_fit = </span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fitparam_dict</span><span class="p">[</span><span class="s1">&#39;ns&#39;</span><span class="p">]))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;gamma_fit = </span><span class="si">%g</span><span class="s1">&#39;</span><span class="o">%</span><span class="p">(</span><span class="n">fitparam_dict</span><span class="p">[</span><span class="s1">&#39;gamma&#39;</span><span class="p">]))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+TS = 25.1273
+ns_fit = 15.8888
+gamma_fit = 1.98958
+</pre></div></div>
+</div>
+<p>Generate some signal events.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">tl</span><span class="o">.</span><span class="n">task_timer</span><span class="p">(</span><span class="s1">&#39;Generating signal events.&#39;</span><span class="p">):</span>
+    <span class="p">(</span><span class="n">n_sig</span><span class="p">,</span> <span class="n">signal_events_dict</span><span class="p">)</span> <span class="o">=</span> <span class="n">ana</span><span class="o">.</span><span class="n">sig_generator</span><span class="o">.</span><span class="n">generate_signal_events</span><span class="p">(</span><span class="n">rss</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;n_sig: </span><span class="si">%d</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">n_sig</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;signal datasets: &#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">signal_events_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+(&#39;n_sig: %d&#39;, 98)
+signal datasets: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+</pre></div></div>
+</div>
+<p>Print the TimeLord instance to get a summary of execution times.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">tl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Executed tasks:
+[                                     Loading grl data from disk.] 0.622766 sec
+[                                     Loading exp data from disk.] 2.55504 sec
+[                                      Loading mc data from disk.] 64.3951 sec
+[Selected only the experimental data that matches the GRL for dat] 0.0118048 sec
+[                Preparing data of dataset &#34;IC40&#34; by &#34;data_prep&#34;.] 0.0924909 sec
+[             Appending IceCube-specific data fields to exp data.] 0.0445914 sec
+[              Appending IceCube-specific data fields to MC data.] 4.54178 sec
+[                                              Cleaning exp data.] 0.0034306 sec
+[                                               Cleaning MC data.] 0.179492 sec
+[                                          Asserting data format.] 0.000287294 sec
+[Selected only the experimental data that matches the GRL for dat] 0.013073 sec
+[                Preparing data of dataset &#34;IC59&#34; by &#34;data_prep&#34;.] 0.22692 sec
+[Selected only the experimental data that matches the GRL for dat] 0.00786304 sec
+[                Preparing data of dataset &#34;IC79&#34; by &#34;data_prep&#34;.] 0.216612 sec
+[Selected only the experimental data that matches the GRL for dat] 0.0117018 sec
+[          Preparing data of dataset &#34;IC86, 2011&#34; by &#34;data_prep&#34;.] 0.0715699 sec
+[Selected only the experimental data that matches the GRL for dat] 0.01633 sec
+[          Preparing data of dataset &#34;IC86, 2012&#34; by &#34;data_prep&#34;.] 1.39812 sec
+[Selected only the experimental data that matches the GRL for dat] 0.0136781 sec
+[          Preparing data of dataset &#34;IC86, 2013&#34; by &#34;data_prep&#34;.] 2.32966 sec
+[Selected only the experimental data that matches the GRL for dat] 0.0154629 sec
+[          Preparing data of dataset &#34;IC86, 2014&#34; by &#34;data_prep&#34;.] 1.78734 sec
+[Selected only the experimental data that matches the GRL for dat] 0.0154121 sec
+[          Preparing data of dataset &#34;IC86, 2015&#34; by &#34;data_prep&#34;.] 1.34278 sec
+[Selected only the experimental data that matches the GRL for dat] 0.0102689 sec
+[          Preparing data of dataset &#34;IC86, 2016&#34; by &#34;data_prep&#34;.] 1.51473 sec
+[Selected only the experimental data that matches the GRL for dat] 0.015995 sec
+[          Preparing data of dataset &#34;IC86, 2017&#34; by &#34;data_prep&#34;.] 1.33161 sec
+[Selected only the experimental data that matches the GRL for dat] 0.114225 sec
+[     Preparing data of dataset &#34;IC86, 2015-2018&#34; by &#34;data_prep&#34;.] 1.10847 sec
+[                                              Creating analysis.] 335.913 sec
+[                                                Unblinding data.] 0.361189 sec
+[                                       Generating signal events.] 0.0934389 sec
+</pre></div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="kdepdf_mcbg_ps.html" class="btn btn-neutral float-left" title="Time-integrated point source search analysis example" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../hypothesis/index.html" class="btn btn-neutral float-right" title="Hypothesis Definition" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, The IceCube Collaboration, T. Kontrimas, M. Wolf.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    <span class="fa fa-book"> Other Versions</span>
+    v: v23.0.0
+    <span class="fa fa-caret-down"></span>
+  </span>
+  <div class="rst-other-versions">
+    <dl>
+      <dt>Branches</dt>
+      <dd><a href="../../../master/html/index.html">master</a></dd>
+      <dd><a href="../../../coords/html/index.html">coords</a></dd>
+      <dd><a href="../../../data_release/html/index.html">data_release</a></dd>
+      <dd><a href="../../../dm/html/index.html">dm</a></dd>
+      <dd><a href="../../../fix169_fix203/html/index.html">fix169_fix203</a></dd>
+      <dd><a href="../../../fix230/html/index.html">fix230</a></dd>
+      <dd><a href="../../../llh_module/html/index.html">llh_module</a></dd>
+      <dd><a href="../../../signal_gen_method/html/index.html">signal_gen_method</a></dd>
+      <dd><a href="../../../stack_public/html/index.html">stack_public</a></dd>
+    </dl>
+    <dl>
+      <dt>Tags</dt>
+      <dd><a href="../../../v19_09_15/html/index.html">v19_09_15</a></dd>
+      <dd><a href="../../../v20_01_09/html/index.html">v20_01_09</a></dd>
+      <dd><a href="../../../v20_03_12/html/index.html">v20_03_12</a></dd>
+      <dd><a href="../../../v20_11_02/html/index.html">v20_11_02</a></dd>
+      <dd><a href="../../../v21_10_18_temp/html/index.html">v21_10_18_temp</a></dd>
+      <dd><a href="../../../v21_10_20/html/index.html">v21_10_20</a></dd>
+      <dd><a href="../../../v22_04_28/html/index.html">v22_04_28</a></dd>
+      <dd><a href="../../../v22_04_28a/html/index.html">v22_04_28a</a></dd>
+      <dd><a href="trad_ps_expbg.html">v23.0.0</a></dd>
+      <dd><a href="../../../v23.1.0/html/index.html">v23.1.0</a></dd>
+      <dd><a href="../../../v23.1.1/html/index.html">v23.1.1</a></dd>
+      <dd><a href="../../../v23.2.0/html/index.html">v23.2.0</a></dd>
+      <dd><a href="../../../v23.2.1/html/index.html">v23.2.1</a></dd>
+      <dd><a href="../../../v23.2.1.rc1/html/index.html">v23.2.1.rc1</a></dd>
+      <dd><a href="../../../v24.1.0/html/index.html">v24.1.0</a></dd>
+      <dd><a href="../../../v24.1.1a/html/index.html">v24.1.1a</a></dd>
+    </dl>
+  </div>
+</div><script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
